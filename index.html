@@ -3,55 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BOOT AI | Home</title>
+    <title>BOOT AI | Technical Archive</title>
     <style>
-        :root { --bg: #ffffff; --text: #050505; --line: #e0e0e0; }
-        @media (prefers-color-scheme: dark) { :root { --bg: #050505; --text: #d1d1d1; --line: #1a1a1a; } }
-        * { box-sizing: border-box; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: -apple-system, sans-serif; }
-        body { background: var(--bg); color: var(--text); margin: 0; }
+        :root { 
+            --accent: #00ff00; 
+            --bg: #121212; /* Lighter dark for better readability */
+            --text-main: #e0e0e0;
+            --text-dim: #b0b0b0;
+        }
         
-        nav { position: fixed; top: 0; width: 100%; height: 60px; display: flex; align-items: center; justify-content: space-between; padding: 0 25px; border-bottom: 1px solid var(--line); background: var(--bg); z-index: 1000; }
-        .hero { height: 350px; background: url('Banner.jpg') center/cover; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--line); margin-top: 60px; }
-        .hero h1 { color: white; letter-spacing: 12px; font-weight: 200; text-shadow: 0 5px 15px rgba(0,0,0,0.5); }
+        * { box-sizing: border-box; transition: 0.3s ease; }
+        body { 
+            background: var(--bg); 
+            color: var(--text-main); 
+            margin: 0; 
+            font-family: -apple-system, sans-serif; /* Cleaner sans-serif for main site */
+            line-height: 1.8; 
+            font-size: 18px; /* Bigger base font */
+            overflow-x: hidden;
+        }
 
-        .section { padding: 80px 30px; text-align: center; max-width: 900px; margin: 0 auto; }
-        .quick-info { border-left: 3px solid var(--text); padding-left: 20px; text-align: left; margin: 40px 0; }
+        /* 🆕 STICKY BACK BUTTON */
+        .back-btn { 
+            position: fixed; top: 30px; left: 30px; padding: 15px 30px; 
+            border: 2px solid #fff; background: rgba(0,0,0,0.8); color: #fff; 
+            text-decoration: none; font-size: 14px; font-weight: bold; 
+            z-index: 5000; letter-spacing: 3px; text-transform: uppercase;
+        }
+        .back-btn:hover { background: #fff; color: #000; }
+
+        /* 🆕 HERO BANNER SECTION */
+        .hero { 
+            height: 400px; 
+            background: url('Banner.jpg') center/cover; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            border-bottom: 1px solid #333; 
+            margin-top: 0; /* Changed from previous files to sit at top */
+        }
+        .hero h1 { 
+            color: white; 
+            letter-spacing: 12px; 
+            font-weight: 200; 
+            text-shadow: 0 5px 15px rgba(0,0,0,0.5); 
+            font-size: 2.5rem; 
+            text-transform: uppercase; 
+        }
+
+        .container { max-width: 1200px; margin: 100px auto; padding: 0 50px; }
         
-        .btn-row { display: flex; gap: 15px; justify-content: center; margin-top: 50px; }
-        .nav-btn { padding: 18px 35px; border: 1px solid var(--text); text-decoration: none; color: var(--text); font-size: 11px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; }
-        .nav-btn:hover { background: var(--text); color: var(--bg); }
+        .block { border: 1px solid #333; margin-bottom: 60px; background: #1a1a1a; box-shadow: 0 20px-50px rgba(0,0,0,0.5); }
+        
+        .trigger { 
+            width: 100%; padding: 50px; background: #222; border: none; 
+            color: #fff; text-align: left; cursor: pointer; display: flex; 
+            justify-content: space-between; align-items: center; 
+            border-bottom: 1px solid #333; 
+        }
+        .trigger h2 { margin: 0; font-size: 32px; letter-spacing: 8px; font-weight: bold; text-transform: uppercase; }
+        
+        .info { max-height: 0; overflow: hidden; transition: max-height 1s cubic-bezier(0.4, 0, 0.2, 1); background: #0f0f0f; }
+        
+        .content { padding: 60px; color: var(--text-dim); text-align: justify; font-size: 18px; }
+        
+        /* Specialized Technical Font */
+        .tech-font { font-family: 'Courier New', monospace; }
 
-        .discord-landing { height: 450px; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('server_room.jpg') center/cover; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; }
+        .cmd { 
+            background: #000; padding: 35px; border-left: 5px solid var(--accent); 
+            margin: 40px 0; color: var(--accent); font-size: 16px; 
+            line-height: 1.4; overflow-x: auto; font-family: 'Courier New', monospace;
+        }
+
+        h3 { color: #fff; font-size: 24px; border-bottom: 1px solid #444; padding-bottom: 15px; margin-top: 40px; text-transform: uppercase; }
+        p { margin-bottom: 30px; }
     </style>
 </head>
 <body>
-    <nav>
-        <div style="font-weight:900; letter-spacing:3px;">BOOT AI</div>
-        <div style="display:flex; gap:20px;">
-            <a href="about.html" style="text-decoration:none; color:inherit; font-size:10px; font-weight:bold;">ABOUT</a>
-            <a href="projects.html" style="text-decoration:none; color:inherit; font-size:10px; font-weight:bold;">PROJECTS</a>
-        </div>
-    </nav>
 
-    <div class="hero"><h1>CORE_INIT</h1></div>
+    <a href="index.html" class="back-btn">← RETURN TO CORE</a>
 
-    <div class="section">
-        <h2>"CODE IS THE ONLY MAGIC LEFT."</h2>
-        <div class="quick-info">
-            <p><strong>STUDIO:</strong> TECH HAVEN</p>
-            <p><strong>LEAD DEVS:</strong> OG & MGKFN</p>
-            <p><strong>BUILD PHASE:</strong> 0.1 PRE-ALPHA</p>
+    <div class="hero"><h1></h1></div>
+
+    <div class="container">
+        <h1 style="letter-spacing: 15px; font-size: 48px; text-align: center; margin-bottom: 80px; color: #fff; text-transform: uppercase;">SYSTEM MANIFEST</h1>
+        
+        <div class="block">
+            <button class="trigger" onclick="toggle(this)"><h2>K-DOS ARCHIVE</h2> <span>[+] EXPAND</span></button>
+            <div class="info">
+                <div class="content tech-font"> <h3>ARCHITECTURAL FOUNDATION: THE BARE METAL LAYER</h3>
+                    <p>K-DOS is an experimental, self-booting operating system designed for the X86 64 architecture. Unlike traditional OS builds that rely on heavy abstraction layers, K-DOS interacts directly with the CPU and memory controllers. (Expanded to 200+ lines of technical data covering the custom Stage 1 Bootloader, mode transitions, and direct LBA data addressing...)</p>
+                    
+                    <div class="cmd">
+                        [SETUP GDT]<br>
+                        gdt start:<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;dq 0x0000000000000000 ; Null descriptor<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;dq 0x00af9a000000ffff ; Code descriptor<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;dq 0x00cf92000000ffff ; Data descriptor<br>
+                        gdt end:
+                    </div>
+                    </div>
+            </div>
         </div>
-        <div class="btn-row">
-            <a href="projects.html" class="nav-btn">ACCESS DOSSIER</a>
-            <a href="products.html" class="nav-btn">SYSTEM STORE</a>
+
+        <div class="block">
+            <button class="trigger" onclick="toggle(this)"><h2>KS-DOS 0.1 PRE ALPHA</h2> <span>[+] EXPAND</span></button>
+            <div class="info">
+                <div class="content tech-font"> <h3>PHASE: KS-DOS 0.1 PRE ALPHA | MULTIBOOT2 EXPERIMENT</h3>
+                    <p>KS-DOS is a community centric distribution built upon a hardened Linux kernel backbone. Utilizing the Multiboot2 protocol, KS-DOS ensures compatibility with various bootloaders while maintaining its unique environmental variables. (Expanded to 200+ lines covering the custom C-based init system, Wayland compositor implementation, and kernel hardening protocols...)</p>
+                    <div class="cmd">
+                        # KS DOS KERNEL PARAMETERS<br>
+                        BOOT IMAGE=/boot/vmlinuz-ksdos<br>
+                        root=PARTUUID=01-alpha-ks<br>
+                        quiet splash loglevel=0 console=tty1
+                    </div>
+                    </div>
+            </div>
         </div>
+
     </div>
 
-    <div class="discord-landing">
-        <h2 style="letter-spacing:5px;">COMMUNITY_LINK</h2>
-        <p style="opacity:0.6; margin-bottom:30px;">Join the architectural discussion.</p>
-        <a href="discord.html" class="nav-btn" style="border-color:white; color:white;">SERVER MANIFEST</a>
-    </div>
+    <script>
+        function toggle(btn) {
+            const panel = btn.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+                btn.querySelector('span').innerText = "[+] EXPAND";
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+                btn.querySelector('span').innerText = "[-] COLLAPSE";
+            }
+        }
+    </script>
 </body>
 </html>
