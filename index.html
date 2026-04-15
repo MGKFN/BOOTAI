@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BOOT AI | System Interface</title>
+    <title>BOOT AI | Core Interface</title>
     <style>
         :root {
             --bg: #ffffff; --text: #050505; --panel: #f8f8f8;
@@ -19,23 +19,22 @@
         * { box-sizing: border-box; transition: all 0.3s ease; font-family: -apple-system, BlinkMacSystemFont, "SF Pro", sans-serif; }
         body { background-color: var(--bg); color: var(--text); margin: 0; overflow-x: hidden; }
 
-        /* Nav Bar */
+        /* Navigation */
         nav {
             position: fixed; top: 0; width: 100%; height: 60px;
             display: flex; align-items: center; justify-content: space-between;
             padding: 0 25px; border-bottom: 1px solid var(--line);
             z-index: 1000; background: var(--bg);
         }
-        .logo { font-weight: 800; letter-spacing: 3px; font-size: 11px; text-transform: uppercase; cursor: pointer; }
+        .logo-text { font-weight: 800; letter-spacing: 3px; font-size: 11px; text-transform: uppercase; cursor: pointer; }
 
-        /* Toggle Hamburger */
         .menu-btn { background: none; border: none; cursor: pointer; padding: 10px; display: flex; flex-direction: column; gap: 4px; z-index: 1100; }
-        .bar { width: 20px; height: 1px; background-color: var(--text); }
+        .bar { width: 22px; height: 1px; background-color: var(--text); }
         
         .dropdown-content {
             display: none; position: absolute; right: 25px; top: 60px;
             background: var(--panel); border: 1px solid var(--line);
-            min-width: 180px; z-index: 1001;
+            min-width: 180px; z-index: 1001; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         .dropdown-content.show { display: block; }
         .dropdown-content a {
@@ -43,37 +42,39 @@
             display: block; font-size: 10px; font-weight: bold; border-bottom: 1px solid var(--line);
             text-transform: uppercase; letter-spacing: 1px;
         }
-        .dropdown-content a:hover { background: var(--line); }
 
         /* Home Page */
         #home-page { padding-top: 60px; }
         .banner {
-            width: 100%; height: 280px; background: #000;
-            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('Banner.jpg');
+            width: 100%; height: 320px; background: #000;
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Banner.jpg');
             background-size: cover; background-position: center;
             display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--line);
         }
-        .motivation { max-width: 600px; margin: 50px auto; padding: 0 30px; text-align: center; }
-        .motivation h2 { font-size: 16px; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; }
-        .motivation p { font-style: italic; opacity: 0.6; line-height: 2; font-size: 14px; }
+        .banner h1 { color: white; letter-spacing: 10px; font-size: 22px; font-weight: 200; margin: 0; }
+
+        .motivation { max-width: 600px; margin: 60px auto; padding: 0 30px; text-align: center; }
+        .motivation h2 { font-size: 18px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 25px; font-weight: 800; }
+        .motivation p { font-style: italic; opacity: 0.6; line-height: 2; font-size: 14px; margin-bottom: 40px; }
 
         /* System Interface */
         #system-view { display: none; height: calc(100vh - 60px); flex-direction: column; align-items: center; justify-content: center; }
         #cube { 
-            width: 85px; height: 85px; background: var(--panel); border: 1px solid var(--line); 
+            width: 90px; height: 90px; background: var(--panel); border: 1px solid var(--line); 
             cursor: pointer; display: flex; align-items: center; justify-content: center; overflow: hidden;
         }
         #cube img { width: 100%; height: 100%; object-fit: cover; }
-        .line-v { width: 1px; background: var(--line); height: 0; margin: 15px 0; }
-        #task-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; opacity: 0; transform: translateY(10px); }
+        
+        .line-v { width: 1px; background: var(--line); height: 0; margin: 20px 0; }
+        #task-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; opacity: 0; transform: translateY(10px); }
         .task-node {
-            padding: 12px 24px; border: 1px solid var(--line); background: var(--panel);
-            font-size: 10px; font-weight: 700; cursor: pointer; letter-spacing: 1px; text-transform: uppercase;
+            padding: 14px 28px; border: 1px solid var(--line); background: var(--panel);
+            font-size: 10px; font-weight: 700; cursor: pointer; letter-spacing: 2px; text-transform: uppercase;
         }
-        .active-flow #line-main { height: 60px; }
+        .active-flow #line-main { height: 80px; }
         .active-flow #task-row { opacity: 1; transform: translateY(0); }
 
-        /* THE MANIFEST OVERLAY (The look you liked) */
+        /* Overlays */
         #overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: #050505; color: #ffffff; z-index: 2000; 
@@ -81,19 +82,19 @@
         }
         .close-overlay { position: fixed; top: 30px; right: 30px; cursor: pointer; font-size: 10px; font-weight: bold; color: #fff; opacity: 0.5; }
         .manifest-header { border-bottom: 2px solid #ffffff; padding-bottom: 15px; margin-bottom: 40px; }
-        .manifest-header h1 { font-size: 26px; margin: 0; letter-spacing: -1px; text-transform: uppercase; color: #fff; }
+        .manifest-header h1 { font-size: 28px; margin: 0; letter-spacing: -1px; text-transform: uppercase; color: #fff; }
         
         .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px; }
         .info-item { border-left: 1px solid #333; padding-left: 20px; }
         .info-label { font-size: 9px; color: #666; text-transform: uppercase; font-weight: 800; margin-bottom: 6px; }
-        .info-value { font-size: 14px; font-family: "SF Mono", monospace; color: #ddd; }
-        .desc-text { line-height: 1.8; font-size: 15px; color: #aaa; white-space: pre-line; }
+        .info-value { font-size: 14px; font-family: "SF Mono", monospace; color: #eee; }
+        .desc-text { line-height: 1.8; font-size: 15px; color: #bbb; white-space: pre-line; }
     </style>
 </head>
 <body>
 
 <nav>
-    <div class="logo" onclick="showHome()">BOOT AI</div>
+    <div class="logo-text" onclick="showHome()">BOOT AI</div>
     <div class="dropdown">
         <button class="menu-btn" onclick="toggleMenu()">
             <div class="bar"></div>
@@ -103,19 +104,19 @@
         <div id="myDropdown" class="dropdown-content">
             <a href="#" onclick="showHome()">Home</a>
             <a href="#" onclick="showSystem()">Interface</a>
-            <a href="https://discord.gg/NdgRuMnfW" target="_blank">Discord</a>
+            <a href="https://discord.gg/NdgRuMnfW" target="_blank">Join Discord</a>
         </div>
     </div>
 </nav>
 
 <div id="home-page">
     <div class="banner">
-        <h1 style="color:white; letter-spacing: 8px; font-size: 18px; font-weight: 200;">CORE_INIT</h1>
+        <h1>CORE_INIT</h1>
     </div>
     <div class="motivation">
         <h2>"Code is the only magic left."</h2>
         <p>In a world governed by laws we cannot change, programming gives us the power to build our own reality. Stay focused, stay curious, and build what has never been seen.</p>
-        <button class="task-node" style="margin-top: 30px;" onclick="showSystem()">Access System</button>
+        <button class="task-node" onclick="showSystem()">Access System</button>
     </div>
 </div>
 
@@ -129,6 +130,7 @@
         <div class="task-node" onclick="openOverlay('os')">SUPER OS</div>
         <div class="task-node" onclick="openOverlay('kdos')">K-DOS</div>
         <div class="task-node" onclick="openOverlay('ksdos')">KS-DOS</div>
+        <div class="task-node" onclick="window.open('https://discord.gg/NdgRuMnfW', '_blank')">DISCORD</div>
     </div>
 </div>
 
@@ -138,18 +140,13 @@
 </div>
 
 <script>
-    function toggleMenu() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
+    function toggleMenu() { document.getElementById("myDropdown").classList.toggle("show"); }
 
-    // Close menu if clicking outside
     window.onclick = function(event) {
         if (!event.target.matches('.menu-btn') && !event.target.matches('.bar')) {
             var dropdowns = document.getElementsByClassName("dropdown-content");
             for (var i = 0; i < dropdowns.length; i++) {
-                if (dropdowns[i].classList.contains('show')) {
-                    dropdowns[i].classList.remove('show');
-                }
+                if (dropdowns[i].classList.contains('show')) { dropdowns[i].classList.remove('show'); }
             }
         }
     }
