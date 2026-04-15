@@ -3,201 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BOOT AI | Core Interface</title>
+    <title>BOOT AI | Home</title>
     <style>
-        :root {
-            --bg: #ffffff; --text: #050505; --panel: #f8f8f8;
-            --line: #e0e0e0; --accent: #888888; --highlight: #000000;
-        }
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --bg: #050505; --text: #d1d1d1; --panel: #0d0d0d;
-                --line: #1a1a1a; --accent: #444444; --highlight: #ffffff;
-            }
-        }
-
-        * { box-sizing: border-box; transition: all 0.3s ease; font-family: -apple-system, BlinkMacSystemFont, "SF Pro", sans-serif; }
-        body { background-color: var(--bg); color: var(--text); margin: 0; overflow-x: hidden; }
-
-        /* Navigation */
-        nav {
-            position: fixed; top: 0; width: 100%; height: 60px;
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 0 25px; border-bottom: 1px solid var(--line);
-            z-index: 1000; background: var(--bg);
-        }
-        .logo-text { font-weight: 800; letter-spacing: 3px; font-size: 11px; text-transform: uppercase; cursor: pointer; }
-
-        .menu-btn { background: none; border: none; cursor: pointer; padding: 10px; display: flex; flex-direction: column; gap: 4px; z-index: 1100; }
-        .bar { width: 22px; height: 1px; background-color: var(--text); }
+        :root { --bg: #ffffff; --text: #050505; --line: #e0e0e0; }
+        @media (prefers-color-scheme: dark) { :root { --bg: #050505; --text: #d1d1d1; --line: #1a1a1a; } }
+        * { box-sizing: border-box; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); font-family: -apple-system, sans-serif; }
+        body { background: var(--bg); color: var(--text); margin: 0; }
         
-        .dropdown-content {
-            display: none; position: absolute; right: 25px; top: 60px;
-            background: var(--panel); border: 1px solid var(--line);
-            min-width: 180px; z-index: 1001; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        .dropdown-content.show { display: block; }
-        .dropdown-content a {
-            color: var(--text); padding: 15px; text-decoration: none;
-            display: block; font-size: 10px; font-weight: bold; border-bottom: 1px solid var(--line);
-            text-transform: uppercase; letter-spacing: 1px;
-        }
+        nav { position: fixed; top: 0; width: 100%; height: 60px; display: flex; align-items: center; justify-content: space-between; padding: 0 25px; border-bottom: 1px solid var(--line); background: var(--bg); z-index: 1000; }
+        .hero { height: 350px; background: url('Banner.jpg') center/cover; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--line); margin-top: 60px; }
+        .hero h1 { color: white; letter-spacing: 12px; font-weight: 200; text-shadow: 0 5px 15px rgba(0,0,0,0.5); }
 
-        /* Home Page */
-        #home-page { padding-top: 60px; }
-        .banner {
-            width: 100%; height: 320px; background: #000;
-            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('Banner.jpg');
-            background-size: cover; background-position: center;
-            display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--line);
-        }
-        .banner h1 { color: white; letter-spacing: 10px; font-size: 22px; font-weight: 200; margin: 0; }
-
-        .motivation { max-width: 600px; margin: 60px auto; padding: 0 30px; text-align: center; }
-        .motivation h2 { font-size: 18px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 25px; font-weight: 800; }
-        .motivation p { font-style: italic; opacity: 0.6; line-height: 2; font-size: 14px; margin-bottom: 40px; }
-
-        /* System Interface */
-        #system-view { display: none; height: calc(100vh - 60px); flex-direction: column; align-items: center; justify-content: center; }
-        #cube { 
-            width: 90px; height: 90px; background: var(--panel); border: 1px solid var(--line); 
-            cursor: pointer; display: flex; align-items: center; justify-content: center; overflow: hidden;
-        }
-        #cube img { width: 100%; height: 100%; object-fit: cover; }
+        .section { padding: 80px 30px; text-align: center; max-width: 900px; margin: 0 auto; }
+        .quick-info { border-left: 3px solid var(--text); padding-left: 20px; text-align: left; margin: 40px 0; }
         
-        .line-v { width: 1px; background: var(--line); height: 0; margin: 20px 0; }
-        #task-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; opacity: 0; transform: translateY(10px); }
-        .task-node {
-            padding: 14px 28px; border: 1px solid var(--line); background: var(--panel);
-            font-size: 10px; font-weight: 700; cursor: pointer; letter-spacing: 2px; text-transform: uppercase;
-        }
-        .active-flow #line-main { height: 80px; }
-        .active-flow #task-row { opacity: 1; transform: translateY(0); }
+        .btn-row { display: flex; gap: 15px; justify-content: center; margin-top: 50px; }
+        .nav-btn { padding: 18px 35px; border: 1px solid var(--text); text-decoration: none; color: var(--text); font-size: 11px; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; }
+        .nav-btn:hover { background: var(--text); color: var(--bg); }
 
-        /* Overlays */
-        #overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: #050505; color: #ffffff; z-index: 2000; 
-            display: none; flex-direction: column; padding: 100px 40px;
-        }
-        .close-overlay { position: fixed; top: 30px; right: 30px; cursor: pointer; font-size: 10px; font-weight: bold; color: #fff; opacity: 0.5; }
-        .manifest-header { border-bottom: 2px solid #ffffff; padding-bottom: 15px; margin-bottom: 40px; }
-        .manifest-header h1 { font-size: 28px; margin: 0; letter-spacing: -1px; text-transform: uppercase; color: #fff; }
-        
-        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 40px; }
-        .info-item { border-left: 1px solid #333; padding-left: 20px; }
-        .info-label { font-size: 9px; color: #666; text-transform: uppercase; font-weight: 800; margin-bottom: 6px; }
-        .info-value { font-size: 14px; font-family: "SF Mono", monospace; color: #eee; }
-        .desc-text { line-height: 1.8; font-size: 15px; color: #bbb; white-space: pre-line; }
+        .discord-landing { height: 450px; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('server_room.jpg') center/cover; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; }
     </style>
 </head>
 <body>
+    <nav>
+        <div style="font-weight:900; letter-spacing:3px;">BOOT AI</div>
+        <div style="display:flex; gap:20px;">
+            <a href="about.html" style="text-decoration:none; color:inherit; font-size:10px; font-weight:bold;">ABOUT</a>
+            <a href="projects.html" style="text-decoration:none; color:inherit; font-size:10px; font-weight:bold;">PROJECTS</a>
+        </div>
+    </nav>
 
-<nav>
-    <div class="logo-text" onclick="showHome()">BOOT AI</div>
-    <div class="dropdown">
-        <button class="menu-btn" onclick="toggleMenu()">
-            <div class="bar"></div>
-            <div class="bar" style="margin: 4px 0;"></div>
-            <div class="bar"></div>
-        </button>
-        <div id="myDropdown" class="dropdown-content">
-            <a href="#" onclick="showHome()">Home</a>
-            <a href="#" onclick="showSystem()">Interface</a>
-            <a href="https://discord.gg/NdgRuMnfW" target="_blank">Join Discord</a>
+    <div class="hero"><h1>CORE_INIT</h1></div>
+
+    <div class="section">
+        <h2>"CODE IS THE ONLY MAGIC LEFT."</h2>
+        <div class="quick-info">
+            <p><strong>STUDIO:</strong> TECH HAVEN</p>
+            <p><strong>LEAD DEVS:</strong> OG & MGKFN</p>
+            <p><strong>BUILD PHASE:</strong> 0.1 PRE-ALPHA</p>
+        </div>
+        <div class="btn-row">
+            <a href="projects.html" class="nav-btn">ACCESS DOSSIER</a>
+            <a href="products.html" class="nav-btn">SYSTEM STORE</a>
         </div>
     </div>
-</nav>
 
-<div id="home-page">
-    <div class="banner">
-        <h1>CORE_INIT</h1>
+    <div class="discord-landing">
+        <h2 style="letter-spacing:5px;">COMMUNITY_LINK</h2>
+        <p style="opacity:0.6; margin-bottom:30px;">Join the architectural discussion.</p>
+        <a href="discord.html" class="nav-btn" style="border-color:white; color:white;">SERVER MANIFEST</a>
     </div>
-    <div class="motivation">
-        <h2>"Code is the only magic left."</h2>
-        <p>In a world governed by laws we cannot change, programming gives us the power to build our own reality. Stay focused, stay curious, and build what has never been seen.</p>
-        <button class="task-node" onclick="showSystem()">Access System</button>
-    </div>
-</div>
-
-<div id="system-view">
-    <div id="cube" onclick="document.getElementById('system-view').classList.toggle('active-flow')">
-        <img src="IMG_5870.png" alt="BA" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-        <span style="display:none; font-size:10px; font-weight:900;">BOOT AI</span>
-    </div>
-    <div class="line-v" id="line-main"></div>
-    <div id="task-row">
-        <div class="task-node" onclick="openOverlay('os')">SUPER OS</div>
-        <div class="task-node" onclick="openOverlay('kdos')">K-DOS</div>
-        <div class="task-node" onclick="openOverlay('ksdos')">KS-DOS</div>
-        <div class="task-node" onclick="window.open('https://discord.gg/NdgRuMnfW', '_blank')">DISCORD</div>
-    </div>
-</div>
-
-<div id="overlay">
-    <div class="close-overlay" onclick="closeOverlay()">[ ESC // CLOSE ]</div>
-    <div id="overlay-content"></div>
-</div>
-
-<script>
-    function toggleMenu() { document.getElementById("myDropdown").classList.toggle("show"); }
-
-    window.onclick = function(event) {
-        if (!event.target.matches('.menu-btn') && !event.target.matches('.bar')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            for (var i = 0; i < dropdowns.length; i++) {
-                if (dropdowns[i].classList.contains('show')) { dropdowns[i].classList.remove('show'); }
-            }
-        }
-    }
-
-    function showHome() {
-        document.getElementById('home-page').style.display = 'block';
-        document.getElementById('system-view').style.display = 'none';
-        document.getElementById("myDropdown").classList.remove("show");
-    }
-
-    function showSystem() {
-        document.getElementById('home-page').style.display = 'none';
-        document.getElementById('system-view').style.display = 'flex';
-        document.getElementById("myDropdown").classList.remove("show");
-    }
-
-    function openOverlay(type) {
-        const content = document.getElementById('overlay-content');
-        if (type === 'os') {
-            content.innerHTML = `
-                <div class="manifest-header"><h1>SUPER OS INTERFACE</h1></div>
-                <div class="info-grid">
-                    <div class="info-item"><div class="info-label">Kernel</div><div class="info-value">NEURAL NEST V1</div></div>
-                    <div class="info-item"><div class="info-label">Status</div><div class="info-value">ACTIVE</div></div>
-                </div>
-                <div class="desc-text">The Super OS serves as the primary management layer for the BOOT AI ecosystem, providing a seamless bridge between user intent and machine execution.</div>
-            `;
-        } else if (type === 'kdos') {
-            content.innerHTML = `
-                <div class="manifest-header"><h1>PROJECT: K-DOS</h1></div>
-                <div class="info-grid">
-                    <div class="info-item"><div class="info-label">Architecture</div><div class="info-value">X86_64 / ASM</div></div>
-                    <div class="info-item"><div class="info-label">Type</div><div class="info-value">CUSTOM KERNEL</div></div>
-                </div>
-                <div class="desc-text">A self-built, MS-DOS-inspired Operating System that mimics command-line functionality on modern hardware.\n\nFrom the custom bootloader to the core command line, every component has been engineered from scratch to ensure absolute system control.</div>
-            `;
-        } else if (type === 'ksdos') {
-            content.innerHTML = `
-                <div class="manifest-header"><h1>PROJECT: KS-DOS</h1></div>
-                <div class="info-grid">
-                    <div class="info-item"><div class="info-label">Base</div><div class="info-value">LINUX / MULTIBOOT2</div></div>
-                    <div class="info-item"><div class="info-label">Deployment</div><div class="info-value">COMMUNITY DISTRO</div></div>
-                </div>
-                <div class="desc-text">This Multiboot2-based OS is a Linux distribution made for the community. It has been built on the Linux kernel with foundational commands.\n\nThis is expected to be expanded to a full desktop environment eventually. Development is currently paused due to technical difficulties.</div>
-            `;
-        }
-        document.getElementById('overlay').style.display = 'flex';
-    }
-
-    function closeOverlay() { document.getElementById('overlay').style.display = 'none'; }
-</script>
-
 </body>
 </html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BOOT AI | Advanced Dossier</title>
+    <style>
+        :root { --accent: #00ff00; --bg: #050505; }
+        body { background: var(--bg); color: #fff; margin: 0; font-family: 'Courier New', monospace; line-height: 1.6; }
+        
+        /* THE STICKY BACK BUTTON */
+        .back-btn { 
+            position: fixed; top: 20px; left: 20px; padding: 12px 24px; 
+            border: 1px solid #fff; background: rgba(0,0,0,0.9); color: #fff; 
+            text-decoration: none; font-size: 10px; font-weight: bold; 
+            z-index: 5000; letter-spacing: 2px; text-transform: uppercase;
+        }
+        .back-btn:hover { background: #fff; color: #000; }
+
+        .container { max-width: 1100px; margin: 100px auto; padding: 0 20px; }
+        .project-block { border: 1px solid #222; margin-bottom: 30px; background: #080808; }
+        
+        .slide-trigger { width: 100%; padding: 40px; background: #0a0a0a; border: none; color: #fff; text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; }
+        .slide-trigger h1 { margin: 0; font-size: 24px; letter-spacing: 4px; }
+        
+        .advanced-info { max-height: 0; overflow: hidden; transition: max-height 0.8s ease-in-out; background: #000; }
+        .inner-content { padding: 40px; color: #aaa; font-size: 13px; text-align: justify; }
+        .inner-content p { margin-bottom: 20px; }
+        
+        .cmd-box { background: #0d0d0d; padding: 25px; border-left: 3px solid var(--accent); margin: 30px 0; color: var(--accent); font-size: 12px; }
+        h3 { color: #fff; text-transform: uppercase; letter-spacing: 2px; border-bottom: 1px solid #333; padding-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+    <a href="index.html" class="back-btn">← CORE_SYSTEM</a>
+
+    <div class="container">
+        <h1 style="border-bottom: 2px solid #333; padding-bottom: 20px; letter-spacing: 8px; text-align: center;">DETAILED_MANIFEST_V1.0</h1>
+        
+        <div class="project-block">
+            <button class="slide-trigger" onclick="toggleSlide(this)">
+                <h1>SUPER OS INTERFACE</h1> <span>[+] ACCESS_DATA</span>
+            </button>
+            <div class="advanced-info">
+                <div class="inner-content">
+                    <h3>KERNEL ARCHITECTURE: NEURAL NEST V1</h3>
+                    <p>The Super OS is not a conventional operating system; it is a distributed management layer designed for high-concurrency neural pathway simulations. Unlike monolithic kernels, Super OS utilizes a micro-kernel architecture where every system service runs in its own address space, isolated from the core hardware abstraction layer (HAL). This ensures that even if a synaptic bridge fails, the primary system stability remains uncompromised. The kernel is written in a proprietary blend of low-level C and optimized assembly to minimize overhead during context switching. The scheduler uses a multi-level feedback queue to prioritize critical neural interrupts over background housekeeping tasks. Every cycle is accounted for, ensuring that 99.9% of the CPU's processing power is dedicated to core logic execution.</p>
+                    <div class="cmd-box">
+                        > INIT_SYSTEM_CORE... [OK]<br>
+                        > LOADING_NEURAL_WEIGHTS... [100%]<br>
+                        > SYNCING_VIRTUAL_MEMORY_MAPPING... [STABLE]
+                    </div>
+                    <h3>MEMORY MANAGEMENT & SYMBOLIC LINKING</h3>
+                    <p>Super OS implements a revolutionary "Lazy Allocation" strategy for virtual memory. Physical memory is only committed when a neural node attempts to write to a page, allowing for massive theoretical address spaces that far exceed physical RAM. This is critical for the BOOT AI ecosystem, which requires fluctuating memory footprints based on the complexity of the current task. The Paging Unit handles 4KB and 2MB "Huge Pages" to optimize TLB hits during heavy data processing. Symbolic linking within the system is handled through a high-speed hash table, ensuring O(1) lookup times for critical system binaries. Furthermore, the Page Fault Handler has been rewritten to predict memory requirements using a basic heuristic engine, pre-fetching data before it is even requested by the application layer.</p>
+                    <p>Furthermore, the kernel supports hot-swapping of system modules without requiring a reboot. This is achieved through a dynamic linker that can redirect function calls in real-time. Security is reinforced via a ring-based protection model where only the core kernel has access to Ring 0 instructions. All user-land applications are strictly confined to Ring 3, communicating with the hardware only through a heavily audited syscall interface. This architecture mitigates the risk of kernel-mode exploits while maintaining the high performance necessary for advanced AI computations.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-block">
+            <button class="slide-trigger" onclick="toggleSlide(this)">
+                <h1>K-DOS ARCHIVE</h1> <span>[+] ACCESS_DATA</span>
+            </button>
+            <div class="advanced-info">
+                <div class="inner-content">
+                    <h3>LEGACY EVOLUTION: THE X86_64 SCRATCH BUILD</h3>
+                    <p>K-DOS represents a return to absolute minimalism. While inspired by MS-DOS, it is built for the modern X86_64 instruction set. The project began with the development of a custom Stage 1 Bootloader, fitting exactly within the 512-byte limit of the Master Boot Record (MBR). This bootloader handles the transition from Real Mode (16-bit) to Protected Mode (32-bit) and finally to Long Mode (64-bit), setting up the Global Descriptor Table (GDT) and Page Tables manually without the help of GRUB or Multiboot. By bypassing standard bootloaders, K-DOS gains immediate control over the CPU's control registers, allowing for custom interrupt handling from the very first instruction.</p>
+                    <div class="cmd-box">
+                        > BOOT_LOADER_STAGE_1: ACTIVE<br>
+                        > SWITCHING_TO_LONG_MODE... DONE<br>
+                        > INITIALIZING_FAT32_DRIVER... [OK]
+                    </div>
+                    <p>The filesystem is a proprietary modification of the FAT32 standard, optimized for direct block access. K-DOS does not use a traditional buffer cache, preferring to interact directly with the disk controller via DMA (Direct Memory Access). This reduces CPU overhead and ensures that data integrity is maintained at the hardware level. The CLI (Command Line Interface) is built around a custom lexer that parses user input and maps it directly to kernel-mode functions, effectively removing the abstraction layers found in modern shells like Bash or Zsh.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-block">
+            <button class="slide-trigger" onclick="toggleSlide(this)">
+                <h1>KS-DOS COMMUNITY BUILD</h1> <span>[+] ACCESS_DATA</span>
+            </button>
+            <div class="advanced-info">
+                <div class="inner-content">
+                    <h3>PHASE: KS-DOS 0.1 PRE-ALPHA | THE MULTIBOOT2 EXPERIMENT</h3>
+                    <p>KS-DOS is the bridge between the custom world of K-DOS and the stability of the Linux kernel. It utilizes the Multiboot2 specification to ensure compatibility with a wide range of bootloaders and hardware configurations. Currently in Phase 0.1 Pre-Alpha, the focus is on establishing a robust root filesystem and a reliable package management system. Unlike standard distributions, KS-DOS stripped away all unnecessary background daemons to ensure maximum CPU cycles are dedicated to user tasks. The initialization system is a custom-written script-based engine that boots the system in under 3 seconds on modern NVMe storage.</p>
+                    <div class="cmd-box">
+                        > KERNEL_PANIC_PREVENTION: ENABLED<br>
+                        > LOADING_INITRD... SUCCESS<br>
+                        > SHELL_LOADED: KS-BASH_V0.1
+                    </div>
+                    <p>This Multiboot2-based OS is a Linux distribution made for the community. It has been built on the Linux kernel with foundational commands. This is expected to be expanded to a full desktop environment eventually. Development is currently paused due to technical difficulties involving the Wayland compositor implementation, but the core terminal remains fully functional for developer use.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleSlide(btn) {
+            const panel = btn.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+                btn.querySelector('span').innerText = "[+] ACCESS_DATA";
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+                btn.querySelector('span').innerText = "[-] CLOSE_DATA";
+            }
+        }
+    </script>
+</body>
+</html>
