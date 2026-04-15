@@ -1,71 +1,119 @@
-F > index.html
- <!DOCTYPE html>
-  <html>
-	   <head>
-		        <title>BOOT AI | Site Planner</title>
-			     <style>
-         body { 
-		              background-color: #050505; 
-			                   color: #d1d1d1; 
-					                font-family: 'Courier New', Courier, monospace;
-							             display: flex;
-								                  flex-direction: column;
-										               align-items: center;
-											                    justify-content: center;
-													                 height: 100vh;
-															              margin: 0;
-																                   overflow: hidden;
-																		            }
-	          
-	          /* The Film Grain Overlay */
-	          body::before {
-			               content: "";
-				                    position: fixed;
-						                 top: 0; left: 0; width: 100%; height: 100%;
-								              background: url('https://upload.wikimedia.org/wikipedia/commons/7/76/1k_Noise_Texture.png');
-									                   opacity: 0.03;
-											                pointer-events: none;
-													         }
-		   
-		           #cube {
-				                width: 100px;
-						             height: 100px;
-							                  background: #1a1a1a;
-									               border: 1px solid #333;
-										                    box-shadow: 0 0 20px rgba(0,0,0,0.5);
-												                 display: flex;
-														              align-items: center;
-															                   justify-content: center;
-																	                cursor: pointer;
-																			             transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-																				              }
-			    
-			            #cube:hover {
-					                 transform: scale(1.05) rotateY(10deg);
-							              border-color: #555;
-								               }
-				     
-				             .label {
-						                  margin-top: 20px;
-								               letter-spacing: 5px;
-									                    font-size: 12px;
-											                 opacity: 0.6;
-													              text-transform: uppercase;
-														               }
-					          </style>
-						   </head>
-						    <body>
-							         <div id="cube"></div>
-								      <div class="label">BOOT AI // SITE PLANNER</div>
-								           
-								           <script>
-										            document.getElementById('cube').onclick = function() {
-																						                    alert("System Initializing...");
-																						                    // We will add the camera push logic here next
-																						                };
-										        </script>
-											 </body>
-											  </html>
-											   EOF
-											    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOT AI | Site Planner</title>
+    <style>
+        :root {
+            --bg: #ffffff; --text: #050505; --panel: #f5f5f5;
+            --line: #e0e0e0; --accent: #666666;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #050505; --text: #d1d1d1; --panel: #111111;
+                --line: #222222; --accent: #444444;
+            }
+        }
 
+        * { box-sizing: border-box; transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); }
+        body { 
+            background-color: var(--bg); color: var(--text); 
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif; 
+            margin: 0; overflow: hidden; 
+        }
+
+        /* Nav Bar */
+        nav {
+            position: fixed; top: 0; width: 100%; height: 60px;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 25px; border-bottom: 1px solid var(--line);
+            z-index: 1000; background: var(--bg);
+        }
+        .logo { font-weight: 700; letter-spacing: 2px; font-size: 13px; text-transform: uppercase; }
+
+        /* Dropdown Menu */
+        .dropdown { position: relative; display: inline-block; }
+        .dropbtn { 
+            background: none; border: 1px solid var(--line); color: var(--text);
+            padding: 6px 12px; font-size: 11px; cursor: pointer; border-radius: 3px;
+        }
+        .dropdown-content {
+            display: none; position: absolute; right: 0;
+            background-color: var(--panel); min-width: 180px;
+            border: 1px solid var(--line); z-index: 1; border-radius: 4px;
+        }
+        .dropdown-content a {
+            color: var(--text); padding: 12px 16px;
+            text-decoration: none; display: block; font-size: 11px; border-bottom: 1px solid var(--line);
+        }
+        .dropdown-content a:hover { background: var(--line); }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* Core Interface */
+        #container { 
+            margin-top: 60px; height: calc(100vh - 60px); 
+            display: flex; flex-direction: column; align-items: center; 
+            justify-content: center; 
+        }
+
+        #cube { 
+            width: 70px; height: 70px; background: var(--panel); 
+            border: 1px solid var(--line); cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden; position: relative; z-index: 10;
+        }
+        #cube img { width: 80%; height: 80%; object-fit: contain; opacity: 0.8; }
+        #cube:hover { border-color: var(--text); transform: scale(1.1); }
+
+        .line-v { width: 1px; background: var(--line); height: 0; transition: height 0.8s ease; }
+        
+        #task-row { 
+            display: flex; gap: 12px; opacity: 0; 
+            transform: translateY(10px); transition: 0.8s; margin-top: 20px;
+        }
+        
+        .task-node {
+            padding: 12px 18px; border: 1px solid var(--line); background: var(--panel);
+            font-size: 9px; font-weight: 600; cursor: pointer; letter-spacing: 1px;
+        }
+        .task-node:hover { border-color: var(--text); background: var(--bg); }
+
+        /* Active State */
+        .active-flow #line-main { height: 60px; }
+        .active-flow #task-row { opacity: 1; transform: translateY(0); }
+        .active-flow #container { transform: translateY(-30px); }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">BOOT AI</div>
+    <div class="dropdown">
+        <button class="dropbtn">MENU ▼</button>
+        <div class="dropdown-content">
+            <a href="https://discord.gg/NdgRuMnfW" target="_blank">Join Discord</a>
+            <a href="#projects">My Projects</a>
+            <a href="javascript:location.reload()">Reset Session</a>
+        </div>
+    </div>
+</nav>
+
+<div id="container">
+    <div id="cube" onclick="document.body.classList.toggle('active-flow')">
+        <img src="IMG_5870.png" alt="BOOT AI" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+        <span style="display:none; font-size:9px; font-weight:bold;">BOOT AI</span>
+    </div>
+
+    <div class="line-v" id="line-main"></div>
+    
+    <div id="task-row">
+        <div class="task-node" onclick="window.open('https://discord.gg/NdgRuMnfW', '_blank')">DISCORD</div>
+        <div class="task-node">PROJECTS</div>
+        <div class="task-node">LOGS</div>
+        <div class="task-node">SYSTEM</div>
+    </div>
+</div>
+
+</body>
+</html>
