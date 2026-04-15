@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KS-DOS | HARDENED</title>
+    <style>
+        body { background: #000; color: #fff; font-family: 'Courier New', monospace; margin: 0; padding: 0; line-height: 1.6; font-size: 19px; }
+        .banner { width: 100%; height: 300px; background: url('Banner.jpg') center/cover; border-bottom: 2px solid #333; }
+        .back { position: absolute; top: 20px; left: 20px; color: #fff; text-decoration: none; font-weight: bold; font-size: 12px; letter-spacing: 2px; background: rgba(0,0,0,0.7); padding: 15px; border: 1px solid #fff; }
+        .content { padding: 60px 40px; max-width: 1100px; margin: 0 auto; }
+        .wall-of-text { color: #00eaff; text-align: justify; white-space: pre-wrap; margin-top: 40px; border-top: 1px solid #222; padding-top: 40px; }
+    </style>
+</head>
+<body>
+    <div class="banner"><a href="projects.html" class="back">[ ESC // RETURN ]</a></div>
+    <div class="content">
+        <h1>PROJECT: KS-DOS 0.1 PRE-ALPHA</h1>
+        <div class="wall-of-text">
+[INIT] KS-DOS 0.1 PRE-ALPHA bootstrap sequence initiated.
+[KRNL] Hardened Linux Kernel 6.x Base detected. Applying MGKFN patches... [DONE]
+[SEC] KASLR enabled. Entropy pool filled via RDRAND instruction.
+[BOOT] Multiboot2 header validated. Checksum matches system manifest.
+[PROC] Custom C-based init system taking control of PID 1.
+[MOD] Loading ks-dos-core.ko. Kernel symbol table restricted for security.
+[NET] WireGuard interface enabled. All traffic routed through secure community node.
+[AUDIT] System integrity check: /bin and /sbin hashes verified.
+[LOG] Disabling kexec and module loading post-boot to prevent runtime tampering.
+[LOG] AppArmor profiles loaded in "Complain" mode. Transitioning to "Enforce".
+[UI] Terminal rendering via specialized Wayland protocol. Zero bloat.
+[SYS] Optimizing for X86_64 Instruction Set. AVX-512 flags enabled.
+[LOG] Scrubbing sensitive boot logs from RAM.
+[LOG] Initializing community developer environment... Ready.
+[INFO] KS-DOS is a community-driven project focusing on system sovereignty.
+[INFO] Version status: 0.1 PRE-ALPHA.
+        </div>
+    </div>
+</body>
+</html>

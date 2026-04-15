@@ -3,136 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BOOT AI | Technical Archive</title>
+    <title>BOOT AI | MGKFN</title>
     <style>
-        :root { 
-            --accent: #00ff00; 
-            --bg: #121212; /* Lighter dark for better readability */
-            --text-main: #e0e0e0;
-            --text-dim: #b0b0b0;
-        }
+        body { background: #fff; color: #000; margin: 0; font-family: -apple-system, sans-serif; scroll-behavior: smooth; }
         
-        * { box-sizing: border-box; transition: 0.3s ease; }
-        body { 
-            background: var(--bg); 
-            color: var(--text-main); 
-            margin: 0; 
-            font-family: -apple-system, sans-serif; /* Cleaner sans-serif for main site */
-            line-height: 1.8; 
-            font-size: 18px; /* Bigger base font */
-            overflow-x: hidden;
-        }
-
-        /* 🆕 STICKY BACK BUTTON */
-        .back-btn { 
-            position: fixed; top: 30px; left: 30px; padding: 15px 30px; 
-            border: 2px solid #fff; background: rgba(0,0,0,0.8); color: #fff; 
-            text-decoration: none; font-size: 14px; font-weight: bold; 
-            z-index: 5000; letter-spacing: 3px; text-transform: uppercase;
-        }
-        .back-btn:hover { background: #fff; color: #000; }
-
-        /* 🆕 HERO BANNER SECTION */
-        .hero { 
-            height: 400px; 
-            background: url('Banner.jpg') center/cover; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            border-bottom: 1px solid #333; 
-            margin-top: 0; /* Changed from previous files to sit at top */
-        }
-        .hero h1 { 
-            color: white; 
-            letter-spacing: 12px; 
-            font-weight: 200; 
-            text-shadow: 0 5px 15px rgba(0,0,0,0.5); 
-            font-size: 2.5rem; 
-            text-transform: uppercase; 
-        }
-
-        .container { max-width: 1200px; margin: 100px auto; padding: 0 50px; }
-        
-        .block { border: 1px solid #333; margin-bottom: 60px; background: #1a1a1a; box-shadow: 0 20px-50px rgba(0,0,0,0.5); }
-        
-        .trigger { 
-            width: 100%; padding: 50px; background: #222; border: none; 
-            color: #fff; text-align: left; cursor: pointer; display: flex; 
+        nav { 
+            width: 100%; padding: 30px 50px; display: flex; 
             justify-content: space-between; align-items: center; 
-            border-bottom: 1px solid #333; 
+            position: fixed; top: 0; background: #fff; z-index: 10000; box-sizing: border-box;
+            border-bottom: 1px solid #eee;
         }
-        .trigger h2 { margin: 0; font-size: 32px; letter-spacing: 8px; font-weight: bold; text-transform: uppercase; }
-        
-        .info { max-height: 0; overflow: hidden; transition: max-height 1s cubic-bezier(0.4, 0, 0.2, 1); background: #0f0f0f; }
-        
-        .content { padding: 60px; color: var(--text-dim); text-align: justify; font-size: 18px; }
-        
-        /* Specialized Technical Font */
-        .tech-font { font-family: 'Courier New', monospace; }
+        .logo { font-weight: 900; letter-spacing: 5px; font-size: 16px; text-transform: uppercase; }
+        .hamburger { cursor: pointer; display: flex; flex-direction: column; gap: 7px; z-index: 11000; }
+        .stripe { width: 30px; height: 2px; background: #000; transition: 0.4s; }
 
-        .cmd { 
-            background: #000; padding: 35px; border-left: 5px solid var(--accent); 
-            margin: 40px 0; color: var(--accent); font-size: 16px; 
-            line-height: 1.4; overflow-x: auto; font-family: 'Courier New', monospace;
+        .menu-overlay { 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: #fff; display: flex; flex-direction: column; 
+            align-items: center; justify-content: center; 
+            transform: translateY(-100%); transition: 0.7s cubic-bezier(0.85, 0, 0.15, 1); 
+            z-index: 9000; 
         }
+        .menu-overlay.active { transform: translateY(0); }
+        .menu-item { text-align: center; margin: 15px 0; }
+        .menu-overlay a { text-decoration: none; color: #000; font-size: 35px; font-weight: 900; letter-spacing: 8px; text-transform: uppercase; display: block; }
 
-        h3 { color: #fff; font-size: 24px; border-bottom: 1px solid #444; padding-bottom: 15px; margin-top: 40px; text-transform: uppercase; }
-        p { margin-bottom: 30px; }
+        .hero { width: 100%; height: 450px; background: url('Banner.jpg') center/cover; margin-top: 80px; }
+        
+        .section { padding: 100px 40px; text-align: center; max-width: 800px; margin: 0 auto; }
+        h2 { font-weight: 900; letter-spacing: 4px; font-size: 32px; text-transform: uppercase; margin-bottom: 30px; }
+        p { color: #555; font-size: 19px; line-height: 1.8; }
+
+        .btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 650px; margin: 50px auto 0; }
+        .nav-btn { 
+            padding: 25px; border: 2px solid #000; color: #000; 
+            text-decoration: none; font-weight: 900; font-size: 13px; 
+            letter-spacing: 3px; text-transform: uppercase; transition: 0.3s;
+        }
+        .nav-btn:hover { background: #000; color: #fff; }
     </style>
 </head>
 <body>
 
-    <a href="index.html" class="back-btn">← RETURN TO CORE</a>
-
-    <div class="hero"><h1></h1></div>
-
-    <div class="container">
-        <h1 style="letter-spacing: 15px; font-size: 48px; text-align: center; margin-bottom: 80px; color: #fff; text-transform: uppercase;">SYSTEM MANIFEST</h1>
-        
-        <div class="block">
-            <button class="trigger" onclick="toggle(this)"><h2>K-DOS ARCHIVE</h2> <span>[+] EXPAND</span></button>
-            <div class="info">
-                <div class="content tech-font"> <h3>ARCHITECTURAL FOUNDATION: THE BARE METAL LAYER</h3>
-                    <p>K-DOS is an experimental, self-booting operating system designed for the X86 64 architecture. Unlike traditional OS builds that rely on heavy abstraction layers, K-DOS interacts directly with the CPU and memory controllers. (Expanded to 200+ lines of technical data covering the custom Stage 1 Bootloader, mode transitions, and direct LBA data addressing...)</p>
-                    
-                    <div class="cmd">
-                        [SETUP GDT]<br>
-                        gdt start:<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;dq 0x0000000000000000 ; Null descriptor<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;dq 0x00af9a000000ffff ; Code descriptor<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;dq 0x00cf92000000ffff ; Data descriptor<br>
-                        gdt end:
-                    </div>
-                    </div>
-            </div>
+    <nav>
+        <div class="logo">BOOT AI</div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div class="stripe" id="s1"></div><div class="stripe" id="s2"></div><div class="stripe" id="s3"></div>
         </div>
+    </nav>
 
-        <div class="block">
-            <button class="trigger" onclick="toggle(this)"><h2>KS-DOS 0.1 PRE ALPHA</h2> <span>[+] EXPAND</span></button>
-            <div class="info">
-                <div class="content tech-font"> <h3>PHASE: KS-DOS 0.1 PRE ALPHA | MULTIBOOT2 EXPERIMENT</h3>
-                    <p>KS-DOS is a community centric distribution built upon a hardened Linux kernel backbone. Utilizing the Multiboot2 protocol, KS-DOS ensures compatibility with various bootloaders while maintaining its unique environmental variables. (Expanded to 200+ lines covering the custom C-based init system, Wayland compositor implementation, and kernel hardening protocols...)</p>
-                    <div class="cmd">
-                        # KS DOS KERNEL PARAMETERS<br>
-                        BOOT IMAGE=/boot/vmlinuz-ksdos<br>
-                        root=PARTUUID=01-alpha-ks<br>
-                        quiet splash loglevel=0 console=tty1
-                    </div>
-                    </div>
-            </div>
-        </div>
-
+    <div class="menu-overlay" id="navMenu">
+        <div class="menu-item"><a href="index.html">HOME</a></div>
+        <div class="menu-item"><a href="projects.html">MANIFEST</a></div>
+        <div class="menu-item"><a href="products.html">PRODUCTS</a></div>
+        <div class="menu-item"><a href="social.html">SOCIAL</a></div>
+        <div class="menu-item"><a href="https://discord.gg/t4sgzP8nQ" target="_blank">JOIN DISCORD</a></div>
     </div>
 
+    <div class="hero"></div>
+
+    <section class="section">
+        <h2>SNEAK PEEK</h2>
+        <p>Access the core repository of Tech Haven Studios. Explore raw architectural logs and community builds that depart from modern software bloat. This manifest tracks the development of bare-metal kernel systems and hardened distributions.</p>
+    </section>
+
+    <section class="section" style="background: #fafafa; border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
+        <h2>ABOUT ME</h2>
+        <p>Lead architect MGKFN. Focused on low-level system design, kernel hardening, and the intersection of hardware and pure software logic. This site acts as a live technical archive for pre-alpha system releases.</p>
+        
+        <div class="btn-grid">
+            <a href="projects.html" class="nav-btn">PROJECTS</a>
+            <a href="products.html" class="nav-btn">PRODUCTS</a>
+            <a href="social.html" class="nav-btn">SOCIAL</a>
+            <a href="https://discord.gg/t4sgzP8nQ" target="_blank" class="nav-btn">DISCORD</a>
+        </div>
+    </section>
+
     <script>
-        function toggle(btn) {
-            const panel = btn.nextElementSibling;
-            if (panel.style.maxHeight) {
-                panel.style.maxHeight = null;
-                btn.querySelector('span').innerText = "[+] EXPAND";
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            menu.classList.toggle('active');
+            const stripes = [document.getElementById('s1'), document.getElementById('s2'), document.getElementById('s3')];
+            if(menu.classList.contains('active')) {
+                stripes[0].style.transform = "rotate(45deg) translate(6px, 6px)";
+                stripes[1].style.opacity = "0";
+                stripes[2].style.transform = "rotate(-45deg) translate(6px, -6px)";
             } else {
-                panel.style.maxHeight = panel.scrollHeight + "px";
-                btn.querySelector('span').innerText = "[-] COLLAPSE";
+                stripes.forEach(s => s.style.transform = "none");
+                stripes[1].style.opacity = "1";
             }
         }
     </script>

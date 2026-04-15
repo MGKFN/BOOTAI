@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>K-DOS | BARE METAL</title>
+    <style>
+        body { background: #000; color: #fff; font-family: 'Courier New', monospace; margin: 0; padding: 0; line-height: 1.6; font-size: 19px; }
+        .banner { width: 100%; height: 300px; background: url('Banner.jpg') center/cover; border-bottom: 2px solid #333; }
+        .back { position: absolute; top: 20px; left: 20px; color: #fff; text-decoration: none; font-weight: bold; font-size: 12px; letter-spacing: 2px; background: rgba(0,0,0,0.7); padding: 15px; border: 1px solid #fff; }
+        .content { padding: 60px 40px; max-width: 1100px; margin: 0 auto; }
+        .wall-of-text { color: #00ff00; text-align: justify; white-space: pre-wrap; margin-top: 40px; border-top: 1px solid #222; padding-top: 40px; }
+    </style>
+</head>
+<body>
+    <div class="banner"><a href="projects.html" class="back">[ ESC // RETURN ]</a></div>
+    <div class="content">
+        <h1>PROJECT: K-DOS</h1>
+        <div class="wall-of-text">
+[BOOT] STAGE 1: MBR verification at 0x7C00. Checking for 0xAA55 signature... [OK]
+[CPU] Transitioning from Real Mode to Protected Mode. CR0 register updated.
+[CPU] Entering 64-bit Long Mode. EFER MSR bit 8 set. Global Descriptor Table re-aligned to 64-bit boundaries.
+[MEM] Initializing PML4 paging structures. Identity mapping the first 4GB for kernel stability.
+[MEM] Physical Memory Manager (PMM) linked to bitmap allocator at 0x1000000.
+[INT] Interrupt Descriptor Table (IDT) mapped. Registering IRQ0 through IRQ15.
+[IO] PS/2 Controller initialized. Keyboard buffer active at Port 0x60.
+[VGA] Terminal driver active. Framebuffer address detected at 0xFD000000.
+[KERNEL] Loading MGKFN Core Subsystems...
+[DEBUG] Serial COM1 port initialized at 115200 baud for kernel debugging.
+[ASM] MOV EAX, CR3 | MOV EBX, PML4_ADDR | MOV CR3, EBX. Page walk initiated.
+[ASM] INVLPG instruction executed for TLB consistency.
+[LOG] Scanning ACPI Tables... RSDP found at 0x000F6B50.
+[LOG] MADT verification complete. Local APIC detected at 0xFEE00000.
+[LOG] System Clock (RTC) synced. Binary format converted to Unix Epoch.
+[LOG] Disabling Legacy 8259 PIC to prevent interrupt collision with APIC.
+[STORAGE] AHCI Controller identified. Port 0 status: Active. Command List set.
+[FILE] Minimalist FAT16 driver loaded. Root directory scan... [OK]
+[SYS] System running in Pure Bare Metal. No external dependencies.
+[INFO] K-DOS is currently in a state of high-frequency development.
+[INFO] Versioning follows the KS-DOS 0.1 PRE-ALPHA protocol.
+        </div>
+    </div>
+</body>
+</html>

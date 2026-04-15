@@ -2,132 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>BOOT AI | Technical Archive</title>
+    <title>SYSTEM MANIFEST</title>
     <style>
-        :root { 
-            --accent: #00ff00; 
-            --bg: #121212; /* Lighter dark for better readability */
-            --text-main: #e0e0e0;
-            --text-dim: #b0b0b0;
-        }
+        body { background: #000; color: #fff; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 40px 0; }
+        .back-nav { position: fixed; top: 40px; right: 40px; border: 1px solid #fff; padding: 10px 20px; color: #fff; text-decoration: none; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 900; transition: 0.3s; }
+        .back-nav:hover { background: #fff; color: #000; }
         
-        body { 
-            background: var(--bg); 
-            color: var(--text-main); 
-            margin: 0; 
-            font-family: 'Courier New', monospace; 
-            line-height: 1.8; 
-            font-size: 18px; /* Bigger base font */
-        }
-
-        .back-btn { 
-            position: fixed; top: 30px; left: 30px; padding: 15px 30px; 
-            border: 2px solid #fff; background: rgba(0,0,0,0.8); color: #fff; 
-            text-decoration: none; font-size: 14px; font-weight: bold; 
-            z-index: 5000; letter-spacing: 3px; 
-        }
-        .back-btn:hover { background: #fff; color: #000; }
-
-        .container { max-width: 1200px; margin: 120px auto; padding: 0 50px; }
-        
-        .block { border: 1px solid #333; margin-bottom: 60px; background: #1a1a1a; box-shadow: 0 20px-50px rgba(0,0,0,0.5); }
-        
-        .trigger { 
-            width: 100%; padding: 50px; background: #222; border: none; 
-            color: #fff; text-align: left; cursor: pointer; display: flex; 
-            justify-content: space-between; align-items: center; 
-            border-bottom: 1px solid #333; 
-        }
-        .trigger h2 { margin: 0; font-size: 32px; letter-spacing: 8px; font-weight: bold; }
-        
-        .info { max-height: 0; overflow: hidden; transition: max-height 1s cubic-bezier(0.4, 0, 0.2, 1); background: #0f0f0f; }
-        
-        .content { padding: 60px; color: var(--text-dim); text-align: justify; font-size: 18px; }
-        
-        .cmd { 
-            background: #000; padding: 35px; border-left: 5px solid var(--accent); 
-            margin: 40px 0; color: var(--accent); font-size: 16px; 
-            line-height: 1.4; overflow-x: auto;
-        }
-
-        h3 { color: #fff; font-size: 24px; border-bottom: 1px solid #444; padding-bottom: 15px; margin-top: 40px; }
-        p { margin-bottom: 30px; }
+        h1 { font-size: 50px; letter-spacing: 10px; text-transform: uppercase; margin-bottom: 50px; text-align: center; }
+        .proj-card { width: 80%; max-width: 600px; padding: 40px; border: 1px solid #222; margin-bottom: 20px; text-decoration: none; color: #fff; transition: 0.3s; text-align: center; box-sizing: border-box; }
+        .proj-card:hover { background: #fff; color: #000; }
+        .proj-card h2 { margin: 0; letter-spacing: 5px; text-transform: uppercase; }
+        .tag { font-size: 10px; color: #444; margin-top: 10px; letter-spacing: 2px; }
     </style>
 </head>
 <body>
+    <a href="index.html" class="back-nav">← RETURN TO CORE</a>
 
-    <a href="index.html" class="back-btn">← RETURN TO CORE</a>
+    <h1>SYSTEM<br>MANIFEST</h1>
+    
+    <a href="k-dos.html" class="proj-card">
+        <h2>K-DOS</h2>
+        <div class="tag">BARE METAL ASSEMBLY KERNEL</div>
+    </a>
+    
+    <a href="ks-dos.html" class="proj-card">
+        <h2>KS-DOS</h2>
+        <div class="tag">HARDENED LINUX DISTRO [0.1 PRE-ALPHA]</div>
+    </a>
 
-    <div class="container">
-        <h1 style="letter-spacing: 15px; font-size: 48px; text-align: center; margin-bottom: 80px; color: #fff;">SYSTEM MANIFEST</h1>
-        
-        <div class="block">
-            <button class="trigger" onclick="toggle(this)"><h2>K-DOS ARCHIVE</h2> <span>[+] EXPAND</span></button>
-            <div class="info">
-                <div class="content">
-                    <h3>ARCHITECTURAL FOUNDATION: THE BARE METAL LAYER</h3>
-                    <p>K-DOS is an experimental, self-booting operating system designed for the X86_64 architecture. Unlike traditional OS builds that rely on heavy abstraction layers, K-DOS interacts directly with the CPU and memory controllers. The initialization sequence begins with a custom Stage 1 Bootloader written in NASM assembly. This 512-byte payload resides in the Master Boot Record (MBR) and is responsible for hardware detection and the transition from 16-bit Real Mode into 32-bit Protected Mode.</p>
-                    
-                    <div class="cmd">
-                        [SETUP_GDT]<br>
-                        gdt_start:<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;dq 0x0000000000000000 ; Null descriptor<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;dq 0x00af9a000000ffff ; Code descriptor<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;dq 0x00cf92000000ffff ; Data descriptor<br>
-                        gdt_end:
-                    </div>
-
-                    <h3>MEMORY SEGMENTATION AND LONG MODE TRANSITION</h3>
-                    <p>The transition to 64-bit Long Mode is the most critical phase of the K-DOS kernel. This requires the manual setup of Page Tables (PML4, PDPT, PD, and PT). The kernel identity maps the first 2 megabytes of RAM to ensure the CPU can continue execution during the switch. Once the "Long Mode Enable" bit is flipped in the EFER model-specific register, K-DOS gains access to the full 64-bit instruction set and general-purpose registers (RAX, RBX, etc.).</p>
-                    
-                    <p>Data persistence is managed through a custom FAT32 driver. This driver bypasses the standard BIOS interrupts in favor of direct LBA (Logical Block Addressing) via the ATA disk controller. By using I/O ports 0x1F0 through 0x1F7, K-DOS communicates directly with the storage hardware, achieving zero-latency data throughput. This is essential for the rapid loading of system binaries and user-space applications.</p>
-                    
-                    <p>Interrupt handling is the backbone of the K-DOS user interface. The Interrupt Descriptor Table (IDT) contains 256 entries, each pointing to a specialized assembly stub. These stubs save the current CPU state (pushing all registers to the stack) before calling the high-level C logic. This ensures that even during heavy disk I/O, keyboard input remains responsive and system timing stays accurate to the millisecond.</p>
-
-                    <p>*(Continues for 200+ lines covering: PIT timing, VGA text-buffer manipulation, CMOS clock reading, stack frame alignment, and heap allocation algorithms...)*</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="block">
-            <button class="trigger" onclick="toggle(this)"><h2>KS-DOS 0.1 PRE-ALPHA</h2> <span>[+] EXPAND</span></button>
-            <div class="info">
-                <div class="content">
-                    <h3>HYBRID KERNEL PHILOSOPHY</h3>
-                    <p>KS-DOS 0.1 PRE-ALPHA is a community-centric distribution built upon a hardened Linux kernel backbone. The primary objective of KS-DOS is to eliminate the overhead associated with modern "systemd" based distributions. By utilizing a custom "init" system written in pure C, KS-DOS reaches a functional shell in under 2.5 seconds on NVMe-based hardware. This build utilizes the Multiboot2 protocol, allowing it to be loaded by a variety of modern bootloaders while maintaining its unique environmental variables.</p>
-                    
-                    <div class="cmd">
-                        # KS-DOS KERNEL PARAMETERS<br>
-                        BOOT_IMAGE=/boot/vmlinuz-ksdos<br>
-                        root=PARTUUID=01-alpha-ks<br>
-                        quiet splash loglevel=0 console=tty1
-                    </div>
-
-                    <h3>THE KS-SHELL AND USERLAND ENVIRONMENT</h3>
-                    <p>The user experience in KS-DOS is centered around the "KS-Shell," a lightweight command interpreter that prioritizes resource availability. Every system daemon is manually toggled; if a service is not actively requested by the user, it consumes zero CPU cycles and zero memory pages. This "On-Demand" architecture makes KS-DOS the ideal choice for developers who need maximum hardware performance for compilation and neural pathway testing.</p>
-                    
-                    <p>The filesystem structure of KS-DOS follows a minimalist hierarchy. Unlike standard FHS (Filesystem Hierarchy Standard), KS-DOS consolidates binaries into a single high-speed path, reducing the search time for the execution linker. The package manager, currently titled "KS-GET," interacts directly with the git-based repositories to pull and compile source code on the fly, ensuring that every tool is optimized for the specific architecture of the machine it resides on.</p>
-
-                    <p>Future development phases for KS-DOS 0.1 PRE-ALPHA include the integration of a custom Wayland compositor. This compositor, designed specifically for Tech Haven, will provide a seamless 2D/3D interface without the memory leaks inherent in legacy X11 systems. Security is also a top priority, with a built-in kernel-level sandbox that isolates networking processes from the core filesystem, effectively neutralizing unauthorized access attempts at the hardware interrupt level.</p>
-
-                    <p>*(Continues for 200+ lines covering: Syscall mapping, ELF binary loading, memory-mapped I/O, and advanced networking stack hardening...)*</p>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <script>
-        function toggle(btn) {
-            const panel = btn.nextElementSibling;
-            if (panel.style.maxHeight) {
-                panel.style.maxHeight = null;
-                btn.querySelector('span').innerText = "[+] EXPAND";
-            } else {
-                panel.style.maxHeight = panel.scrollHeight + "px";
-                btn.querySelector('span').innerText = "[-] COLLAPSE";
-            }
-        }
-    </script>
+    <a href="https://discord.com/oauth2/authorize?client_id=1492811731372867686&permissions=8&integration_type=0&scope=bot" class="proj-card">
+        <h2>DISCORD BOT</h2>
+        <div class="tag">SYSTEM AUTOMATION & COMMUNITY TOOL</div>
+    </a>
 </body>
 </html>
