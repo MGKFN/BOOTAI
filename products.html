@@ -2,31 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>PRODUCTS | MGKFN</title>
+    <title>PRODUCTS | BOOT AI</title>
     <style>
         :root { --bg: #fff; --text: #000; --accent: #eee; --card: #fafafa; }
         [data-theme="dark"] { --bg: #0a0a0a; --text: #fff; --accent: #1a1a1a; --card: #111; }
-        body { background: var(--bg); color: var(--text); margin: 0; font-family: sans-serif; transition: 0.4s; }
+        body { background: var(--bg); color: var(--text); font-family: sans-serif; transition: 0.4s; margin: 0; }
         nav { width: 100%; padding: 30px 50px; display: flex; justify-content: space-between; border-bottom: 1px solid var(--accent); }
-        .container { padding: 100px 20px; text-align: center; max-width: 800px; margin: 0 auto; }
-        .bot-card { border: 2px solid var(--text); padding: 50px; text-align: left; background: var(--card); will-change: transform; transform: translateZ(0); }
-        .install-btn { display: inline-block; padding: 20px 40px; background: var(--text); color: var(--bg); text-decoration: none; font-weight: 900; text-transform: uppercase; margin-top: 20px; }
+        .intro { padding: 150px 40px 60px; text-align: center; max-width: 850px; margin: 0 auto; }
+        .product-box { border: 2px solid var(--text); padding: 50px; margin: 30px auto; max-width: 850px; background: var(--card); transform: translateZ(0); }
+        .dl-btn { display: block; padding: 22px; background: var(--text); color: var(--bg); text-decoration: none; font-weight: 900; text-align: center; margin-top: 30px; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
+        .dl-btn:hover { opacity: 0.8; }
     </style>
 </head>
 <body>
     <nav><div style="font-weight:900; letter-spacing:5px;">BOOT AI</div><a href="index.html" style="color:var(--text); text-decoration:none; font-size:12px; font-weight:bold;">← RETURN</a></nav>
-    <div class="container">
-        <h1>PRODUCTS</h1>
-        <div class="bot-card">
-            <h2>MGKFN SYSTEM BOT</h2>
-            <p>Discord automation for server management and technical log synchronization.</p>
-            <a href="https://discord.com/oauth2/authorize?client_id=1492811731372867686&permissions=8&integration_type=0&scope=bot" class="install-btn">INSTALL BOT</a>
-        </div>
+    <div class="intro">
+        <h1 style="letter-spacing: 12px; text-transform: uppercase; font-size: 50px;">THE REPOSITORY</h1>
+        <p style="font-size: 19px; line-height: 1.8; color: #888;">Welcome to the BOOT AI distribution hub. I develop bare-metal systems and hardened software environments. This archive contains my stable releases and specialized tools.</p>
+    </div>
+    <div class="product-box">
+        <h2 style="letter-spacing: 3px;">KDOS 1.0 Beta 2 stable</h2>
+        <p>Pre-configured security patches. Ready for secure hardware implementation.</p>
+        <a href="https://github.com/MGKFN/BOOTAI/releases/download/OSSTABLE/K-DOS.img" class="dl-btn">DOWNLOAD ISO</a>
+    </div>
+    <div class="product-box">
+        <h2 style="letter-spacing: 3px;">KOS 0.2.9 STABLE</h2>
+        <p>Legacy Assembly core. Optimized for minimal hardware overhead.</p>
+        <a href="https://github.com/MGKFN/BOOTAI/releases/download/OSSTABLE/kdos.iso" class="dl-btn">DOWNLOAD ISO</a>
     </div>
     <script>
-        const html = document.documentElement;
-        if (localStorage.getItem('theme')) html.setAttribute('data-theme', localStorage.getItem('theme'));
-        else if (window.matchMedia('(prefers-color-scheme: dark)').matches) html.setAttribute('data-theme', 'dark');
+        if (localStorage.getItem('theme')) document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
     </script>
 </body>
 </html>

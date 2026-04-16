@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BETA | BOOT AI</title>
+    <style>
+        :root { --bg: #fff; --text: #000; --warn: #ffaa00; }
+        [data-theme="dark"] { --bg: #0a0a0a; --text: #fff; }
+        body { background: var(--bg); color: var(--text); font-family: monospace; padding: 40px; transition: 0.4s; margin: 0; }
+        .caution { background: var(--warn); color: #000; padding: 15px; font-weight: 900; text-align: center; margin: 100px auto 40px; max-width: 800px; letter-spacing: 2px; }
+        .beta-card { border: 1px solid var(--warn); padding: 40px; margin: 20px auto; max-width: 800px; position: relative; }
+        .dl-beta { color: var(--warn); font-weight: bold; text-decoration: none; border: 1px solid var(--warn); padding: 10px 20px; display: inline-block; margin-top: 20px; transition: 0.3s; }
+        .dl-beta:hover { background: var(--warn); color: #000; }
+    </style>
+</head>
+<body>
+    <div class="caution">SYSTEM WARNING: UNSTABLE EXPERIMENTAL BUILDS DETECTED</div>
+    <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+        <h1 style="letter-spacing: 8px;">BETA HUB</h1>
+        <div class="beta-card" id="KOS BETA">
+            <h3>KOS Beta 0.1</h3>
+            <p>Testing: Wayland compositor hardening and secure kernel modules.</p>
+            <a href="https://github.com/MGKFN/BOOTAI/releases/download/OS/kdos.2.iso" class="dl-beta">DOWNLOAD IMAGE</a>
+        </div>
+        <div class="beta-card" id="kdos-beta">
+            <h3>K-DOS 1.0-BETA 1</h3>
+            <p>Testing: Multi-core logic and AHCI storage drivers.</p>
+            <a href="https://github.com/MGKFN/BOOTAI/releases/download/OS/kernel.img" class="dl-beta">DOWNLOAD IMAGE</a>
+        </div>
+        <a href="index.html" style="color:var(--text); text-decoration:none; display:block; margin-top:50px;">← ESCAPE TO MAIN CORE</a>
+    </div>
+    <script>
+        if (localStorage.getItem('theme')) document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
+    </script>
+</body>
+</html>

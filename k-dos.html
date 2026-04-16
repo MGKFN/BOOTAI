@@ -2,53 +2,62 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>K-DOS | BARE METAL MANIFEST</title>
+    <title>K-DOS | MANIFEST</title>
     <style>
-        body { background: #000; color: #fff; font-family: 'Courier New', monospace; margin: 0; padding: 0; line-height: 1.6; font-size: 19px; overflow-x: hidden; }
-        .banner { width: 100%; height: 350px; background: url('Banner.jpg') center/cover; border-bottom: 2px solid #333; transform: translateZ(0); }
-        .back { position: absolute; top: 30px; left: 30px; color: #fff; text-decoration: none; font-weight: bold; font-size: 12px; background: rgba(0,0,0,0.8); padding: 15px; border: 1px solid #fff; z-index: 10; transition: 0.3s; }
-        .back:hover { background: #fff; color: #000; }
+        :root { --bg: #000; --text: #fff; --accent: #222; --beta: #ffaa00; }
+        * { -webkit-font-smoothing: antialiased; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text); margin: 0; font-family: -apple-system, sans-serif; line-height: 1.8; font-size: 19px; transition: 0.4s; }
         
-        .wall { padding: 60px 40px; max-width: 1100px; margin: 0 auto; will-change: transform; transform: translateZ(0); }
-        h1, h2 { color: #fff; letter-spacing: 4px; text-transform: uppercase; border-bottom: 1px solid #222; padding-bottom: 10px; }
-        .feature-box { background: #0a0a0a; border: 1px solid #222; padding: 30px; margin: 40px 0; }
-        .logs { color: #00ff00; white-space: pre-wrap; margin-top: 50px; opacity: 0.8; }
-        .highlight { color: #fff; font-weight: bold; }
+        .banner { width: 100%; height: 350px; background: url('Banner.jpg') center/cover; border-bottom: 1px solid var(--accent); position: relative; transform: translateZ(0); }
+        .back { position: absolute; top: 30px; left: 30px; color: #fff; text-decoration: none; font-weight: bold; font-size: 12px; padding: 15px; border: 1px solid #fff; background: #000; z-index: 10; transition: 0.3s; }
+        .back:hover { background: #fff; color: #000; }
+
+        .content { max-width: 850px; margin: 0 auto; padding: 60px 20px 100px; }
+        h1 { font-size: 45px; letter-spacing: 8px; text-transform: uppercase; border-bottom: 1px solid var(--accent); padding-bottom: 20px; margin-bottom: 40px; }
+        
+        /* Dual Button Style */
+        .action-bar { display: flex; gap: 20px; margin-bottom: 60px; }
+        .btn { flex: 1; padding: 20px; text-align: center; text-decoration: none; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; font-size: 12px; transition: 0.3s; border: 2px solid #fff; color: #fff; }
+        .btn.stable { background: #fff; color: #000; }
+        .btn.beta { border-color: var(--beta); color: var(--beta); }
+        .btn:hover { opacity: 0.7; transform: translateY(-2px); }
+
+        h2 { color: #888; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; margin-top: 50px; border-left: 3px solid var(--text); padding-left: 15px; }
+        .footer-dl { margin-top: 100px; padding: 60px; border: 1px dashed #444; text-align: center; background: #050505; }
     </style>
 </head>
 <body>
-    <div class="banner"><a href="projects.html" class="back">[ ESC // RETURN ]</a></div>
+    <div class="banner"><a href="projects.html" class="back">← RETURN TO MANIFEST</a></div>
     
-    <div class="wall">
-        <h1>PROJECT: K-DOS ARCHITECTURE</h1>
-        
-        <div class="feature-box">
-            <p><span class="highlight">[DESCRIPTION]</span> K-DOS is a proprietary Bare Metal OS built in x86_64 Assembly. It bypasses all modern abstraction layers to communicate directly with the silicon.</p>
-            
-            <h2>CORE FEATURES</h2>
-            <ul>
-                <li><span class="highlight">ZERO-LATENCY SCHEDULER:</span> Custom round-robin engine eliminating Windows/Linux kernel overhead.</li>
-                <li><span class="highlight">MONOLITHIC MEMORY:</span> Direct Physical Memory Management (PMM) with zero disk-swapping.</li>
-                <li><span class="highlight">MGKFN BOOT PROTOCOL:</span> Custom Stage-1/2 bootloader sequence reaching prompt in < 1.5s.</li>
-                <li><span class="highlight">DIRECT VGA RENDERING:</span> Raw hex-code rendering bypassing compositor lag.</li>
-            </ul>
+    <div class="content">
+        <h1>K-DOS CORE</h1>
+
+        <div class="action-bar">
+            <a href="products.html#kdos-section" class="btn stable">STABLE RELEASE</a>
+            <a href="beta.html#kdos-beta" class="btn beta">BETA BUILDS</a>
         </div>
 
-        <div class="logs">
-[0.000000] MGKFN K-DOS BOOT SEQUENCE INITIATED...
-[0.000012] CPUID: VENDOR "GENUINEINTEL" | FAMILY 6 | MODEL 158
-[0.000045] ENTERING PROTECTED MODE... [OK]
-[0.000089] LOADING GLOBAL DESCRIPTOR TABLE (GDT) AT 0x00007E00
-[0.000156] ENABLING LONG MODE (EFER.LME)... [OK]
-[0.000344] INITIALIZING PML4 PAGING STRUCTURES AT 0x1000
-[0.000678] TOTAL DETECTED RAM: 16384MB
-[0.000945] REGISTERING IRQ0 (TIMER) AND IRQ1 (KEYBOARD)
-[0.001156] MAPPING FRAMEBUFFER AT 0xFD000000 (VGA 1024x768)
-[0.001456] AHCI HBA DETECTED AT 00:1F.2 | PORT 0 ACTIVE
-[0.001812] SYNCING CMOS CLOCK... TIME SET TO 2026-04-16
-[ASM] MOV RAX, CR3 | MOV RBX, PML4_ADDR | MOV CR3, RBX
-[ASM] TLB FLUSH COMPLETE. HLT LOOP IDLE.
-</div>
+        <div class="info-block">
+            <h2>ARCHITECTURE</h2>
+            <p>K-DOS is a bare-metal operating system written in x86_64 Assembly. By eliminating the Linux kernel and traditional drivers, it achieves near-instant hardware response times.</p>
+        </div>
+
+        <div class="info-block">
+            <h2>DEVELOPMENT STATUS</h2>
+            <p>Current version focuses on AHCI storage optimization and real-time process scheduling. Stable builds are verified on Intel-based hardware. Beta builds explore multi-core logic.</p>
+        </div>
+
+        <div class="footer-dl">
+            <p style="font-size: 14px; letter-spacing: 2px; color: #666; margin-bottom: 30px;">READY TO INITIALIZE?</p>
+            <div class="action-bar" style="margin-bottom: 0;">
+                <a href="products.html#kdos-section" class="btn stable">GET STABLE ISO</a>
+                <a href="beta.html#kdos-beta" class="btn beta">GET BETA ISO</a>
+            </div>
+        </div>
     </div>
+
+    <script>
+        if (localStorage.getItem('theme')) document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
+    </script>
 </body>
 </html>
