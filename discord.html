@@ -2,21 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>BOOT AI | Discord</title>
+    <title>BOT | BOOT AI</title>
     <style>
-        body { background: #050505; color: #fff; padding: 100px 40px; font-family: monospace; margin: 0; }
-        .back-btn { position: fixed; top: 30px; left: 30px; padding: 12px 24px; border: 1px solid #fff; color: #fff; text-decoration: none; font-size: 10px; font-weight: bold; letter-spacing: 2px; }
-        .box { max-width: 650px; margin: 0 auto; border: 1px solid #222; background: #0a0a0a; padding: 60px; text-align: center; }
-        .btn { display: inline-block; margin-top: 50px; padding: 20px 40px; border: 1px solid #fff; color: #fff; text-decoration: none; font-weight: bold; letter-spacing: 4px; }
-        .btn:hover { background: #fff; color: #000; }
+        :root { --bg: #fff; --text: #000; --accent: #eee; --discord: #5865F2; }
+        [data-theme="dark"] { --bg: #0a0a0a; --text: #fff; --accent: #1a1a1a; }
+        body { background: var(--bg); color: var(--text); font-family: sans-serif; transition: 0.4s; margin: 0; }
+        .banner { width: 100%; height: 350px; background: url('Banner.jpg') center/cover; border-bottom: 1px solid var(--accent); transform: translateZ(0); }
+        .back { position: absolute; top: 30px; left: 30px; color: #fff; text-decoration: none; font-weight: bold; font-size: 12px; padding: 15px; border: 1px solid #fff; background: #000; z-index: 10; }
+        .container { max-width: 800px; margin: 0 auto; padding: 60px 20px; }
+        h1 { font-size: 40px; letter-spacing: 5px; text-transform: uppercase; border-bottom: 1px solid var(--accent); padding-bottom: 20px; }
+        .dl-section { margin-top: 60px; padding: 40px; border: 2px solid var(--discord); text-align: center; }
+        .dl-link { display: inline-block; padding: 20px 50px; background: var(--discord); color: #fff; text-decoration: none; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
     </style>
 </head>
 <body>
-    <a href="index.html" class="back-btn">← BACK</a>
-    <div class="box">
-        <h1 style="letter-spacing: 8px;">COMMUNITY NODE</h1>
-        <p style="color: #666;">Establish connection to the official community server.</p>
-        <a href="https://discord.gg/t4sgzP8nQ" target="_blank" class="btn">JOIN SERVER</a>
+    <div class="banner"><a href="index.html" class="back">← RETURN HOME</a></div>
+    <div class="container">
+        <h1>MGKFN SYSTEM BOT</h1>
+        <p style="font-size: 19px; line-height: 1.8;">The MGKFN System Bot is a specialized automation tool that links hardware manifests with community servers. It handles secure log syncing, server management, and automated updates.</p>
+        <div class="dl-section">
+            <p style="margin-bottom: 30px; font-weight: bold; letter-spacing: 1px;">INITIALIZE AUTHORIZATION</p>
+            <a href="https://discord.com/oauth2/authorize?client_id=1492811731372867686&permissions=8&integration_type=0&scope=bot" class="dl-link">ADD TO SERVER</a>
+        </div>
     </div>
+    <script>if(localStorage.getItem('theme')) document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));</script>
 </body>
 </html>

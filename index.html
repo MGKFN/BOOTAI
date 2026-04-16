@@ -13,7 +13,7 @@
         .theme-btn { background: none; border: 1px solid var(--text); color: var(--text); padding: 8px 15px; cursor: pointer; font-weight: 900; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
         .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg); display: flex; flex-direction: column; align-items: center; justify-content: center; transform: translateY(-100%) translateZ(0); transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); z-index: 9000; }
         .menu-overlay.active { transform: translateY(0); }
-        .menu-overlay a { text-decoration: none; color: var(--text); font-size: 35px; font-weight: 900; letter-spacing: 8px; text-transform: uppercase; margin: 15px 0; }
+        .menu-overlay a { text-decoration: none; color: var(--text); font-size: 30px; font-weight: 900; letter-spacing: 8px; text-transform: uppercase; margin: 15px 0; }
         .hero { width: 100%; height: 450px; background: url('Banner.jpg') center/cover; margin-top: 80px; transform: translateZ(0); }
         .section { padding: 100px 40px; text-align: center; max-width: 800px; margin: 0 auto; }
         .btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 650px; margin: 50px auto 0; }
@@ -33,20 +33,21 @@
         </div>
     </nav>
     <div class="menu-overlay" id="navMenu">
-        <a href="index.html">HOME</a><a href="projects.html">MANIFEST</a><a href="products.html">PRODUCTS</a><a href="beta.html">BETA</a><a href="social.html">SOCIAL</a>
+        <a href="index.html">HOME</a>
+        <a href="projects.html">MANIFEST</a>
+        <a href="discord.html">BOT</a>
+        <a href="products.html">PRODUCTS</a>
+        <a href="beta.html">BETA</a>
+        <a href="social.html">SOCIAL</a>
     </div>
     <div class="hero"></div>
     <section class="section">
-        <h2>SNEAK PEEK</h2>
-        <p>Explore raw architectural logs and community builds that depart from modern software bloat.</p>
-    </section>
-    <section class="section" style="background: var(--card); border-top: 1px solid var(--accent);">
         <h2>DIRECTORY</h2>
         <div class="btn-grid">
             <a href="projects.html" class="nav-btn">PROJECTS</a>
+            <a href="discord.html" class="nav-btn">SYSTEM BOT</a>
             <a href="products.html" class="nav-btn">PRODUCTS</a>
             <a href="beta.html" class="nav-btn" style="border-color: #ffaa00; color: #ffaa00;">BETA HUB</a>
-            <a href="social.html" class="nav-btn">SOCIAL</a>
         </div>
     </section>
     <script>

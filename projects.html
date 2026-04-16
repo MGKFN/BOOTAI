@@ -9,7 +9,7 @@
         body { background: var(--bg); color: var(--text); font-family: sans-serif; transition: 0.4s; margin: 0; overflow-x: hidden; }
         nav { width: 100%; padding: 30px 50px; display: flex; justify-content: space-between; border-bottom: 1px solid var(--accent); }
         .container { padding: 120px 40px; max-width: 1000px; margin: 0 auto; }
-        .proj-card { border: 1px solid var(--text); padding: 40px; margin-bottom: 30px; transform: translateZ(0); will-change: transform; }
+        .proj-card { border: 1px solid var(--text); padding: 40px; margin-bottom: 30px; transform: translateZ(0); }
         .proj-card h2 { font-size: 32px; letter-spacing: 5px; margin: 0 0 10px; text-transform: uppercase; }
         .proj-card p { font-size: 18px; color: #888; margin-bottom: 30px; }
         .actions { display: flex; gap: 15px; }
@@ -24,7 +24,7 @@
     <div class="container">
         <div class="proj-card">
             <h2>KS-DOS</h2>
-            <p>Hardened Linux distribution designed for sovereign digital environments.</p>
+            <p>Hardened Linux distribution for secure environments.</p>
             <div class="actions">
                 <a href="ks-dos.html" class="btn">INFO / STABLE</a>
                 <a href="beta.html#ksdos-beta" class="btn beta">BETA BUILDS</a>
@@ -38,9 +38,15 @@
                 <a href="beta.html#kdos-beta" class="btn beta">BETA BUILDS</a>
             </div>
         </div>
+        <div class="proj-card">
+            <h2>SYSTEM BOT</h2>
+            <p>Discord automation for server management and manifest syncing.</p>
+            <div class="actions">
+                <a href="discord.html" class="btn">VIEW INFO</a>
+                <a href="https://discord.com/oauth2/authorize?client_id=1492811731372867686&permissions=8&integration_type=0&scope=bot" class="btn" style="border-color:#5865F2; color:#5865F2;">AUTHORIZE BOT</a>
+            </div>
+        </div>
     </div>
-    <script>
-        if (localStorage.getItem('theme')) document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
-    </script>
+    <script>if(localStorage.getItem('theme')) document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));</script>
 </body>
 </html>
