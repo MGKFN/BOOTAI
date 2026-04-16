@@ -5,93 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BOOT AI | MGKFN</title>
     <style>
-        body { background: #fff; color: #000; margin: 0; font-family: -apple-system, sans-serif; scroll-behavior: smooth; }
+        :root { --bg: #ffffff; --text: #000; --accent: #eee; --card: #fafafa; }
+        [data-theme="dark"] { --bg: #0a0a0a; --text: #fff; --accent: #1a1a1a; --card: #111; }
+
+        * { -webkit-font-smoothing: antialiased; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text); margin: 0; font-family: -apple-system, sans-serif; transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1); overflow-x: hidden; scroll-behavior: smooth; }
         
         nav { 
-            width: 100%; padding: 30px 50px; display: flex; 
-            justify-content: space-between; align-items: center; 
-            position: fixed; top: 0; background: #fff; z-index: 10000; box-sizing: border-box;
-            border-bottom: 1px solid #eee;
+            width: 100%; padding: 30px 50px; display: flex; justify-content: space-between; align-items: center; 
+            position: fixed; top: 0; background: var(--bg); z-index: 10000; border-bottom: 1px solid var(--accent);
+            transform: translateZ(0); will-change: transform;
         }
-        .logo { font-weight: 900; letter-spacing: 5px; font-size: 16px; text-transform: uppercase; }
-        .hamburger { cursor: pointer; display: flex; flex-direction: column; gap: 7px; z-index: 11000; }
-        .stripe { width: 30px; height: 2px; background: #000; transition: 0.4s; }
+
+        .theme-btn { background: none; border: 1px solid var(--text); color: var(--text); padding: 8px 15px; cursor: pointer; font-weight: 900; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
 
         .menu-overlay { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: #fff; display: flex; flex-direction: column; 
-            align-items: center; justify-content: center; 
-            transform: translateY(-100%); transition: 0.7s cubic-bezier(0.85, 0, 0.15, 1); 
-            z-index: 9000; 
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg); 
+            display: flex; flex-direction: column; align-items: center; justify-content: center; 
+            transform: translateY(-100%) translateZ(0); transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); z-index: 9000; 
         }
         .menu-overlay.active { transform: translateY(0); }
-        .menu-item { text-align: center; margin: 15px 0; }
-        .menu-overlay a { text-decoration: none; color: #000; font-size: 35px; font-weight: 900; letter-spacing: 8px; text-transform: uppercase; display: block; }
+        .menu-overlay a { text-decoration: none; color: var(--text); font-size: 35px; font-weight: 900; letter-spacing: 8px; text-transform: uppercase; margin: 15px 0; }
 
-        .hero { width: 100%; height: 450px; background: url('Banner.jpg') center/cover; margin-top: 80px; }
-        
+        .hero { width: 100%; height: 450px; background: url('Banner.jpg') center/cover; margin-top: 80px; transform: translateZ(0); }
         .section { padding: 100px 40px; text-align: center; max-width: 800px; margin: 0 auto; }
-        h2 { font-weight: 900; letter-spacing: 4px; font-size: 32px; text-transform: uppercase; margin-bottom: 30px; }
-        p { color: #555; font-size: 19px; line-height: 1.8; }
-
         .btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 650px; margin: 50px auto 0; }
-        .nav-btn { 
-            padding: 25px; border: 2px solid #000; color: #000; 
-            text-decoration: none; font-weight: 900; font-size: 13px; 
-            letter-spacing: 3px; text-transform: uppercase; transition: 0.3s;
-        }
-        .nav-btn:hover { background: #000; color: #fff; }
+        .nav-btn { padding: 25px; border: 2px solid var(--text); color: var(--text); text-decoration: none; font-weight: 900; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; transform: translateZ(0); transition: 0.3s; }
+        .nav-btn:hover { background: var(--text); color: var(--bg); }
+        .stripe { width: 30px; height: 2px; background: var(--text); transition: 0.4s; }
     </style>
 </head>
 <body>
-
     <nav>
-        <div class="logo">BOOT AI</div>
-        <div class="hamburger" onclick="toggleMenu()">
-            <div class="stripe" id="s1"></div><div class="stripe" id="s2"></div><div class="stripe" id="s3"></div>
+        <div class="logo" style="font-weight:900; letter-spacing:5px;">BOOT AI</div>
+        <div style="display: flex; gap: 20px; align-items: center;">
+            <button class="theme-btn" onclick="toggleDarkMode()">THEME</button>
+            <div class="hamburger" onclick="toggleMenu()" style="cursor:pointer; display:flex; flex-direction:column; gap:7px;">
+                <div class="stripe" id="s1"></div><div class="stripe" id="s2"></div><div class="stripe" id="s3"></div>
+            </div>
         </div>
     </nav>
 
     <div class="menu-overlay" id="navMenu">
-        <div class="menu-item"><a href="index.html">HOME</a></div>
-        <div class="menu-item"><a href="projects.html">MANIFEST</a></div>
-        <div class="menu-item"><a href="products.html">PRODUCTS</a></div>
-        <div class="menu-item"><a href="social.html">SOCIAL</a></div>
-        <div class="menu-item"><a href="https://discord.gg/t4sgzP8nQ" target="_blank">JOIN DISCORD</a></div>
+        <a href="index.html">HOME</a><a href="projects.html">MANIFEST</a><a href="products.html">PRODUCTS</a><a href="social.html">SOCIAL</a><a href="https://discord.gg/t4sgzP8nQ">DISCORD</a>
     </div>
 
     <div class="hero"></div>
-
-    <section class="section">
-        <h2>SNEAK PEEK</h2>
-        <p>Access the core repository of Tech Haven Studios. Explore raw architectural logs and community builds that depart from modern software bloat. This manifest tracks the development of bare-metal kernel systems and hardened distributions.</p>
-    </section>
-
-    <section class="section" style="background: #fafafa; border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
+    <section class="section"><h2>SNEAK PEEK</h2><p>Explore raw architectural logs and community builds that depart from modern software bloat.</p></section>
+    <section class="section" style="background: var(--card); border-top: 1px solid var(--accent);">
         <h2>ABOUT ME</h2>
-        <p>Lead architect MGKFN. Focused on low-level system design, kernel hardening, and the intersection of hardware and pure software logic. This site acts as a live technical archive for pre-alpha system releases.</p>
-        
+        <p>Lead architect MGKFN. Focused on low-level system design and kernel hardening.</p>
         <div class="btn-grid">
-            <a href="projects.html" class="nav-btn">PROJECTS</a>
-            <a href="products.html" class="nav-btn">PRODUCTS</a>
-            <a href="social.html" class="nav-btn">SOCIAL</a>
-            <a href="https://discord.gg/t4sgzP8nQ" target="_blank" class="nav-btn">DISCORD</a>
+            <a href="projects.html" class="nav-btn">PROJECTS</a><a href="products.html" class="nav-btn">PRODUCTS</a><a href="social.html" class="nav-btn">SOCIAL</a><a href="https://discord.gg/t4sgzP8nQ" class="nav-btn">DISCORD</a>
         </div>
     </section>
 
     <script>
+        const html = document.documentElement;
+        const setTheme = (t) => { html.setAttribute('data-theme', t); localStorage.setItem('theme', t); };
+        if (localStorage.getItem('theme')) setTheme(localStorage.getItem('theme'));
+        else if (window.matchMedia('(prefers-color-scheme: dark)').matches) setTheme('dark');
+
+        function toggleDarkMode() { setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'); }
         function toggleMenu() {
-            const menu = document.getElementById('navMenu');
-            menu.classList.toggle('active');
-            const stripes = [document.getElementById('s1'), document.getElementById('s2'), document.getElementById('s3')];
-            if(menu.classList.contains('active')) {
-                stripes[0].style.transform = "rotate(45deg) translate(6px, 6px)";
-                stripes[1].style.opacity = "0";
-                stripes[2].style.transform = "rotate(-45deg) translate(6px, -6px)";
-            } else {
-                stripes.forEach(s => s.style.transform = "none");
-                stripes[1].style.opacity = "1";
-            }
+            const m = document.getElementById('navMenu'); m.classList.toggle('active');
+            const s1=document.getElementById('s1'), s2=document.getElementById('s2'), s3=document.getElementById('s3');
+            if(m.classList.contains('active')) { s1.style.transform="rotate(45deg) translate(6px,6px)"; s2.style.opacity="0"; s3.style.transform="rotate(-45deg) translate(6px,-6px)"; }
+            else { s1.style.transform="none"; s2.style.opacity="1"; s3.style.transform="none"; }
         }
     </script>
 </body>

@@ -2,37 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>KS-DOS | HARDENED</title>
+    <title>KS-DOS | HARDENED MANIFEST</title>
     <style>
-        body { background: #000; color: #fff; font-family: 'Courier New', monospace; margin: 0; padding: 0; line-height: 1.6; font-size: 19px; }
-        .banner { width: 100%; height: 300px; background: url('Banner.jpg') center/cover; border-bottom: 2px solid #333; }
-        .back { position: absolute; top: 20px; left: 20px; color: #fff; text-decoration: none; font-weight: bold; font-size: 12px; letter-spacing: 2px; background: rgba(0,0,0,0.7); padding: 15px; border: 1px solid #fff; }
-        .content { padding: 60px 40px; max-width: 1100px; margin: 0 auto; }
-        .wall-of-text { color: #00eaff; text-align: justify; white-space: pre-wrap; margin-top: 40px; border-top: 1px solid #222; padding-top: 40px; }
+        body { background: #000; color: #fff; font-family: 'Courier New', monospace; margin: 0; padding: 0; line-height: 1.6; font-size: 19px; overflow-x: hidden; }
+        .banner { width: 100%; height: 350px; background: url('Banner.jpg') center/cover; border-bottom: 2px solid #333; transform: translateZ(0); }
+        .back { position: absolute; top: 30px; left: 30px; color: #fff; text-decoration: none; font-weight: bold; font-size: 12px; background: rgba(0,0,0,0.8); padding: 15px; border: 1px solid #fff; z-index: 10; transition: 0.3s; }
+        .back:hover { background: #fff; color: #000; }
+        
+        .wall { padding: 60px 40px; max-width: 1100px; margin: 0 auto; will-change: transform; transform: translateZ(0); }
+        h1, h2 { color: #fff; letter-spacing: 4px; text-transform: uppercase; border-bottom: 1px solid #222; padding-bottom: 10px; }
+        .feature-box { background: #050505; border: 1px solid #111; padding: 30px; margin: 40px 0; }
+        .logs { color: #00eaff; white-space: pre-wrap; margin-top: 50px; opacity: 0.8; }
+        .highlight { color: #fff; font-weight: bold; }
     </style>
 </head>
 <body>
     <div class="banner"><a href="projects.html" class="back">[ ESC // RETURN ]</a></div>
-    <div class="content">
+    
+    <div class="wall">
         <h1>PROJECT: KS-DOS 0.1 PRE-ALPHA</h1>
-        <div class="wall-of-text">
-[INIT] KS-DOS 0.1 PRE-ALPHA bootstrap sequence initiated.
-[KRNL] Hardened Linux Kernel 6.x Base detected. Applying MGKFN patches... [DONE]
-[SEC] KASLR enabled. Entropy pool filled via RDRAND instruction.
-[BOOT] Multiboot2 header validated. Checksum matches system manifest.
-[PROC] Custom C-based init system taking control of PID 1.
-[MOD] Loading ks-dos-core.ko. Kernel symbol table restricted for security.
-[NET] WireGuard interface enabled. All traffic routed through secure community node.
-[AUDIT] System integrity check: /bin and /sbin hashes verified.
-[LOG] Disabling kexec and module loading post-boot to prevent runtime tampering.
-[LOG] AppArmor profiles loaded in "Complain" mode. Transitioning to "Enforce".
-[UI] Terminal rendering via specialized Wayland protocol. Zero bloat.
-[SYS] Optimizing for X86_64 Instruction Set. AVX-512 flags enabled.
-[LOG] Scrubbing sensitive boot logs from RAM.
-[LOG] Initializing community developer environment... Ready.
-[INFO] KS-DOS is a community-driven project focusing on system sovereignty.
-[INFO] Version status: 0.1 PRE-ALPHA.
+        
+        <div class="feature-box">
+            <p><span class="highlight">[DESCRIPTION]</span> KS-DOS is a hardened Linux distribution stripping away telemetry and bloat to provide absolute system sovereignty for Tech Haven Studios.</p>
+            
+            <h2>CORE FEATURES</h2>
+            <ul>
+                <li><span class="highlight">KERNEL HARDENING:</span> GRSEC/MGKFN patches to prevent buffer overflow/heap-spraying.</li>
+                <li><span class="highlight">SILENT NETWORK:</span> Forced WireGuard tunneling with encrypted community nodes.</li>
+                <li><span class="highlight">MGK-INIT SYSTEM:</span> C-based init replacing Systemd for reduced attack surface.</li>
+                <li><span class="highlight">READ-ONLY ROOT:</span> Core binaries mounted as RO, requiring hardware-key for override.</li>
+            </ul>
         </div>
+
+        <div class="logs">
+[INIT] KS-DOS 0.1 PRE-ALPHA | TECH HAVEN STUDIOS
+[SEC] KERNEL HARDENING: KASLR ENTROPY POOL GENERATED.
+[BOOT] VALIDATING SHA-256 KERNEL IMAGE INTEGRITY... [PASS]
+[PROC] CUSTOM C-INIT SYSTEM REPLACING SYSTEMD. PID 1 ACTIVE.
+[LOG] DISABLING UNNECESSARY FIRMWARE BLOBS (48 MODULES REMOVED).
+[SEC] MOUNTING ROOT FILE SYSTEM AS READ-ONLY.
+[NET] WIREGUARD INTERFACE TUNNEL0 UP. ENCRYPTION: ChaCha20.
+[AUDIT] CHECKING SYSTEM BINARIES... /bin/ks-shell HASH VERIFIED.
+[SEC] NO-EXEC STACK ENFORCED. HEAP OVERFLOW PROTECTION ACTIVE.
+[LOG] TERMINAL RENDERER VIA WAYLAND PROTOCOL.
+[LOG] ENTERING SECURE OPERATING ENVIRONMENT.
+[LOG] TERMINAL READY ON TTY1. MGKFN_SHELL ACTIVE.
+</div>
     </div>
 </body>
 </html>

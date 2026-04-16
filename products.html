@@ -4,35 +4,29 @@
     <meta charset="UTF-8">
     <title>PRODUCTS | MGKFN</title>
     <style>
-        body { background: #fff; color: #000; margin: 0; font-family: -apple-system, sans-serif; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
-        nav { width: 100%; padding: 30px 50px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; box-sizing: border-box; }
-        .logo { font-weight: 900; letter-spacing: 5px; font-size: 16px; text-transform: uppercase; }
-        .back-link { text-decoration: none; color: #888; font-size: 12px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; }
-
-        .product-hero { padding: 100px 20px; text-align: center; max-width: 800px; }
-        h1 { font-size: 40px; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 40px; }
-        
-        .bot-card { width: 100%; max-width: 600px; border: 2px solid #000; padding: 50px; text-align: left; background: #fafafa; border-radius: 2px; }
-        .bot-card h2 { font-size: 28px; margin: 0; letter-spacing: 3px; font-weight: 900; }
-        .bot-peek { color: #555; font-size: 16px; line-height: 1.6; margin: 20px 0; }
-        
-        .install-btn { display: inline-block; padding: 20px 40px; background: #000; color: #fff; text-decoration: none; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; transition: 0.3s; }
-        .install-btn:hover { background: #333; transform: scale(1.02); }
+        :root { --bg: #fff; --text: #000; --accent: #eee; --card: #fafafa; }
+        [data-theme="dark"] { --bg: #0a0a0a; --text: #fff; --accent: #1a1a1a; --card: #111; }
+        body { background: var(--bg); color: var(--text); margin: 0; font-family: sans-serif; transition: 0.4s; }
+        nav { width: 100%; padding: 30px 50px; display: flex; justify-content: space-between; border-bottom: 1px solid var(--accent); }
+        .container { padding: 100px 20px; text-align: center; max-width: 800px; margin: 0 auto; }
+        .bot-card { border: 2px solid var(--text); padding: 50px; text-align: left; background: var(--card); will-change: transform; transform: translateZ(0); }
+        .install-btn { display: inline-block; padding: 20px 40px; background: var(--text); color: var(--bg); text-decoration: none; font-weight: 900; text-transform: uppercase; margin-top: 20px; }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="logo">BOOT AI</div>
-        <a href="index.html" class="back-link">← RETURN TO CORE</a>
-    </nav>
-
-    <div class="product-hero">
+    <nav><div style="font-weight:900; letter-spacing:5px;">BOOT AI</div><a href="index.html" style="color:var(--text); text-decoration:none; font-size:12px; font-weight:bold;">← RETURN</a></nav>
+    <div class="container">
         <h1>PRODUCTS</h1>
         <div class="bot-card">
             <h2>MGKFN SYSTEM BOT</h2>
-            <p class="bot-peek">A specialized Discord automation tool designed for server management, technical log retrieval, and community synchronization. Built to integrate directly with the KS-DOS and K-DOS development cycles.</p>
+            <p>Discord automation for server management and technical log synchronization.</p>
             <a href="https://discord.com/oauth2/authorize?client_id=1492811731372867686&permissions=8&integration_type=0&scope=bot" class="install-btn">INSTALL BOT</a>
         </div>
     </div>
+    <script>
+        const html = document.documentElement;
+        if (localStorage.getItem('theme')) html.setAttribute('data-theme', localStorage.getItem('theme'));
+        else if (window.matchMedia('(prefers-color-scheme: dark)').matches) html.setAttribute('data-theme', 'dark');
+    </script>
 </body>
 </html>
