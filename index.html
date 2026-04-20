@@ -3,65 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BOOT AI | MGKFN</title>
+    <title>BOOT AI // CORE</title>
     <style>
-        :root { --bg: #ffffff; --text: #000; --accent: #eee; --card: #fafafa; }
-        [data-theme="dark"] { --bg: #0a0a0a; --text: #fff; --accent: #1a1a1a; --card: #111; }
-        * { -webkit-font-smoothing: antialiased; box-sizing: border-box; }
-        body { background: var(--bg); color: var(--text); margin: 0; font-family: -apple-system, sans-serif; transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1); overflow-x: hidden; scroll-behavior: smooth; }
-        nav { width: 100%; padding: 30px 50px; display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; background: var(--bg); z-index: 10000; border-bottom: 1px solid var(--accent); transform: translateZ(0); }
-        .theme-btn { background: none; border: 1px solid var(--text); color: var(--text); padding: 8px 15px; cursor: pointer; font-weight: 900; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
-        .menu-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg); display: flex; flex-direction: column; align-items: center; justify-content: center; transform: translateY(-100%) translateZ(0); transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1); z-index: 9000; }
-        .menu-overlay.active { transform: translateY(0); }
-        .menu-overlay a { text-decoration: none; color: var(--text); font-size: 30px; font-weight: 900; letter-spacing: 8px; text-transform: uppercase; margin: 15px 0; }
-        .hero { width: 100%; height: 450px; background: url('Banner.jpg') center/cover; margin-top: 80px; transform: translateZ(0); }
-        .section { padding: 100px 40px; text-align: center; max-width: 800px; margin: 0 auto; }
-        .btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 650px; margin: 50px auto 0; }
-        .nav-btn { padding: 25px; border: 2px solid var(--text); color: var(--text); text-decoration: none; font-weight: 900; font-size: 13px; letter-spacing: 3px; text-transform: uppercase; transform: translateZ(0); transition: 0.3s; }
-        .nav-btn:hover { background: var(--text); color: var(--bg); }
-        .stripe { width: 30px; height: 2px; background: var(--text); transition: 0.4s; }
+        :root { --accent: #00f2ff; --glass: rgba(255, 255, 255, 0.05); --border: rgba(0, 242, 255, 0.2); }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: #05070a; color: #fff; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+
+        /* METALLIC CIRCUITRY BACKGROUND */
+        .bg-layer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background: radial-gradient(circle at 20% 20%, rgba(0, 242, 255, 0.05) 0%, transparent 40%),
+                        radial-gradient(circle at 80% 80%, rgba(147, 51, 234, 0.05) 0%, transparent 40%);
+            background-color: #05070a; }
+        .grid-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+            background-size: 40px 40px; opacity: 0.2; }
+
+        /* FIXED HAMBURGER & NAV */
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; 
+              backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; background: rgba(5,7,10,0.8); }
+        .logo { font-weight: 900; color: var(--accent); letter-spacing: 2px; }
+        .menu-btn { font-size: 28px; cursor: pointer; color: var(--accent); background: none; border: none; }
+        
+        .nav-links { position: fixed; top: 0; right: -100%; width: 100%; max-width: 300px; height: 100vh; 
+                     background: rgba(10, 15, 20, 0.98); backdrop-filter: blur(30px); border-left: 1px solid var(--border); 
+                     padding: 80px 40px; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); z-index: 2000; }
+        .nav-links.active { right: 0; box-shadow: -20px 0 50px rgba(0,0,0,0.8); }
+        .nav-links a { display: block; color: #fff; text-decoration: none; font-size: 1.1rem; margin-bottom: 25px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent); padding-left: 10px; }
+
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 60px 0; }
+        header { text-align: center; margin-bottom: 80px; }
+        h1 { font-size: clamp(2.5rem, 10vw, 5rem); font-weight: 900; letter-spacing: -2px; text-transform: uppercase; }
+
+        /* LIQUID GLASS BUTTONS */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .card { position: relative; background: var(--glass); border: 1px solid var(--border); 
+                backdrop-filter: blur(20px) saturate(150%); padding: 60px 40px; border-radius: 2px; 
+                text-decoration: none; color: #fff; transition: 0.4s; overflow: hidden; }
+        .card::before { content: ""; position: absolute; top: -100%; left: -100%; width: 300%; height: 300%; 
+                         background: linear-gradient(120deg, transparent, rgba(0, 242, 255, 0.1), transparent); 
+                         transform: rotate(45deg); transition: 0.8s; pointer-events: none; }
+        .card:hover { transform: translateY(-10px); border-color: var(--accent); background: rgba(0, 242, 255, 0.05); }
+        .card:hover::before { top: 100%; left: 100%; }
+        .card h3 { font-size: 1.5rem; letter-spacing: 3px; margin-bottom: 10px; text-transform: uppercase; color: var(--accent); }
+        .card p { opacity: 0.6; font-size: 0.9rem; line-height: 1.6; }
+
+        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
+    <div class="bg-layer"></div>
+    <div class="grid-overlay"></div>
     <nav>
-        <div style="font-weight:900; letter-spacing:5px;">BOOT AI</div>
-        <div style="display: flex; gap: 20px; align-items: center;">
-            <button class="theme-btn" onclick="toggleDarkMode()">THEME</button>
-            <div class="hamburger" onclick="toggleMenu()" style="cursor:pointer; display:flex; flex-direction:column; gap:7px;">
-                <div class="stripe" id="s1"></div><div class="stripe" id="s2"></div><div class="stripe" id="s3"></div>
-            </div>
+        <div class="logo">BOOT_AI</div>
+        <button class="menu-btn" onclick="toggle()">☰</button>
+        <div class="nav-links" id="menuSide">
+            <a href="#" onclick="toggle()" style="font-size: 35px; color: var(--accent); margin-bottom: 50px;">×</a>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="manifest.html">Manifest</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="beta.html">Beta Hub</a>
+            <a href="socials.html">Socials</a>
         </div>
     </nav>
-    <div class="menu-overlay" id="navMenu">
-        <a href="index.html">HOME</a>
-        <a href="projects.html">MANIFEST</a>
-        <a href="discord.html">BOT</a>
-        <a href="products.html">PRODUCTS</a>
-        <a href="beta.html">BETA</a>
-        <a href="social.html">SOCIAL</a>
-    </div>
-    <div class="hero"></div>
-    <section class="section">
-        <h2>DIRECTORY</h2>
-        <div class="btn-grid">
-            <a href="projects.html" class="nav-btn">PROJECTS</a>
-            <a href="discord.html" class="nav-btn">SYSTEM BOT</a>
-            <a href="products.html" class="nav-btn">PRODUCTS</a>
-            <a href="beta.html" class="nav-btn" style="border-color: #ffaa00; color: #ffaa00;">BETA HUB</a>
+
+    <div class="container">
+        <header><h1>CORE_INTERFACE</h1></header>
+        <div class="grid">
+            <a href="products.html" class="card"><h3>Products</h3><p>Active software deployments and tools.</p></a>
+            <a href="manifest.html" class="card"><h3>Manifest</h3><p>System logs, version history, and blueprints.</p></a>
+            <a href="gallery.html" class="card"><h3>Gallery</h3><p>Visual interface archive and screenshots.</p></a>
         </div>
-    </section>
+    </div>
+
     <script>
-        const html = document.documentElement;
-        const setTheme = (t) => { html.setAttribute('data-theme', t); localStorage.setItem('theme', t); };
-        if (localStorage.getItem('theme')) setTheme(localStorage.getItem('theme'));
-        else if (window.matchMedia('(prefers-color-scheme: dark)').matches) setTheme('dark');
-        function toggleDarkMode() { setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'); }
-        function toggleMenu() {
-            const m = document.getElementById('navMenu'); m.classList.toggle('active');
-            const s1=document.getElementById('s1'), s2=document.getElementById('s2'), s3=document.getElementById('s3');
-            if(m.classList.contains('active')) { s1.style.transform="rotate(45deg) translate(6px,6px)"; s2.style.opacity="0"; s3.style.transform="rotate(-45deg) translate(6px,-6px)"; }
-            else { s1.style.transform="none"; s2.style.opacity="1"; s3.style.transform="none"; }
-        }
+        function toggle() { document.getElementById('menuSide').classList.toggle('active'); }
     </script>
 </body>
 </html>

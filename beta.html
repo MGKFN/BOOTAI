@@ -1,36 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>BETA | BOOT AI</title>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BETA // HUB</title>
     <style>
-        :root { --bg: #fff; --text: #000; --warn: #ffaa00; }
-        [data-theme="dark"] { --bg: #0a0a0a; --text: #fff; }
-        body { background: var(--bg); color: var(--text); font-family: monospace; padding: 40px; transition: 0.4s; margin: 0; }
-        .caution { background: var(--warn); color: #000; padding: 15px; font-weight: 900; text-align: center; margin: 100px auto 40px; max-width: 800px; letter-spacing: 2px; }
-        .beta-card { border: 1px solid var(--warn); padding: 40px; margin: 20px auto; max-width: 800px; position: relative; }
-        .dl-beta { color: var(--warn); font-weight: bold; text-decoration: none; border: 1px solid var(--warn); padding: 10px 20px; display: inline-block; margin-top: 20px; transition: 0.3s; }
-        .dl-beta:hover { background: var(--warn); color: #000; }
+        :root { --accent: #00f2ff; --glass: rgba(255, 255, 255, 0.03); --border: rgba(0, 242, 255, 0.2); }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: #05070a; color: #fff; font-family: 'Inter', sans-serif; min-height: 100vh; }
+        .bg-layer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 20% 20%, rgba(0, 242, 255, 0.05) 0%, transparent 40%), radial-gradient(circle at 80% 80%, rgba(147, 51, 234, 0.05) 0%, transparent 40%); }
+        .grid-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 40px 40px; opacity: 0.15; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); background: rgba(5,7,10,0.8); }
+        .logo { font-weight: 900; color: var(--accent); letter-spacing: 2px; text-decoration: none; }
+        .container { max-width: 800px; margin: 60px auto; padding: 0 5%; }
+        h1 { font-size: 3rem; font-weight: 900; letter-spacing: 2px; margin-bottom: 40px; }
+        .beta-card { background: var(--glass); border: 1px solid var(--border); padding: 30px; margin-bottom: 20px; backdrop-filter: blur(20px); border-radius: 4px; display: flex; justify-content: space-between; align-items: center; }
+        .dl-btn { background: var(--accent); color: #000; padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 2px; transition: 0.3s; }
+        .dl-btn:hover { background: #fff; box-shadow: 0 0 15px var(--accent); }
     </style>
 </head>
 <body>
-    <div class="caution">SYSTEM WARNING: UNSTABLE EXPERIMENTAL BUILDS DETECTED</div>
-    <div style="text-align: center; max-width: 800px; margin: 0 auto;">
-        <h1 style="letter-spacing: 8px;">BETA HUB</h1>
-        <div class="beta-card" id="KOS BETA">
-            <h3>KOS Beta 0.1</h3>
-            <p>Testing: Wayland compositor hardening and secure kernel modules.</p>
-            <a href="https://github.com/MGKFN/BOOTAI/releases/download/OS/kdos.2.iso" class="dl-beta">DOWNLOAD IMAGE</a>
-        </div>
-        <div class="beta-card" id="kdos-beta">
-            <h3>K-DOS 1.0-BETA 1</h3>
-            <p>Testing: Multi-core logic and AHCI storage drivers.</p>
-            <a href="https://github.com/MGKFN/BOOTAI/releases/download/OS/kernel.img" class="dl-beta">DOWNLOAD IMAGE</a>
-        </div>
-        <a href="index.html" style="color:var(--text); text-decoration:none; display:block; margin-top:50px;">← ESCAPE TO MAIN CORE</a>
+    <div class="bg-layer"></div><div class="grid-overlay"></div>
+    <nav><a href="index.html" class="logo">BOOT_AI</a></nav>
+    <div class="container">
+        <h1>BETA_HUB</h1>
+        <div class="beta-card"><div><h3>KOS 0.2.9 beta</h3><p>V0.2.9</p></div><a href="https://github.com/MGKFN/BOOTAI/releases/download/OS/kdos.2.iso" class="dl-btn">DOWNLOAD</a></div>
+        <div class="beta-card"><div><h3>KDOS 1.0 B</h3><p>V1.0.B Build</p></div><a href="https://github.com/MGKFN/BOOTAI/releases/download/OS/kernel.img" class="dl-btn">DOWNLOAD</a></div>
+        <div class="beta-card"><div><h3>K-DOS DESKTOP</h3><p>Experimental GUI Layer</p></div><a href="https://github.com/MGKFN/BOOTAI/releases/download/OS/kosIDK.img" class="dl-btn">DOWNLOAD</a></div>
+        <div class="beta-card"><div><h3>KOS CORE</h3><p>Latest Kernel Pre-release</p></div><a href="#" class="dl-btn">DOWNLOAD</a></div>
     </div>
-    <script>
-        if (localStorage.getItem('theme')) document.documentElement.setAttribute('data-theme', localStorage.getItem('theme'));
-    </script>
 </body>
 </html>

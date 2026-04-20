@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GALLERY // BOOT AI</title>
+    <style>
+        :root { --accent: #00f2ff; --glass: rgba(255, 255, 255, 0.03); --border: rgba(0, 242, 255, 0.2); }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background: #05070a; color: #fff; font-family: 'Inter', sans-serif; min-height: 100vh; }
+        .bg-layer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 20% 20%, rgba(0, 242, 255, 0.05) 0%, transparent 40%), radial-gradient(circle at 80% 80%, rgba(147, 51, 234, 0.05) 0%, transparent 40%); }
+        .grid-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 40px 40px; opacity: 0.15; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; background: rgba(5,7,10,0.8); }
+        .logo { font-weight: 900; color: var(--accent); letter-spacing: 2px; text-decoration: none;}
+        .menu-btn { font-size: 28px; cursor: pointer; color: var(--accent); background: none; border: none; }
+        .nav-links { position: fixed; top: 0; right: -100%; width: 100%; max-width: 300px; height: 100vh; background: rgba(10, 15, 20, 0.98); backdrop-filter: blur(30px); border-left: 1px solid var(--border); padding: 80px 40px; transition: 0.4s; z-index: 2000; }
+        .nav-links.active { right: 0; }
+        .nav-links a { display: block; color: #fff; text-decoration: none; font-size: 1.1rem; margin-bottom: 25px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent); padding-left: 10px; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 60px 5%; }
+        h1 { margin-bottom: 40px; font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; letter-spacing: 2px; text-transform: uppercase; }
+        
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .frame { position: relative; aspect-ratio: 1; background: var(--glass); border: 1px solid var(--border); overflow: hidden; backdrop-filter: blur(10px); border-radius: 4px; }
+        .frame img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: 0.5s; }
+        .frame:hover img { opacity: 1; transform: scale(1.05); }
+        .frame:hover { border-color: var(--accent); box-shadow: 0 10px 30px rgba(0,242,255,0.2); }
+    </style>
+</head>
+<body>
+    <div class="bg-layer"></div><div class="grid-overlay"></div>
+    <nav>
+        <a href="index.html" class="logo">BOOT_AI</a>
+        <button class="menu-btn" onclick="toggle()">☰</button>
+        <div class="nav-links" id="menuSide">
+            <a href="#" onclick="toggle()" style="font-size: 35px; color: var(--accent); margin-bottom: 50px;">×</a>
+            <a href="index.html">Home</a><a href="products.html">Products</a><a href="manifest.html">Manifest</a><a href="gallery.html">Gallery</a><a href="beta.html">Beta Hub</a><a href="socials.html">Socials</a>
+        </div>
+    </nav>
+    <div class="container">
+        <h1>VISUAL_GALLERY</h1>
+        <div class="gallery-grid">
+            <div class="frame"><img src="https://picsum.photos/600/600?1"></div>
+            <div class="frame"><img src="https://picsum.photos/600/600?2"></div>
+            <div class="frame"><img src="https://picsum.photos/600/600?3"></div>
+        </div>
+    </div>
+    <script>function toggle() { document.getElementById('menuSide').classList.toggle('active'); }</script>
+</body>
+</html>
