@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BETA HUB // BOOT AI</title>
+    <title>AI LAB // BOOT AI</title>
     <style>
         :root { --accent: #00f2ff; --glass: rgba(255, 255, 255, 0.03); --border: rgba(0, 242, 255, 0.2); --bg: #05070a; --text: #fff; }
         [data-theme="light"] { --accent: #0066cc; --glass: rgba(0, 0, 0, 0.03); --border: rgba(0, 102, 204, 0.2); --bg: #f5f5f7; --text: #1d1d1f; }
@@ -24,15 +24,15 @@
         .nav-links.active { right: 0; }
         .nav-links a { display: block; color: var(--text); text-decoration: none; font-size: 1.1rem; margin-bottom: 25px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
         .nav-links a:hover { color: var(--accent); padding-left: 10px; }
-        .container { max-width: 900px; margin: 60px auto; padding: 0 5%; }
-        h1 { font-size: 3rem; font-weight: 900; letter-spacing: 2px; margin-bottom: 40px; }
-        .beta-card { background: var(--glass); border: 1px solid var(--border); padding: 30px; margin-bottom: 20px; backdrop-filter: blur(20px); border-radius: 4px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-        .beta-card h3 { margin-bottom: 5px; color: var(--accent); }
-        .beta-card p { opacity: 0.6; font-size: 0.9rem; }
-        .dl-btn { background: var(--accent); color: #000; padding: 12px 24px; text-decoration: none; font-weight: bold; border-radius: 2px; transition: 0.3s; font-size: 0.85rem; letter-spacing: 1px; }
-        .dl-btn:hover { background: #fff; box-shadow: 0 0 15px var(--accent); }
-        .warning { background: rgba(255, 170, 0, 0.1); border-left: 4px solid #ffaa00; padding: 20px; margin-bottom: 30px; border-radius: 4px; }
-        .warning strong { color: #ffaa00; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 60px 5%; }
+        h1 { margin-bottom: 40px; font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; letter-spacing: 2px; text-transform: uppercase; }
+        .ai-tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; }
+        .tool-card { background: var(--glass); border: 1px solid var(--border); padding: 40px; backdrop-filter: blur(20px); border-radius: 4px; transition: 0.4s; }
+        .tool-card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 242, 255, 0.2); }
+        .tool-card h2 { color: var(--accent); margin-bottom: 15px; font-size: 1.4rem; letter-spacing: 1px; }
+        .tool-card p { opacity: 0.7; line-height: 1.7; margin-bottom: 20px; }
+        .status { font-size: 0.7rem; padding: 4px 10px; border-radius: 3px; display: inline-block; font-weight: 900; letter-spacing: 1px; background: rgba(255, 170, 0, 0.2); color: #ffaa00; border: 1px solid #ffaa00; }
+        .coming-soon { text-align: center; padding: 60px 40px; background: var(--glass); border: 1px dashed var(--border); border-radius: 4px; margin-top: 40px; }
     </style>
 </head>
 <body>
@@ -40,78 +40,23 @@
     <nav>
         <div class="nav-left"><a href="index.html" class="logo">BOOT AI</a></div>
         <div class="nav-controls">
-            <select class="lang-toggle" id="langSelector" onchange="setLanguage(this.value)">
-                <option value="en">EN</option>
-                <option value="nl">NL</option>
-            </select>
+            <select class="lang-toggle" id="langSelector" onchange="setLanguage(this.value)"><option value="en">EN</option><option value="nl">NL</option></select>
             <button class="theme-toggle" onclick="toggleTheme()"><span id="themeIcon">🌙</span></button>
             <button class="menu-btn" onclick="toggle()">☰</button>
         </div>
         <div class="nav-links" id="menuSide">
             <a href="javascript:void(0)" onclick="toggle()" style="font-size: 35px; color: var(--accent); margin-bottom: 50px;">×</a>
-            <a href="index.html">Home</a>
-            <a href="products.html">Products</a>
-            <a href="manifest.html">Manifest</a>
-            <a href="gallery.html">Gallery</a>
-            <a href="beta.html">Beta Hub</a>
-            <a href="blog.html">Blog</a>
-            <a href="docs.html">Docs</a>
-            <a href="ai.html">AI Lab</a>
-            <a href="socials.html">Socials</a>
+            <a href="index.html">Home</a><a href="products.html">Products</a><a href="manifest.html">Manifest</a><a href="gallery.html">Gallery</a><a href="beta.html">Beta Hub</a><a href="blog.html">Blog</a><a href="docs.html">Docs</a><a href="ai.html">AI Lab</a><a href="socials.html">Socials</a>
         </div>
     </nav>
-    
     <div class="container">
-        <h1>BETA DOWNLOADS</h1>
-        
-        <div class="warning">
-            <strong>⚠️ WARNING:</strong> Beta builds are experimental and may be unstable. Use only for testing in virtual machines. Not recommended for production use.
+        <h1>AI LABORATORY</h1>
+        <div class="ai-tools">
+            <div class="tool-card"><h2>AI Chat Assistant</h2><span class="status">COMING SOON</span><p>Intelligent assistant to help with OS development questions, debugging, and technical documentation. Powered by Pollination AI.</p></div>
+            <div class="tool-card"><h2>Code Generator</h2><span class="status">COMING SOON</span><p>AI-powered code generation for Assembly, C, and system scripts. Generate boilerplate, optimize existing code, and more.</p></div>
         </div>
-        
-        <div class="beta-card" id="kos-beta">
-            <div>
-                <h3>KOS 0.1 beta</h3>
-                <p>V0.1 - Latest kernel engine build</p>
-            </div>
-            <a href="https://github.com/MGKFN/BOOTAI/releases/download/OS/kdos.2.iso" class="dl-btn">DOWNLOAD</a>
-        </div>
-        
-        <div class="beta-card" id="kdos-beta">
-            <div>
-                <h3>KDOS 1.0 B</h3>
-                <p>V1.0.B Build - Command-line OS</p>
-            </div>
-            <a href="https://github.com/MGKFN/BOOTAI/releases/download/OS/kernel.img" class="dl-btn">DOWNLOAD</a>
-        </div>
-        
-        <div class="beta-card" id="kdos-desktop-beta">
-            <div>
-                <h3>K-DOS DESKTOP</h3>
-                <p>Experimental GUI Layer</p>
-            </div>
-            <a href="https://github.com/MGKFN/BOOTAI/releases/download/OS/kosIDK.img" class="dl-btn">DOWNLOAD</a>
-        </div>
-        
-        <div class="beta-card">
-            <div>
-                <h3>KOS CORE</h3>
-                <p>Latest Kernel Pre-release</p>
-            </div>
-            <a href="#" class="dl-btn">DOWNLOAD</a>
-        </div>
-        
-        <div style="margin-top: 60px; padding: 30px; border: 1px solid var(--border); background: var(--glass); border-radius: 4px;">
-            <h3 style="color: var(--accent); margin-bottom: 15px;">Testing Instructions</h3>
-            <ol style="margin-left: 20px; opacity: 0.8; line-height: 1.8;">
-                <li>Download the appropriate ISO or IMG file</li>
-                <li>Open VirtualBox or QEMU</li>
-                <li>Create a new VM with at least 512MB RAM</li>
-                <li>Attach the downloaded file as bootable media</li>
-                <li>Boot and test - report bugs on <a href="socials.html" style="color: var(--accent);">Discord</a></li>
-            </ol>
-        </div>
+        <div class="coming-soon"><h2 style="color: var(--accent); margin-bottom: 20px;">🚀 AI Integration In Progress</h2><p style="opacity: 0.7;">Advanced AI tools for OS development are currently being developed. Check back soon or follow updates on the <a href="blog.html" style="color: var(--accent);">blog</a>.</p></div>
     </div>
-    
     <script>
         function getCurrentLang() { return localStorage.getItem('lang') || 'en'; }
         function setLanguage(lang) { localStorage.setItem('lang', lang); location.reload(); }

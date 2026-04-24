@@ -3,172 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRODUCTS // RELEASES</title>
+    <title>PRODUCTS // BOOT AI</title>
     <style>
-        :root { 
-            --accent: #00f2ff; 
-            --glass: rgba(255, 255, 255, 0.03); 
-            --border: rgba(0, 242, 255, 0.2); 
-        }
-
+        :root { --accent: #00f2ff; --glass: rgba(255, 255, 255, 0.03); --border: rgba(0, 242, 255, 0.2); --bg: #05070a; --text: #fff; }
+        [data-theme="light"] { --accent: #0066cc; --glass: rgba(0, 0, 0, 0.03); --border: rgba(0, 102, 204, 0.2); --bg: #f5f5f7; --text: #1d1d1f; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body { 
-            background: #05070a; 
-            color: #fff; 
-            font-family: 'Inter', sans-serif; 
-            min-height: 100vh; 
-            overflow-x: hidden;
-        }
-
-        .bg-layer { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; 
-            background: radial-gradient(circle at 20% 20%, rgba(0, 242, 255, 0.05) 0%, transparent 40%), 
-                        radial-gradient(circle at 80% 80%, rgba(147, 51, 234, 0.05) 0%, transparent 40%); 
-        }
-        
-        .grid-overlay { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; 
-            background-image: linear-gradient(var(--border) 1px, transparent 1px), 
-                              linear-gradient(90deg, var(--border) 1px, transparent 1px); 
-            background-size: 40px 40px; opacity: 0.15; 
-        }
-
-        nav { 
-            display: flex; justify-content: space-between; align-items: center; 
-            padding: 20px 5%; backdrop-filter: blur(20px); 
-            border-bottom: 1px solid var(--border); 
-            position: sticky; top: 0; z-index: 1000; 
-            background: rgba(5,7,10,0.8); 
-        }
-        
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; overflow-x: hidden; transition: background 0.3s, color 0.3s; }
+        .bg-layer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 20% 20%, rgba(0, 242, 255, 0.05) 0%, transparent 40%), radial-gradient(circle at 80% 80%, rgba(147, 51, 234, 0.05) 0%, transparent 40%); }
+        [data-theme="light"] .bg-layer { background: radial-gradient(circle at 20% 20%, rgba(0, 102, 204, 0.08) 0%, transparent 40%), radial-gradient(circle at 80% 80%, rgba(147, 51, 234, 0.08) 0%, transparent 40%); }
+        .grid-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 40px 40px; opacity: 0.15; }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; background: rgba(5,7,10,0.8); }
+        [data-theme="light"] nav { background: rgba(245, 245, 247, 0.9); }
+        .nav-left { display: flex; align-items: center; gap: 20px; }
         .logo { font-weight: 900; color: var(--accent); letter-spacing: 2px; text-decoration: none; }
+        .nav-controls { display: flex; align-items: center; gap: 15px; }
+        .theme-toggle, .lang-toggle { background: none; border: 1px solid var(--border); color: var(--text); padding: 8px 12px; cursor: pointer; font-size: 12px; font-weight: 600; border-radius: 4px; transition: 0.3s; }
+        .theme-toggle:hover, .lang-toggle:hover { border-color: var(--accent); color: var(--accent); }
         .menu-btn { font-size: 28px; cursor: pointer; color: var(--accent); background: none; border: none; }
-        
-        .nav-links { 
-            position: fixed; top: 0; right: -100%; width: 100%; max-width: 300px; height: 100vh; 
-            background: rgba(10, 15, 20, 0.98); backdrop-filter: blur(30px); 
-            border-left: 1px solid var(--border); padding: 80px 40px; 
-            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); z-index: 2000; 
-        }
-        
-        .nav-links.active { right: 0; box-shadow: -20px 0 50px rgba(0,0,0,0.8); }
-        .nav-links a { display: block; color: #fff; text-decoration: none; font-size: 1.1rem; margin-bottom: 25px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
+        .nav-links { position: fixed; top: 0; right: -100%; width: 100%; max-width: 300px; height: 100vh; background: rgba(10, 15, 20, 0.98); backdrop-filter: blur(30px); border-left: 1px solid var(--border); padding: 80px 40px; transition: 0.4s; z-index: 2000; }
+        [data-theme="light"] .nav-links { background: rgba(255, 255, 255, 0.98); }
+        .nav-links.active { right: 0; }
+        .nav-links a { display: block; color: var(--text); text-decoration: none; font-size: 1.1rem; margin-bottom: 25px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
         .nav-links a:hover { color: var(--accent); padding-left: 10px; }
-
         .container { max-width: 1200px; margin: 0 auto; padding: 60px 5%; }
         h1 { margin-bottom: 10px; font-size: clamp(2.5rem, 8vw, 3.5rem); font-weight: 900; letter-spacing: 2px; text-transform: uppercase; }
         .subtitle { opacity: 0.4; margin-bottom: 50px; letter-spacing: 4px; font-size: 0.8rem; text-transform: uppercase; }
-
-        .product-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-            gap: 25px; 
-        }
-        
-        .card { 
-            position: relative; background: var(--glass); 
-            border: 1px solid var(--border); padding: 40px; 
-            backdrop-filter: blur(20px) saturate(150%); 
-            border-radius: 4px; transition: 0.4s; 
-            display: flex; flex-direction: column; justify-content: space-between; 
-            overflow: hidden;
-        }
-
-        .card::before { 
-            content: ""; position: absolute; top: -100%; left: -100%; width: 300%; height: 300%; 
-            background: linear-gradient(120deg, transparent, rgba(0, 242, 255, 0.05), transparent); 
-            transform: rotate(45deg); transition: 0.8s; pointer-events: none; 
-        }
-
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
+        .card { position: relative; background: var(--glass); border: 1px solid var(--border); padding: 40px; backdrop-filter: blur(20px); border-radius: 4px; transition: 0.4s; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
+        .card::before { content: ""; position: absolute; top: -100%; left: -100%; width: 300%; height: 300%; background: linear-gradient(120deg, transparent, rgba(0, 242, 255, 0.05), transparent); transform: rotate(45deg); transition: 0.8s; pointer-events: none; }
         .card:hover { border-color: var(--accent); transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.4); }
         .card:hover::before { top: 100%; left: 100%; }
-        
         .card h3 { font-size: 1.6rem; letter-spacing: 2px; margin-bottom: 15px; color: var(--accent); text-transform: uppercase; }
-        .card p { opacity: 0.6; font-size: 0.9rem; line-height: 1.6; margin-bottom: 30px; min-height: 60px; }
-
+        .status-badge { display: inline-block; padding: 4px 12px; font-size: 0.7rem; font-weight: 900; letter-spacing: 1px; border-radius: 3px; margin-bottom: 15px; }
+        .status-beta { background: rgba(255, 170, 0, 0.2); color: #ffaa00; border: 1px solid #ffaa00; }
+        .status-alpha { background: rgba(147, 51, 234, 0.2); color: #9333ea; border: 1px solid #9333ea; }
+        .card p { opacity: 0.6; font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px; }
+        .tech-stack { font-size: 0.75rem; opacity: 0.5; margin-bottom: 30px; letter-spacing: 1px; }
+        .features { list-style: none; margin-bottom: 30px; }
+        .features li { font-size: 0.85rem; opacity: 0.7; margin-bottom: 8px; padding-left: 20px; position: relative; }
+        .features li:before { content: "→"; position: absolute; left: 0; color: var(--accent); }
         .btn-group { display: flex; gap: 10px; flex-wrap: wrap; }
-        .btn { 
-            flex: 1; text-align: center; padding: 14px; font-size: 11px; 
-            font-weight: 900; text-decoration: none; letter-spacing: 1.5px; 
-            border-radius: 2px; transition: 0.3s; text-transform: uppercase; 
-        }
-        
+        .btn { flex: 1; text-align: center; padding: 14px; font-size: 11px; font-weight: 900; text-decoration: none; letter-spacing: 1.5px; border-radius: 2px; transition: 0.3s; text-transform: uppercase; }
         .btn-stable { background: var(--accent); color: #000; border: 1px solid var(--accent); }
         .btn-stable:hover { background: #fff; border-color: #fff; box-shadow: 0 0 20px var(--accent); }
-        
-        .btn-beta { border: 1px solid rgba(255,255,255,0.2); color: #fff; }
-        .btn-beta:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
-
+        .btn-beta { border: 1px solid rgba(255,170,0,0.4); color: #ffaa00; }
+        .btn-beta:hover { background: rgba(255,170,0,0.1); border-color: #ffaa00; }
         @media (max-width: 600px) { .product-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
-
-    <div class="bg-layer"></div>
-    <div class="grid-overlay"></div>
-
+    <div class="bg-layer"></div><div class="grid-overlay"></div>
     <nav>
-        <a href="index.html" class="logo">BOOT AI</a>
-        <button class="menu-btn" onclick="toggle()">☰</button>
+        <div class="nav-left"><a href="index.html" class="logo">BOOT AI</a></div>
+        <div class="nav-controls">
+            <select class="lang-toggle" id="langSelector" onchange="setLanguage(this.value)">
+                <option value="en">EN</option>
+                <option value="nl">NL</option>
+            </select>
+            <button class="theme-toggle" onclick="toggleTheme()"><span id="themeIcon">🌙</span></button>
+            <button class="menu-btn" onclick="toggle()">☰</button>
+        </div>
         <div class="nav-links" id="menuSide">
-            <a href="#" onclick="toggle()" style="font-size: 35px; color: var(--accent); margin-bottom: 50px;">×</a>
+            <a href="javascript:void(0)" onclick="toggle()" style="font-size: 35px; color: var(--accent); margin-bottom: 50px;">×</a>
             <a href="index.html">Home</a>
             <a href="products.html">Products</a>
             <a href="manifest.html">Manifest</a>
             <a href="gallery.html">Gallery</a>
             <a href="beta.html">Beta Hub</a>
+            <a href="blog.html">Blog</a>
+            <a href="docs.html">Docs</a>
+            <a href="ai.html">AI Lab</a>
             <a href="socials.html">Socials</a>
         </div>
     </nav>
-
+    
     <div class="container">
         <h1>STABLE SYSTEMS</h1>
         <p class="subtitle">Official Build Deployment Center</p>
         
         <div class="product-grid">
-            <div class="card">
+            <!-- KOS -->
+            <div class="card" id="kos">
                 <div>
                     <h3>KOS</h3>
+                    <span class="status-badge status-beta">BETA 25-50%</span>
                     <p>The primary kernel engine. Built for raw performance and secure system resource management.</p>
+                    <div class="tech-stack">Assembly (x86_64) + C</div>
+                    <ul class="features">
+                        <li>Basic boot sequence</li>
+                        <li>Memory management system</li>
+                        <li>Hardware detection & drivers</li>
+                        <li>Minimal overhead architecture</li>
+                    </ul>
                 </div>
                 <div class="btn-group">
                     <a href="https://github.com/MGKFN/BOOTAI/releases/download/OSSTABLE/kdos.iso" class="btn btn-stable">STABLE BUILD</a>
-                    <a href="beta.html" class="btn btn-beta">BETA HUB</a>
+                    <a href="beta.html#kos-beta" class="btn btn-beta">BETA HUB</a>
                 </div>
             </div>
 
-            <div class="card">
+            <!-- K-DOS -->
+            <div class="card" id="kdos">
                 <div>
                     <h3>K-DOS</h3>
+                    <span class="status-badge status-beta">BETA</span>
                     <p>The core command-line operating system. Reliable, legacy-compatible terminal environment.</p>
+                    <div class="tech-stack">Assembly + C / x86_64</div>
+                    <ul class="features">
+                        <li>Terminal shell interface</li>
+                        <li>Basic commands (ls, cd, mkdir, etc.)</li>
+                        <li>RAM-based operation</li>
+                        <li>Lightweight & fast boot</li>
+                    </ul>
                 </div>
                 <div class="btn-group">
-                    <a href="https://github.com/MGKFN/BOOTAI/releases/download/OSSTABLE/kdos.iso" class="btn btn-stable">STABLE BUILD</a>
-                    <a href="beta.html" class="btn btn-beta">BETA HUB</a>
+                    <a href="https://github.com/MGKFN/BOOTAI/releases/download/OSSTABLE/K-DOS.img" class="btn btn-stable">STABLE BUILD</a>
+                    <a href="beta.html#kdos-beta" class="btn btn-beta">BETA HUB</a>
                 </div>
             </div>
 
-            <div class="card">
+            <!-- K-DOS Desktop -->
+            <div class="card" id="kdos-desktop">
                 <div>
                     <h3>K-DOS DESKTOP</h3>
+                    <span class="status-badge status-alpha">ALPHA 10-25%</span>
                     <p>Graphical User Interface expansion layer for K-DOS. Currently under active development.</p>
+                    <div class="tech-stack">Custom GUI Framework</div>
+                    <ul class="features">
+                        <li>Basic window rendering (WIP)</li>
+                        <li>Framebuffer graphics</li>
+                        <li>Input handling prototype</li>
+                        <li>Experimental UI components</li>
+                    </ul>
                 </div>
                 <div class="btn-group">
-                    <a href="beta.html" class="btn btn-beta" style="flex: 1;">ACCESS BETA VERSION</a>
+                    <a href="beta.html#kdos-desktop-beta" class="btn btn-beta" style="flex: 1;">ACCESS BETA VERSION</a>
                 </div>
             </div>
+        </div>
+
+        <div style="margin-top: 80px; padding: 40px; border: 1px solid var(--border); background: var(--glass); border-radius: 4px;">
+            <h2 style="color: var(--accent); margin-bottom: 20px; font-size: 1.2rem;">DEVELOPMENT PHILOSOPHY</h2>
+            <p style="opacity: 0.7; line-height: 1.8;">
+                BOOT AI explores low-level systems programming, AI integration in operating systems, and experimental approaches to hardware control. 
+                These projects combine educational research with practical implementation, pushing the boundaries of what's possible when building 
+                from bare metal up. All projects are solo developments focused on learning, experimentation, and innovation.
+            </p>
         </div>
 
         <div style="margin-top: 60px; text-align: center; opacity: 0.3; font-size: 11px; letter-spacing: 2px;">
             <p>ADVANCED OPERATING SYSTEM PROJECT // 2026</p>
         </div>
     </div>
-
+    
     <script>
-        function toggle() {
-            document.getElementById('menuSide').classList.toggle('active');
-        }
+        function getCurrentLang() { return localStorage.getItem('lang') || 'en'; }
+        function setLanguage(lang) { localStorage.setItem('lang', lang); location.reload(); }
+        function initTheme() { const savedTheme = localStorage.getItem('theme'); if (savedTheme) { document.documentElement.setAttribute('data-theme', savedTheme); } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) { document.documentElement.setAttribute('data-theme', 'light'); } else { document.documentElement.setAttribute('data-theme', 'dark'); } updateThemeIcon(); }
+        function toggleTheme() { const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark'; const newTheme = currentTheme === 'dark' ? 'light' : 'dark'; document.documentElement.setAttribute('data-theme', newTheme); localStorage.setItem('theme', newTheme); updateThemeIcon(); }
+        function updateThemeIcon() { const theme = document.documentElement.getAttribute('data-theme') || 'dark'; const iconElement = document.getElementById('themeIcon'); if (iconElement) { iconElement.textContent = theme === 'dark' ? '☀️' : '🌙'; } }
+        function toggle() { const menu = document.getElementById('menuSide'); if (menu) { menu.classList.toggle('active'); } }
+        document.addEventListener('DOMContentLoaded', function() { initTheme(); const langSelector = document.getElementById('langSelector'); if (langSelector) { langSelector.value = getCurrentLang(); } });
     </script>
 </body>
 </html>
