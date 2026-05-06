@@ -1,70 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI LAB // BOOT AI</title>
-    <style>
-        :root { --accent: #00f2ff; --glass: rgba(255, 255, 255, 0.03); --border: rgba(0, 242, 255, 0.2); --bg: #05070a; --text: #fff; }
-        [data-theme="light"] { --accent: #0066cc; --glass: rgba(0, 0, 0, 0.03); --border: rgba(0, 102, 204, 0.2); --bg: #f5f5f7; --text: #1d1d1f; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; transition: background 0.3s; }
-        .bg-layer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 20% 20%, rgba(0, 242, 255, 0.05) 0%, transparent 40%), radial-gradient(circle at 80% 80%, rgba(147, 51, 234, 0.05) 0%, transparent 40%); }
-        [data-theme="light"] .bg-layer { background: radial-gradient(circle at 20% 20%, rgba(0, 102, 204, 0.08) 0%, transparent 40%), radial-gradient(circle at 80% 80%, rgba(147, 51, 234, 0.08) 0%, transparent 40%); }
-        .grid-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 40px 40px; opacity: 0.15; }
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; background: rgba(5,7,10,0.8); }
-        [data-theme="light"] nav { background: rgba(245, 245, 247, 0.9); }
-        .nav-left { display: flex; align-items: center; gap: 20px; }
-        .logo { font-weight: 900; color: var(--accent); letter-spacing: 2px; text-decoration: none; }
-        .nav-controls { display: flex; align-items: center; gap: 15px; }
-        .theme-toggle, .lang-toggle { background: none; border: 1px solid var(--border); color: var(--text); padding: 8px 12px; cursor: pointer; font-size: 12px; font-weight: 600; border-radius: 4px; transition: 0.3s; }
-        .menu-btn { font-size: 28px; cursor: pointer; color: var(--accent); background: none; border: none; }
-        .nav-links { position: fixed; top: 0; right: -100%; width: 100%; max-width: 300px; height: 100vh; background: rgba(10, 15, 20, 0.98); backdrop-filter: blur(30px); border-left: 1px solid var(--border); padding: 80px 40px; transition: 0.4s; z-index: 2000; }
-        [data-theme="light"] .nav-links { background: rgba(255, 255, 255, 0.98); }
-        .nav-links.active { right: 0; }
-        .nav-links a { display: block; color: var(--text); text-decoration: none; font-size: 1.1rem; margin-bottom: 25px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
-        .nav-links a:hover { color: var(--accent); padding-left: 10px; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 60px 5%; }
-        h1 { margin-bottom: 40px; font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; letter-spacing: 2px; text-transform: uppercase; }
-        .ai-tools { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; }
-        .tool-card { background: var(--glass); border: 1px solid var(--border); padding: 40px; backdrop-filter: blur(20px); border-radius: 4px; transition: 0.4s; }
-        .tool-card:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 242, 255, 0.2); }
-        .tool-card h2 { color: var(--accent); margin-bottom: 15px; font-size: 1.4rem; letter-spacing: 1px; }
-        .tool-card p { opacity: 0.7; line-height: 1.7; margin-bottom: 20px; }
-        .status { font-size: 0.7rem; padding: 4px 10px; border-radius: 3px; display: inline-block; font-weight: 900; letter-spacing: 1px; background: rgba(255, 170, 0, 0.2); color: #ffaa00; border: 1px solid #ffaa00; }
-        .coming-soon { text-align: center; padding: 60px 40px; background: var(--glass); border: 1px dashed var(--border); border-radius: 4px; margin-top: 40px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<title>AI LAB // BOOT AI</title>
+<style>:root{--accent:#00f2ff;--glass:rgba(255,255,255,0.05);--border:rgba(0,242,255,0.2);--bg:#05070a;--text:#fff}[data-theme=light]{--accent:#0066cc;--glass:rgba(0,0,0,0.03);--border:rgba(0,102,204,0.2);--bg:#f5f5f7;--text:#1d1d1f}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:Inter,-apple-system,sans-serif;overflow-x:hidden;cursor:none}@media(max-width:768px){body{cursor:default;padding-bottom:60px}}.custom-cursor{position:fixed;width:20px;height:20px;border:2px solid var(--accent);border-radius:50%;pointer-events:none;z-index:10000;display:none}@media(min-width:769px){.custom-cursor{display:block}}.custom-cursor-dot{position:fixed;width:6px;height:6px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:10001;box-shadow:0 0 10px var(--accent);display:none}@media(min-width:769px){.custom-cursor-dot{display:block}}.ripple{position:fixed;border-radius:50%;border:2px solid var(--accent);pointer-events:none;z-index:9999;animation:ripple-out .6s ease-out forwards}@keyframes ripple-out{from{transform:scale(0);opacity:1}to{transform:scale(20);opacity:0}}#particles-canvas,.bg-layer,.grid-overlay{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none}#particles-canvas{z-index:-1}.bg-layer{z-index:-2;background:radial-gradient(circle at 20% 20%,rgba(0,242,255,.05) 0,transparent 40%),radial-gradient(circle at 80% 80%,rgba(147,51,234,.05) 0,transparent 40%)}.grid-overlay{z-index:-2;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:40px 40px;opacity:.15}nav{display:flex;justify-content:space-between;align-items:center;padding:20px 5%;backdrop-filter:blur(20px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000;background:rgba(5,7,10,.8)}.logo{font-weight:900;color:var(--accent);letter-spacing:2px;text-decoration:none;font-size:1.2rem}.nav-controls{display:flex;gap:10px}.theme-toggle,.lang-toggle{background:0 0;border:1px solid var(--border);color:var(--text);padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;border-radius:4px;min-height:44px}.menu-btn{font-size:28px;cursor:pointer;color:var(--accent);background:0 0;border:none;min-width:44px;min-height:44px}.nav-links{position:fixed;top:0;right:-100%;width:100%;max-width:300px;height:100vh;background:rgba(10,15,20,.98);backdrop-filter:blur(30px);border-left:1px solid var(--border);padding:80px 40px 100px;transition:.4s;z-index:2000;overflow-y:auto}.nav-links.active{right:0}.nav-links a{display:flex;align-items:center;color:var(--text);text-decoration:none;font-size:1.1rem;margin-bottom:25px;font-weight:600;text-transform:uppercase;letter-spacing:2px;min-height:44px}.nav-links a:hover{color:var(--accent);padding-left:10px}.mobile-tab-bar{position:fixed;bottom:0;left:0;width:100%;background:rgba(10,15,20,.95);backdrop-filter:blur(20px);border-top:1px solid var(--border);display:none;z-index:1001;padding:8px 0}@media(max-width:768px){.mobile-tab-bar{display:flex;justify-content:space-around}}.tab-item{flex:1;display:flex;flex-direction:column;align-items:center;padding:8px;color:var(--text);text-decoration:none;opacity:.6;font-size:.7rem;text-transform:uppercase}.tab-item.active{opacity:1;color:var(--accent)}.tab-icon{font-size:1.4rem;margin-bottom:4px}.container{width:90%;max-width:1000px;margin:0 auto;padding:60px 0}@media(max-width:768px){.container{width:95%;padding:40px 0}}h1{margin-bottom:10px;font-size:clamp(2.5rem,8vw,3.5rem);font-weight:900;letter-spacing:2px;text-transform:uppercase}.subtitle{opacity:.4;margin-bottom:50px;letter-spacing:4px;font-size:.8rem;text-transform:uppercase}.card{background:var(--glass);border:1px solid var(--border);backdrop-filter:blur(20px);padding:40px;border-radius:8px;margin-bottom:25px;transition:all .4s;opacity:0;transform:translateY(40px)}@media(max-width:768px){.card{padding:25px}}.card.visible{opacity:1;transform:translateY(0)}.card:hover{border-color:var(--accent);box-shadow:0 10px 40px rgba(0,242,255,.2)}.card h2{color:var(--accent);font-size:1.6rem;margin-bottom:15px}@media(max-width:768px){.card h2{font-size:1.3rem}}.card p{opacity:.7;line-height:1.8;margin-bottom:15px}.status-wip{display:inline-block;padding:5px 14px;background:rgba(255,170,0,.2);color:#fa0;border:1px solid #fa0;border-radius:3px;font-size:.75rem;font-weight:900;letter-spacing:1px;margin-bottom:15px}.status-planned{display:inline-block;padding:5px 14px;background:rgba(147,51,234,.2);color:#9333ea;border:1px solid #9333ea;border-radius:3px;font-size:.75rem;font-weight:900;letter-spacing:1px;margin-bottom:15px}.feature-list{list-style:none;margin-top:15px}.feature-list li{padding-left:25px;position:relative;margin-bottom:10px;opacity:.7;line-height:1.6}.feature-list li::before{content:'→';position:absolute;left:0;color:var(--accent)}.ptr-indicator{position:fixed;top:-60px;left:50%;transform:translateX(-50%);color:var(--accent);font-size:2rem;z-index:1002;transition:top .3s}.ptr-indicator.show{top:20px}</style>
 </head>
 <body>
-    <div class="bg-layer"></div><div class="grid-overlay"></div>
-    <nav>
-        <div class="nav-left"><a href="index.html" class="logo">BOOT AI</a></div>
-        <div class="nav-controls">
-            <select class="lang-toggle" id="langSelector" onchange="setLanguage(this.value)"><option value="en">EN</option><option value="nl">NL</option></select>
-            <button class="theme-toggle" onclick="toggleTheme()"><span id="themeIcon">🌙</span></button>
-            <button class="menu-btn" onclick="toggle()">☰</button>
-        </div>
-        <div class="nav-links" id="menuSide">
-            <a href="javascript:void(0)" onclick="toggle()" style="font-size: 35px; color: var(--accent); margin-bottom: 50px;">×</a>
-            <a href="index.html">Home</a><a href="products.html">Products</a><a href="manifest.html">Manifest</a><a href="gallery.html">Gallery</a><a href="beta.html">Beta Hub</a><a href="blog.html">Blog</a><a href="docs.html">Docs</a><a href="ai.html">AI Lab</a><a href="socials.html">Socials</a>
-        </div>
-    </nav>
-    <div class="container">
-        <h1>AI LABORATORY</h1>
-        <div class="ai-tools">
-            <div class="tool-card"><h2>AI Chat Assistant</h2><span class="status">COMING SOON</span><p>Intelligent assistant to help with OS development questions, debugging, and technical documentation. Powered by Pollination AI.</p></div>
-            <div class="tool-card"><h2>Code Generator</h2><span class="status">COMING SOON</span><p>AI-powered code generation for Assembly, C, and system scripts. Generate boilerplate, optimize existing code, and more.</p></div>
-        </div>
-        <div class="coming-soon"><h2 style="color: var(--accent); margin-bottom: 20px;">🚀 AI Integration In Progress</h2><p style="opacity: 0.7;">Advanced AI tools for OS development are currently being developed. Check back soon or follow updates on the <a href="blog.html" style="color: var(--accent);">blog</a>.</p></div>
-    </div>
-    <script>
-        function getCurrentLang() { return localStorage.getItem('lang') || 'en'; }
-        function setLanguage(lang) { localStorage.setItem('lang', lang); location.reload(); }
-        function initTheme() { const savedTheme = localStorage.getItem('theme'); if (savedTheme) { document.documentElement.setAttribute('data-theme', savedTheme); } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) { document.documentElement.setAttribute('data-theme', 'light'); } else { document.documentElement.setAttribute('data-theme', 'dark'); } updateThemeIcon(); }
-        function toggleTheme() { const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark'; const newTheme = currentTheme === 'dark' ? 'light' : 'dark'; document.documentElement.setAttribute('data-theme', newTheme); localStorage.setItem('theme', newTheme); updateThemeIcon(); }
-        function updateThemeIcon() { const theme = document.documentElement.getAttribute('data-theme') || 'dark'; const iconElement = document.getElementById('themeIcon'); if (iconElement) { iconElement.textContent = theme === 'dark' ? '☀️' : '🌙'; } }
-        function toggle() { const menu = document.getElementById('menuSide'); if (menu) { menu.classList.toggle('active'); } }
-        document.addEventListener('DOMContentLoaded', function() { initTheme(); const langSelector = document.getElementById('langSelector'); if (langSelector) { langSelector.value = getCurrentLang(); } });
-    </script>
+<div class="custom-cursor"></div><div class="custom-cursor-dot"></div>
+<div class="ptr-indicator">↓</div>
+<canvas id="particles-canvas"></canvas>
+<div class="bg-layer"></div><div class="grid-overlay"></div>
+<nav>
+<div><a href="index.html" class="logo">BOOT AI</a></div>
+<div class="nav-controls">
+<select class="lang-toggle" id="lang"><option value="en">EN</option><option value="nl">NL</option></select>
+<button class="theme-toggle" onclick="toggleTheme()"><span id="themeIcon">🌙</span></button>
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+</div>
+<div class="nav-links" id="menu">
+<a href="#" onclick="toggleMenu()" style="font-size:35px;color:var(--accent);margin-bottom:50px">×</a>
+<a href="index.html" data-i18n="nav_home">Home</a>
+<a href="products.html" data-i18n="nav_products">Products</a>
+<a href="manifest.html" data-i18n="nav_manifest">Manifest</a>
+<a href="gallery.html" data-i18n="nav_gallery">Gallery</a>
+<a href="beta.html" data-i18n="nav_beta">Beta Hub</a>
+<a href="blog.html" data-i18n="nav_blog">Blog</a>
+<a href="docs.html" data-i18n="nav_docs">Docs</a>
+<a href="ai.html" data-i18n="nav_ai">AI Lab</a>
+<a href="socials.html" data-i18n="nav_socials">Socials</a>
+</div>
+</nav>
+<div class="mobile-tab-bar">
+<a href="index.html" class="tab-item"><div class="tab-icon">🏠</div><div data-i18n="nav_home">Home</div></a>
+<a href="products.html" class="tab-item"><div class="tab-icon">📦</div><div data-i18n="nav_products">Products</div></a>
+<a href="docs.html" class="tab-item"><div class="tab-icon">📚</div><div data-i18n="nav_docs">Docs</div></a>
+<a href="beta.html" class="tab-item"><div class="tab-icon">🚀</div><div>Beta</div></a>
+</div>
+<div class="container">
+<h1 data-i18n="ai_title">AI LAB</h1>
+<p class="subtitle" data-i18n="ai_subtitle">Experimental AI Integration & Research</p>
+<div class="card">
+<h2 data-i18n="ai_assist_title">🤖 AI OS Assistant</h2>
+<span class="status-wip" data-i18n="ai_wip">WORK IN PROGRESS</span>
+<p data-i18n="ai_assist_desc">An intelligent assistant embedded directly into the BOOT AI operating system. Ask questions about your system, get command suggestions, debug errors, and receive real-time guidance without leaving the terminal or desktop environment.</p>
+<ul class="feature-list">
+<li data-i18n="ai_assist_f1">Natural language command suggestions</li>
+<li data-i18n="ai_assist_f2">Real-time system diagnostics via AI</li>
+<li data-i18n="ai_assist_f3">Error explanation and auto-fix suggestions</li>
+<li data-i18n="ai_assist_f4">Integrated into K-DOS shell (planned)</li>
+</ul>
+</div>
+<div class="card">
+<h2 data-i18n="ai_code_title">⚙️ AI Code Generator</h2>
+<span class="status-wip" data-i18n="ai_wip">WORK IN PROGRESS</span>
+<p data-i18n="ai_code_desc">A specialized AI code generation tool trained to understand low-level Assembly and C code for OS development. Generate kernel modules, drivers, and system utilities using natural language prompts — all optimized for the BOOT AI architecture.</p>
+<ul class="feature-list">
+<li data-i18n="ai_code_f1">x86_64 Assembly code generation</li>
+<li data-i18n="ai_code_f2">C driver template creation</li>
+<li data-i18n="ai_code_f3">BOOT AI architecture-aware output</li>
+<li data-i18n="ai_code_f4">Syntax validation and optimization hints</li>
+</ul>
+</div>
+<div class="card">
+<h2 data-i18n="ai_debug_title">🔍 AI Debug Analyzer</h2>
+<span class="status-planned" data-i18n="ai_planned">PLANNED</span>
+<p data-i18n="ai_debug_desc">Feed crash logs, kernel panics, and stack traces directly to an AI analyzer. It reads your debug output and tells you exactly what went wrong, why it happened, and how to fix it — saving hours of manual debugging.</p>
+<ul class="feature-list">
+<li data-i18n="ai_debug_f1">Kernel panic analysis</li>
+<li data-i18n="ai_debug_f2">Stack trace interpretation</li>
+<li data-i18n="ai_debug_f3">Memory leak detection assistance</li>
+<li data-i18n="ai_debug_f4">Fix recommendations with code examples</li>
+</ul>
+</div>
+<div class="card">
+<h2 data-i18n="ai_doc_title">📖 AI Documentation Writer</h2>
+<span class="status-planned" data-i18n="ai_planned">PLANNED</span>
+<p data-i18n="ai_doc_desc">Automatically generate documentation from your source code comments, function signatures, and commit messages. Keep your docs always up to date without writing them manually — the AI reads your code and writes the docs for you.</p>
+<ul class="feature-list">
+<li data-i18n="ai_doc_f1">Auto-generate API documentation</li>
+<li data-i18n="ai_doc_f2">Changelog generation from commits</li>
+<li data-i18n="ai_doc_f3">README auto-updater</li>
+<li data-i18n="ai_doc_f4">Multi-language output (EN/NL)</li>
+</ul>
+</div>
+</div>
+<script>
+const T={en:{nav_home:"Home",nav_products:"Products",nav_manifest:"Manifest",nav_gallery:"Gallery",nav_beta:"Beta Hub",nav_blog:"Blog",nav_docs:"Docs",nav_ai:"AI Lab",nav_socials:"Socials",ai_title:"AI LAB",ai_subtitle:"Experimental AI Integration & Research",ai_wip:"WORK IN PROGRESS",ai_planned:"PLANNED",ai_assist_title:"🤖 AI OS Assistant",ai_assist_desc:"An intelligent assistant embedded directly into the BOOT AI operating system. Ask questions about your system, get command suggestions, debug errors, and receive real-time guidance without leaving the terminal or desktop environment.",ai_assist_f1:"Natural language command suggestions",ai_assist_f2:"Real-time system diagnostics via AI",ai_assist_f3:"Error explanation and auto-fix suggestions",ai_assist_f4:"Integrated into K-DOS shell (planned)",ai_code_title:"⚙️ AI Code Generator",ai_code_desc:"A specialized AI code generation tool trained to understand low-level Assembly and C code for OS development. Generate kernel modules, drivers, and system utilities using natural language prompts.",ai_code_f1:"x86_64 Assembly code generation",ai_code_f2:"C driver template creation",ai_code_f3:"BOOT AI architecture-aware output",ai_code_f4:"Syntax validation and optimization hints",ai_debug_title:"🔍 AI Debug Analyzer",ai_debug_desc:"Feed crash logs, kernel panics, and stack traces directly to an AI analyzer. It reads your debug output and tells you exactly what went wrong, why it happened, and how to fix it.",ai_debug_f1:"Kernel panic analysis",ai_debug_f2:"Stack trace interpretation",ai_debug_f3:"Memory leak detection assistance",ai_debug_f4:"Fix recommendations with code examples",ai_doc_title:"📖 AI Documentation Writer",ai_doc_desc:"Automatically generate documentation from your source code comments, function signatures, and commit messages. Keep your docs always up to date without writing them manually.",ai_doc_f1:"Auto-generate API documentation",ai_doc_f2:"Changelog generation from commits",ai_doc_f3:"README auto-updater",ai_doc_f4:"Multi-language output (EN/NL)"},nl:{nav_home:"Home",nav_products:"Producten",nav_manifest:"Manifest",nav_gallery:"Galerij",nav_beta:"Beta Hub",nav_blog:"Blog",nav_docs:"Documentatie",nav_ai:"AI Lab",nav_socials:"Sociaal",ai_title:"AI LAB",ai_subtitle:"Experimentele AI Integratie & Onderzoek",ai_wip:"IN ONTWIKKELING",ai_planned:"GEPLAND",ai_assist_title:"🤖 AI OS Assistent",ai_assist_desc:"Een intelligente assistent rechtstreeks ingebed in het BOOT AI besturingssysteem. Stel vragen over uw systeem, ontvang commandosuggesties, debug fouten en krijg realtime begeleiding zonder de terminal of desktop omgeving te verlaten.",ai_assist_f1:"Natuurlijke taal commandosuggesties",ai_assist_f2:"Realtime systeemdiagnose via AI",ai_assist_f3:"Foutuitleg en automatische herstelsugesties",ai_assist_f4:"Geïntegreerd in K-DOS shell (gepland)",ai_code_title:"⚙️ AI Codegenerator",ai_code_desc:"Een gespecialiseerde AI-codegeneratietool getraind om low-level Assembly en C-code voor OS-ontwikkeling te begrijpen. Genereer kernelmodules, stuurprogramma's en systeemhulpmiddelen met behulp van natuurlijke taalprompten.",ai_code_f1:"x86_64 Assembly codegeneratie",ai_code_f2:"C stuurprogramma template aanmaak",ai_code_f3:"BOOT AI architectuur-bewuste uitvoer",ai_code_f4:"Syntaxvalidatie en optimalisatiehints",ai_debug_title:"🔍 AI Debug Analyzer",ai_debug_desc:"Stuur crashlogs, kernelpanics en stack traces rechtstreeks naar een AI-analyzer. Het leest uw debug-uitvoer en vertelt u precies wat er mis ging, waarom het gebeurde en hoe het te repareren.",ai_debug_f1:"Kernelpanic analyse",ai_debug_f2:"Stack trace interpretatie",ai_debug_f3:"Hulp bij detectie van geheugenlekkages",ai_debug_f4:"Herstel aanbevelingen met codevoorbeelden",ai_doc_title:"📖 AI Documentatieschrijver",ai_doc_desc:"Genereer automatisch documentatie vanuit uw broncodecommentaren, functiesignaturen en commitberichten. Houd uw documenten altijd up-to-date zonder ze handmatig te schrijven.",ai_doc_f1:"Automatisch API-documentatie genereren",ai_doc_f2:"Changelog generatie vanuit commits",ai_doc_f3:"README auto-updater",ai_doc_f4:"Meertalige uitvoer (EN/NL)"}};function tr(){const l=localStorage.getItem('lang')||'en';document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.getAttribute('data-i18n');if(T[l]&&T[l][k])e.textContent=T[l][k];});}const isMobile=/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)||window.innerWidth<=768;if(!isMobile){const c=document.querySelector('.custom-cursor'),d=document.querySelector('.custom-cursor-dot');document.addEventListener('mousemove',e=>{c.style.left=e.clientX+'px';c.style.top=e.clientY+'px';d.style.left=e.clientX+'px';d.style.top=e.clientY+'px'});}document.addEventListener('click',e=>{const r=document.createElement('div');r.className='ripple';r.style.left=e.clientX+'px';r.style.top=e.clientY+'px';r.style.width='10px';r.style.height='10px';document.body.appendChild(r);if(isMobile&&navigator.vibrate)navigator.vibrate(10);setTimeout(()=>r.remove(),600);});const canvas=document.getElementById('particles-canvas'),ctx=canvas.getContext('2d');canvas.width=window.innerWidth;canvas.height=window.innerHeight;const particles=[],pCount=isMobile?30:50;class Particle{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*3+1;this.speedX=(Math.random()-.5)*.5;this.speedY=(Math.random()-.5)*.5;this.opacity=Math.random()*.5+.2;}update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x>canvas.width)this.x=0;if(this.x<0)this.x=canvas.width;if(this.y>canvas.height)this.y=0;if(this.y<0)this.y=canvas.height;}draw(){ctx.fillStyle=`rgba(0,242,255,${this.opacity})`;ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();}}for(let i=0;i<pCount;i++)particles.push(new Particle());function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animate);}animate();const cards=document.querySelectorAll('.card'),obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*100);});},{threshold:.1});cards.forEach(c=>obs.observe(c));if(isMobile){let pStart=0,pCurr=0;const ind=document.querySelector('.ptr-indicator');document.addEventListener('touchstart',e=>pStart=e.touches[0].screenY);document.addEventListener('touchmove',e=>{pCurr=e.touches[0].screenY;if(pCurr-pStart>0&&window.scrollY===0)ind.classList.add('show');});document.addEventListener('touchend',()=>{if(pCurr-pStart>100&&window.scrollY===0)location.reload();ind.classList.remove('show');});}function initTheme(){const st=localStorage.getItem('theme');if(st)document.documentElement.setAttribute('data-theme',st);else if(window.matchMedia&&window.matchMedia('(prefers-color-scheme:light)').matches)document.documentElement.setAttribute('data-theme','light');else document.documentElement.setAttribute('data-theme','dark');updateThemeIcon();}function toggleTheme(){const ct=document.documentElement.getAttribute('data-theme')||'dark',nt=ct==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',nt);localStorage.setItem('theme',nt);updateThemeIcon();}function updateThemeIcon(){const t=document.documentElement.getAttribute('data-theme')||'dark',i=document.getElementById('themeIcon');if(i)i.textContent=t==='dark'?'☀️':'🌙';}function toggleMenu(){document.getElementById('menu').classList.toggle('active');}document.addEventListener('DOMContentLoaded',()=>{initTheme();tr();const ls=document.getElementById('lang');ls.value=localStorage.getItem('lang')||'en';ls.onchange=()=>{localStorage.setItem('lang',ls.value);tr();};});
+</script>
 </body>
 </html>

@@ -1,217 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOCUMENTATION // BOOT AI</title>
-    <style>
-        :root { --accent: #00f2ff; --glass: rgba(255, 255, 255, 0.03); --border: rgba(0, 242, 255, 0.2); --bg: #05070a; --text: #fff; }
-        [data-theme="light"] { --accent: #0066cc; --glass: rgba(0, 0, 0, 0.03); --border: rgba(0, 102, 204, 0.2); --bg: #f5f5f7; --text: #1d1d1f; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; transition: background 0.3s; }
-        .bg-layer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 20% 20%, rgba(0, 242, 255, 0.05) 0%, transparent 40%), radial-gradient(circle at 80% 80%, rgba(147, 51, 234, 0.05) 0%, transparent 40%); }
-        [data-theme="light"] .bg-layer { background: radial-gradient(circle at 20% 20%, rgba(0, 102, 204, 0.08) 0%, transparent 40%), radial-gradient(circle at 80% 80%, rgba(147, 51, 234, 0.08) 0%, transparent 40%); }
-        .grid-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 40px 40px; opacity: 0.15; }
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; background: rgba(5,7,10,0.8); }
-        [data-theme="light"] nav { background: rgba(245, 245, 247, 0.9); }
-        .nav-left { display: flex; align-items: center; gap: 20px; }
-        .logo { font-weight: 900; color: var(--accent); letter-spacing: 2px; text-decoration: none; }
-        .nav-controls { display: flex; align-items: center; gap: 15px; }
-        .theme-toggle, .lang-toggle { background: none; border: 1px solid var(--border); color: var(--text); padding: 8px 12px; cursor: pointer; font-size: 12px; font-weight: 600; border-radius: 4px; transition: 0.3s; }
-        .menu-btn { font-size: 28px; cursor: pointer; color: var(--accent); background: none; border: none; }
-        .nav-links { position: fixed; top: 0; right: -100%; width: 100%; max-width: 300px; height: 100vh; background: rgba(10, 15, 20, 0.98); backdrop-filter: blur(30px); border-left: 1px solid var(--border); padding: 80px 40px; transition: 0.4s; z-index: 2000; }
-        [data-theme="light"] .nav-links { background: rgba(255, 255, 255, 0.98); }
-        .nav-links.active { right: 0; }
-        .nav-links a { display: block; color: var(--text); text-decoration: none; font-size: 1.1rem; margin-bottom: 25px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
-        .nav-links a:hover { color: var(--accent); padding-left: 10px; }
-        .container { max-width: 900px; margin: 0 auto; padding: 60px 5%; }
-        h1 { font-size: 3rem; font-weight: 900; letter-spacing: 2px; margin-bottom: 40px; }
-        .section { background: var(--glass); border: 1px solid var(--border); padding: 40px; margin-bottom: 30px; border-radius: 4px; backdrop-filter: blur(20px); }
-        .section h2 { color: var(--accent); font-size: 1.6rem; margin-bottom: 20px; letter-spacing: 1px; }
-        .section h3 { font-size: 1.2rem; margin-top: 30px; margin-bottom: 15px; }
-        .section p { opacity: 0.8; line-height: 1.8; margin-bottom: 15px; }
-        .section ul, .section ol { margin-left: 20px; margin-bottom: 15px; line-height: 1.8; }
-        .section li { margin-bottom: 10px; opacity: 0.8; }
-        code { background: rgba(0, 242, 255, 0.1); padding: 2px 8px; border-radius: 3px; font-family: 'Courier New', monospace; font-size: 0.9em; color: var(--accent); }
-        pre { background: rgba(0, 0, 0, 0.3); padding: 20px; border-radius: 4px; overflow-x: auto; margin: 20px 0; border-left: 3px solid var(--accent); }
-        pre code { background: none; padding: 0; }
-        .warning { background: rgba(255, 170, 0, 0.1); border-left: 4px solid #ffaa00; padding: 20px; margin: 20px 0; border-radius: 4px; }
-        .warning strong { color: #ffaa00; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<title>DOCS // BOOT AI</title>
+<style>:root{--accent:#00f2ff;--glass:rgba(255,255,255,0.05);--border:rgba(0,242,255,0.2);--bg:#05070a;--text:#fff}[data-theme=light]{--accent:#0066cc;--glass:rgba(0,0,0,0.03);--border:rgba(0,102,204,0.2);--bg:#f5f5f7;--text:#1d1d1f}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:Inter,-apple-system,sans-serif;overflow-x:hidden;cursor:none}@media(max-width:768px){body{cursor:default;padding-bottom:60px}}.custom-cursor{position:fixed;width:20px;height:20px;border:2px solid var(--accent);border-radius:50%;pointer-events:none;z-index:10000;display:none}@media(min-width:769px){.custom-cursor{display:block}}.custom-cursor-dot{position:fixed;width:6px;height:6px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:10001;box-shadow:0 0 10px var(--accent);display:none}@media(min-width:769px){.custom-cursor-dot{display:block}}.ripple{position:fixed;border-radius:50%;border:2px solid var(--accent);pointer-events:none;z-index:9999;animation:ripple-out .6s ease-out forwards}@keyframes ripple-out{from{transform:scale(0);opacity:1}to{transform:scale(20);opacity:0}}#particles-canvas,.bg-layer,.grid-overlay{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none}#particles-canvas{z-index:-1}.bg-layer{z-index:-2;background:radial-gradient(circle at 20% 20%,rgba(0,242,255,.05) 0,transparent 40%),radial-gradient(circle at 80% 80%,rgba(147,51,234,.05) 0,transparent 40%)}.grid-overlay{z-index:-2;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:40px 40px;opacity:.15}nav{display:flex;justify-content:space-between;align-items:center;padding:20px 5%;backdrop-filter:blur(20px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000;background:rgba(5,7,10,.8)}.logo{font-weight:900;color:var(--accent);letter-spacing:2px;text-decoration:none;font-size:1.2rem}.nav-controls{display:flex;gap:10px}.theme-toggle,.lang-toggle{background:0 0;border:1px solid var(--border);color:var(--text);padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;border-radius:4px;min-height:44px}.menu-btn{font-size:28px;cursor:pointer;color:var(--accent);background:0 0;border:none;min-width:44px;min-height:44px}.nav-links{position:fixed;top:0;right:-100%;width:100%;max-width:300px;height:100vh;background:rgba(10,15,20,.98);backdrop-filter:blur(30px);border-left:1px solid var(--border);padding:80px 40px 100px;transition:.4s;z-index:2000;overflow-y:auto}.nav-links.active{right:0}.nav-links a{display:flex;align-items:center;color:var(--text);text-decoration:none;font-size:1.1rem;margin-bottom:25px;font-weight:600;text-transform:uppercase;letter-spacing:2px;min-height:44px}.nav-links a:hover{color:var(--accent);padding-left:10px}.mobile-tab-bar{position:fixed;bottom:0;left:0;width:100%;background:rgba(10,15,20,.95);backdrop-filter:blur(20px);border-top:1px solid var(--border);display:none;z-index:1001;padding:8px 0}@media(max-width:768px){.mobile-tab-bar{display:flex;justify-content:space-around}}.tab-item{flex:1;display:flex;flex-direction:column;align-items:center;padding:8px;color:var(--text);text-decoration:none;opacity:.6;font-size:.7rem;text-transform:uppercase}.tab-item.active{opacity:1;color:var(--accent)}.tab-icon{font-size:1.4rem;margin-bottom:4px}.container{width:90%;max-width:1000px;margin:0 auto;padding:60px 0}@media(max-width:768px){.container{width:95%;padding:40px 0}}h1{margin-bottom:10px;font-size:clamp(2.5rem,8vw,3.5rem);font-weight:900;letter-spacing:2px;text-transform:uppercase}.subtitle{opacity:.4;margin-bottom:50px;letter-spacing:4px;font-size:.8rem;text-transform:uppercase}.section{background:var(--glass);border:1px solid var(--border);backdrop-filter:blur(20px);padding:40px;border-radius:8px;margin-bottom:25px;opacity:0;transform:translateY(30px);transition:all .6s}@media(max-width:768px){.section{padding:25px}}.section.visible{opacity:1;transform:translateY(0)}.section h2{color:var(--accent);font-size:1.6rem;margin-bottom:20px}@media(max-width:768px){.section h2{font-size:1.3rem}}.section h3{font-size:1.2rem;margin:25px 0 12px;opacity:.9}.section p{opacity:.7;line-height:1.8;margin-bottom:12px}.section ul,.section ol{margin-left:25px;opacity:.7;line-height:1.8;margin-bottom:12px}code{background:rgba(0,242,255,.1);color:var(--accent);padding:2px 8px;border-radius:3px;font-family:'Courier New',monospace;font-size:.9rem}.code-block{background:rgba(0,0,0,.4);border:1px solid var(--border);padding:20px;border-radius:4px;margin:15px 0;overflow-x:auto}.code-block code{background:0 0;padding:0;display:block;color:#0f0;font-size:.85rem;line-height:1.6;white-space:pre}.warn{background:rgba(255,170,0,.1);border:1px solid #fa0;padding:15px 20px;border-radius:4px;margin:15px 0}.warn strong{color:#fa0}.ptr-indicator{position:fixed;top:-60px;left:50%;transform:translateX(-50%);color:var(--accent);font-size:2rem;z-index:1002;transition:top .3s}.ptr-indicator.show{top:20px}</style>
 </head>
 <body>
-    <div class="bg-layer"></div><div class="grid-overlay"></div>
-    <nav>
-        <div class="nav-left"><a href="index.html" class="logo">BOOT AI</a></div>
-        <div class="nav-controls">
-            <select class="lang-toggle" id="langSelector" onchange="setLanguage(this.value)"><option value="en">EN</option><option value="nl">NL</option></select>
-            <button class="theme-toggle" onclick="toggleTheme()"><span id="themeIcon">🌙</span></button>
-            <button class="menu-btn" onclick="toggle()">☰</button>
-        </div>
-        <div class="nav-links" id="menuSide">
-            <a href="javascript:void(0)" onclick="toggle()" style="font-size: 35px; color: var(--accent); margin-bottom: 50px;">×</a>
-            <a href="index.html">Home</a><a href="products.html">Products</a><a href="manifest.html">Manifest</a><a href="gallery.html">Gallery</a><a href="beta.html">Beta Hub</a><a href="blog.html">Blog</a><a href="docs.html">Docs</a><a href="ai.html">AI Lab</a><a href="socials.html">Socials</a>
-        </div>
-    </nav>
-    
-    <div class="container">
-        <h1>DOCUMENTATION</h1>
-        
-        <div class="section" id="getting-started">
-            <h2>Getting Started</h2>
-            <p>Welcome to BOOT AI! This documentation will help you understand, build, and test the operating system components. The project consists of three main components: KOS (kernel engine), K-DOS (command-line OS), and K-DOS Desktop (GUI layer).</p>
-            
-            <h3>What You Need to Know</h3>
-            <ul>
-                <li>All projects are in active development (beta/alpha stages)</li>
-                <li>Built primarily with Assembly (x86_64) and C</li>
-                <li>Designed for educational and experimental purposes</li>
-                <li>Requires virtualization software for safe testing</li>
-            </ul>
-        </div>
-        
-        <div class="section" id="requirements">
-            <h2>System Requirements</h2>
-            
-            <h3>For Development</h3>
-            <ul>
-                <li>64-bit x86 processor (Intel or AMD)</li>
-                <li>4GB+ RAM recommended</li>
-                <li>10GB free disk space</li>
-                <li>Linux/Unix environment (WSL works on Windows)</li>
-                <li>NASM assembler</li>
-                <li>GCC compiler</li>
-                <li>QEMU or VirtualBox for testing</li>
-            </ul>
-            
-            <h3>For Testing</h3>
-            <ul>
-                <li>VirtualBox, QEMU, or VMware</li>
-                <li>2GB+ RAM allocated to VM</li>
-                <li>ISO boot capability</li>
-            </ul>
-            
-            <div class="warning">
-                <strong>⚠️ WARNING:</strong> These are experimental operating systems. Do NOT install on physical hardware unless you know what you're doing. Use virtual machines for testing.
-            </div>
-        </div>
-        
-        <div class="section" id="kos">
-            <h2>KOS Kernel Engine</h2>
-            <p>KOS is the foundational kernel layer that handles boot sequences, memory management, and hardware detection.</p>
-            
-            <h3>Current Features</h3>
-            <ul>
-                <li>Boot sequence (25-50% complete)</li>
-                <li>Basic memory management</li>
-                <li>Hardware detection and driver framework</li>
-                <li>Minimal overhead architecture</li>
-            </ul>
-            
-            <h3>Quick Test</h3>
-            <pre><code># Download beta ISO
-wget https://github.com/MGKFN/BOOTAI/releases/download/OS/kdos.2.iso
-
-# Run with QEMU
-qemu-system-x86_64 -cdrom kdos.2.iso -m 512M
-
-# Or with VirtualBox
-# Create new VM, attach ISO, boot</code></pre>
-        </div>
-        
-        <div class="section" id="kdos">
-            <h2>K-DOS Command-Line OS</h2>
-            <p>K-DOS provides a terminal-based operating environment with basic file system operations.</p>
-            
-            <h3>Available Commands</h3>
-            <ul>
-                <li><code>ls</code> - List directory contents</li>
-                <li><code>cd [dir]</code> - Change directory</li>
-                <li><code>mkdir [name]</code> - Create directory</li>
-                <li><code>help</code> - Show available commands</li>
-                <li><code>clear</code> - Clear screen</li>
-            </ul>
-            
-            <h3>System Info</h3>
-            <ul>
-                <li>Runs entirely from RAM</li>
-                <li>Fast boot time (~2-3 seconds in VM)</li>
-                <li>No persistent storage yet (coming soon)</li>
-            </ul>
-        </div>
-        
-        <div class="section" id="kdos-desktop">
-            <h2>K-DOS Desktop (Alpha)</h2>
-            <p>Early-stage graphical user interface built on top of K-DOS. Currently in active development (10-25% complete).</p>
-            
-            <h3>Roadmap</h3>
-            <ol>
-                <li><strong>Phase 1 (Current):</strong> Basic window rendering, framebuffer graphics</li>
-                <li><strong>Phase 2:</strong> Input handling, mouse support</li>
-                <li><strong>Phase 3:</strong> Window manager, UI components</li>
-                <li><strong>Phase 4:</strong> Application framework</li>
-            </ol>
-            
-            <div class="warning">
-                <strong>⚠️ ALPHA SOFTWARE:</strong> K-DOS Desktop is highly experimental and may crash or behave unexpectedly. Use only for testing purposes.
-            </div>
-        </div>
-        
-        <div class="section" id="build">
-            <h2>Build Instructions</h2>
-            <p>Want to build from source? Here's how to compile the projects yourself.</p>
-            
-            <h3>Prerequisites</h3>
-            <pre><code># Ubuntu/Debian
-sudo apt update
-sudo apt install nasm gcc make qemu-system-x86
-
-# Arch Linux
-sudo pacman -S nasm gcc make qemu
-
-# macOS
-brew install nasm gcc qemu</code></pre>
-            
-            <h3>Building KOS/K-DOS</h3>
-            <pre><code># Clone repository (example)
-git clone https://github.com/MGKFN/BOOTAI
+<div class="custom-cursor"></div><div class="custom-cursor-dot"></div>
+<div class="ptr-indicator">↓</div>
+<canvas id="particles-canvas"></canvas>
+<div class="bg-layer"></div><div class="grid-overlay"></div>
+<nav>
+<div><a href="index.html" class="logo">BOOT AI</a></div>
+<div class="nav-controls">
+<select class="lang-toggle" id="lang"><option value="en">EN</option><option value="nl">NL</option></select>
+<button class="theme-toggle" onclick="toggleTheme()"><span id="themeIcon">🌙</span></button>
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+</div>
+<div class="nav-links" id="menu">
+<a href="#" onclick="toggleMenu()" style="font-size:35px;color:var(--accent);margin-bottom:50px">×</a>
+<a href="index.html" data-i18n="nav_home">Home</a>
+<a href="products.html" data-i18n="nav_products">Products</a>
+<a href="manifest.html" data-i18n="nav_manifest">Manifest</a>
+<a href="gallery.html" data-i18n="nav_gallery">Gallery</a>
+<a href="beta.html" data-i18n="nav_beta">Beta Hub</a>
+<a href="blog.html" data-i18n="nav_blog">Blog</a>
+<a href="docs.html" data-i18n="nav_docs">Docs</a>
+<a href="ai.html" data-i18n="nav_ai">AI Lab</a>
+<a href="socials.html" data-i18n="nav_socials">Socials</a>
+</div>
+</nav>
+<div class="mobile-tab-bar">
+<a href="index.html" class="tab-item"><div class="tab-icon">🏠</div><div data-i18n="nav_home">Home</div></a>
+<a href="products.html" class="tab-item"><div class="tab-icon">📦</div><div data-i18n="nav_products">Products</div></a>
+<a href="docs.html" class="tab-item active"><div class="tab-icon">📚</div><div data-i18n="nav_docs">Docs</div></a>
+<a href="beta.html" class="tab-item"><div class="tab-icon">🚀</div><div>Beta</div></a>
+</div>
+<div class="container">
+<h1 data-i18n="docs_title">DOCUMENTATION</h1>
+<p class="subtitle" data-i18n="docs_subtitle">Complete Technical Reference & Guides</p>
+<div class="section">
+<h2 data-i18n="docs_gs_title">🚀 Getting Started</h2>
+<h3 data-i18n="docs_reqs">System Requirements</h3>
+<p data-i18n="docs_min_label"><strong>Minimum:</strong></p>
+<ul>
+<li data-i18n="docs_req1">x86_64 processor (Intel or AMD)</li>
+<li data-i18n="docs_req2">2GB RAM</li>
+<li data-i18n="docs_req3">10GB disk space</li>
+<li data-i18n="docs_req4">VGA graphics adapter</li>
+<li data-i18n="docs_req5">UEFI or BIOS boot support</li>
+</ul>
+<div class="warn"><strong data-i18n="docs_warn_label">⚠️ Warning:</strong> <span data-i18n="docs_warn_text">BOOT AI is experimental software. Always test in a virtual machine first. Do not install on hardware with important data.</span></div>
+<h3 data-i18n="docs_quick">Quick Start Guide</h3>
+<ol>
+<li data-i18n="docs_qs1">Download the latest ISO from the Products page</li>
+<li data-i18n="docs_qs2">Create a new VM with 4GB RAM and 20GB disk</li>
+<li data-i18n="docs_qs3">Mount the ISO as a boot device</li>
+<li data-i18n="docs_qs4">Start the VM and follow on-screen prompts</li>
+<li>Default login: <code>root</code> <span data-i18n="docs_qs5">(no password in beta builds)</span></li>
+</ol>
+</div>
+<div class="section">
+<h2 data-i18n="docs_build_title">🔨 Building from Source</h2>
+<h3 data-i18n="docs_prereqs">Prerequisites</h3>
+<ul>
+<li data-i18n="docs_pre1">GCC cross-compiler for x86_64-elf target</li>
+<li data-i18n="docs_pre2">NASM assembler (version 2.14+)</li>
+<li data-i18n="docs_pre3">Make build system</li>
+<li data-i18n="docs_pre4">QEMU for testing (optional but recommended)</li>
+</ul>
+<h3 data-i18n="docs_build_cmds">Build Commands</h3>
+<div class="code-block"><code>git clone https://github.com/MGKFN/BOOTAI.git
 cd BOOTAI
-
-# Build kernel
 make kernel
-
-# Create bootable ISO
+make kdos
 make iso
+make run</code></div>
+</div>
+<div class="section">
+<h2 data-i18n="docs_cmd_title">💻 K-DOS Command Reference</h2>
+<h3 data-i18n="docs_fs_cmds">File System Commands</h3>
+<p><code>ls [dir]</code> — <span data-i18n="cmd_ls">List directory contents</span></p>
+<p><code>cd [dir]</code> — <span data-i18n="cmd_cd">Change current directory</span></p>
+<p><code>mkdir [name]</code> — <span data-i18n="cmd_mkdir">Create new directory</span></p>
+<p><code>rmdir [name]</code> — <span data-i18n="cmd_rmdir">Remove empty directory</span></p>
+<p><code>cat [file]</code> — <span data-i18n="cmd_cat">Display file contents</span></p>
+<p><code>cp [src] [dst]</code> — <span data-i18n="cmd_cp">Copy file</span></p>
+<p><code>mv [src] [dst]</code> — <span data-i18n="cmd_mv">Move or rename file</span></p>
+<h3 data-i18n="docs_proc_cmds">Process Commands</h3>
+<p><code>ps</code> — <span data-i18n="cmd_ps">List running processes</span></p>
+<p><code>kill [pid]</code> — <span data-i18n="cmd_kill">Terminate process by ID</span></p>
+<h3 data-i18n="docs_sys_cmds">System Commands</h3>
+<p><code>help</code> — <span data-i18n="cmd_help">Display available commands</span></p>
+<p><code>clear</code> — <span data-i18n="cmd_clear">Clear terminal screen</span></p>
+<p><code>reboot</code> — <span data-i18n="cmd_reboot">Restart system</span></p>
+<p><code>shutdown</code> — <span data-i18n="cmd_shutdown">Power off system</span></p>
+</div>
+<div class="section">
+<h2 data-i18n="docs_trouble_title">🔧 Troubleshooting</h2>
+<h3 data-i18n="docs_t1_title">System won't boot / Kernel panic</h3>
+<ul>
+<li data-i18n="docs_t1_1">Verify VM has at least 2GB RAM allocated</li>
+<li data-i18n="docs_t1_2">Ensure UEFI/BIOS boot is properly configured</li>
+<li data-i18n="docs_t1_3">Try disabling SMP in BIOS if using multi-core</li>
+</ul>
+<h3 data-i18n="docs_t2_title">Desktop crashes on load</h3>
+<ul>
+<li data-i18n="docs_t2_1">Desktop is alpha quality — expect crashes</li>
+<li data-i18n="docs_t2_2">Verify framebuffer support in your VM</li>
+<li data-i18n="docs_t2_3">Try reducing screen resolution to 800x600</li>
+</ul>
+<h3 data-i18n="docs_debug_title">Debug Mode</h3>
+<div class="code-block"><code>boot: kdos debug=1 loglevel=7</code></div>
+<p data-i18n="docs_debug_text">Debug messages will appear on serial port COM1 (115200 baud).</p>
+</div>
 
-# Test in QEMU
-make run</code></pre>
-            
-            <h3>Troubleshooting</h3>
-            <ul>
-                <li>If build fails: Check that all dependencies are installed</li>
-                <li>If QEMU won't boot: Verify ISO was created successfully</li>
-                <li>For errors: Check the <a href="blog.html" style="color: var(--accent);">blog</a> for known issues</li>
-            </ul>
-        </div>
-        
-        <div class="section">
-            <h2>Contributing</h2>
-            <p>BOOT AI is currently a solo project by MGKFN, but feedback and bug reports are welcome! Join the <a href="https://discord.gg/t4sgzP8nQ" style="color: var(--accent);">Discord community</a> to discuss development.</p>
-        </div>
-        
-        <div style="margin-top: 60px; padding: 30px; border: 1px solid var(--border); background: var(--glass); border-radius: 4px; text-align: center;">
-            <p style="opacity: 0.6;">Documentation is continuously updated. Last update: April 2026</p>
-        </div>
-    </div>
-    
-    <script>
-        function getCurrentLang() { return localStorage.getItem('lang') || 'en'; }
-        function setLanguage(lang) { localStorage.setItem('lang', lang); location.reload(); }
-        function initTheme() { const savedTheme = localStorage.getItem('theme'); if (savedTheme) { document.documentElement.setAttribute('data-theme', savedTheme); } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) { document.documentElement.setAttribute('data-theme', 'light'); } else { document.documentElement.setAttribute('data-theme', 'dark'); } updateThemeIcon(); }
-        function toggleTheme() { const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark'; const newTheme = currentTheme === 'dark' ? 'light' : 'dark'; document.documentElement.setAttribute('data-theme', newTheme); localStorage.setItem('theme', newTheme); updateThemeIcon(); }
-        function updateThemeIcon() { const theme = document.documentElement.getAttribute('data-theme') || 'dark'; const iconElement = document.getElementById('themeIcon'); if (iconElement) { iconElement.textContent = theme === 'dark' ? '☀️' : '🌙'; } }
-        function toggle() { const menu = document.getElementById('menuSide'); if (menu) { menu.classList.toggle('active'); } }
-        document.addEventListener('DOMContentLoaded', function() { initTheme(); const langSelector = document.getElementById('langSelector'); if (langSelector) { langSelector.value = getCurrentLang(); } });
-    </script>
+<div class="section" style="border-color:rgba(0,255,100,.3)">
+<h2 style="color:#0f6">🆕 BOOTOS — Getting Started</h2>
+<h3>What is BOOTOS?</h3>
+<p>BOOTOS is a brand new operating system project in the BOOT AI ecosystem. Unlike KOS which uses a custom bootloader, BOOTOS is built on the Multiboot2 specification and uses GRUB as its bootloader. This makes it easier to test on real hardware and provides a standardized boot interface right from the start.</p>
+<h3>How Multiboot2 Works</h3>
+<p>Multiboot2 is an open standard that defines how a bootloader (like GRUB) loads an operating system kernel. When GRUB loads a Multiboot2-compliant kernel, it passes a structured information table to the kernel entry point containing:</p>
+<ul>
+<li>Memory map — what RAM is available and where</li>
+<li>Framebuffer info — screen resolution, mode, and address</li>
+<li>Boot modules — additional files loaded alongside the kernel</li>
+<li>Command line arguments — parameters passed at boot</li>
+</ul>
+<h3>Setting Up GRUB for BOOTOS (When Available)</h3>
+<div class="code-block"><code># Install GRUB (Linux development host)
+sudo apt install grub2 xorriso
+
+# GRUB config entry (grub.cfg)
+menuentry "BOOTOS" {
+    multiboot2 /boot/bootos.elf
+    boot
+}</code></div>
+<h3>Multiboot2 Kernel Header (C)</h3>
+<div class="code-block"><code>#define MB2_MAGIC    0xe85250d6
+#define MB2_ARCH     0
+#define MB2_LENGTH   sizeof(header)
+#define MB2_CHECKSUM -(MB2_MAGIC + MB2_ARCH + MB2_LENGTH)
+
+struct multiboot2_header {
+    uint32_t magic;
+    uint32_t architecture;
+    uint32_t header_length;
+    uint32_t checksum;
+};</code></div>
+<div class="warn"><strong>⚠️ Note:</strong> BOOTOS has no downloadable build yet (0-10% complete). This section will be updated as development progresses. Join Discord for updates.</div>
+</div>
+
+</div>
+<script>
+const T={en:{nav_home:"Home",nav_products:"Products",nav_manifest:"Manifest",nav_gallery:"Gallery",nav_beta:"Beta Hub",nav_blog:"Blog",nav_docs:"Docs",nav_ai:"AI Lab",nav_socials:"Socials",docs_title:"DOCUMENTATION",docs_subtitle:"Complete Technical Reference & Guides",docs_gs_title:"🚀 Getting Started",docs_reqs:"System Requirements",docs_min_label:"Minimum:",docs_req1:"x86_64 processor (Intel or AMD)",docs_req2:"2GB RAM",docs_req3:"10GB disk space",docs_req4:"VGA graphics adapter",docs_req5:"UEFI or BIOS boot support",docs_warn_label:"⚠️ Warning:",docs_warn_text:"BOOT AI is experimental software. Always test in a virtual machine first. Do not install on hardware with important data.",docs_quick:"Quick Start Guide",docs_qs1:"Download the latest ISO from the Products page",docs_qs2:"Create a new VM with 4GB RAM and 20GB disk",docs_qs3:"Mount the ISO as a boot device",docs_qs4:"Start the VM and follow on-screen prompts",docs_qs5:"(no password in beta builds)",docs_build_title:"🔨 Building from Source",docs_prereqs:"Prerequisites",docs_pre1:"GCC cross-compiler for x86_64-elf target",docs_pre2:"NASM assembler (version 2.14+)",docs_pre3:"Make build system",docs_pre4:"QEMU for testing (optional but recommended)",docs_build_cmds:"Build Commands",docs_cmd_title:"💻 K-DOS Command Reference",docs_fs_cmds:"File System Commands",cmd_ls:"List directory contents",cmd_cd:"Change current directory",cmd_mkdir:"Create new directory",cmd_rmdir:"Remove empty directory",cmd_cat:"Display file contents",cmd_cp:"Copy file",cmd_mv:"Move or rename file",docs_proc_cmds:"Process Commands",cmd_ps:"List running processes",cmd_kill:"Terminate process by ID",docs_sys_cmds:"System Commands",cmd_help:"Display available commands",cmd_clear:"Clear terminal screen",cmd_reboot:"Restart system",cmd_shutdown:"Power off system",docs_trouble_title:"🔧 Troubleshooting",docs_t1_title:"System won't boot / Kernel panic",docs_t1_1:"Verify VM has at least 2GB RAM allocated",docs_t1_2:"Ensure UEFI/BIOS boot is properly configured",docs_t1_3:"Try disabling SMP in BIOS if using multi-core",docs_t2_title:"Desktop crashes on load",docs_t2_1:"Desktop is alpha quality — expect crashes",docs_t2_2:"Verify framebuffer support in your VM",docs_t2_3:"Try reducing screen resolution to 800x600",docs_debug_title:"Debug Mode",docs_debug_text:"Debug messages will appear on serial port COM1 (115200 baud)."},nl:{nav_home:"Home",nav_products:"Producten",nav_manifest:"Manifest",nav_gallery:"Galerij",nav_beta:"Beta Hub",nav_blog:"Blog",nav_docs:"Documentatie",nav_ai:"AI Lab",nav_socials:"Sociaal",docs_title:"DOCUMENTATIE",docs_subtitle:"Volledige Technische Referentie & Gidsen",docs_gs_title:"🚀 Aan de Slag",docs_reqs:"Systeemvereisten",docs_min_label:"Minimaal:",docs_req1:"x86_64 processor (Intel of AMD)",docs_req2:"2GB RAM",docs_req3:"10GB schijfruimte",docs_req4:"VGA grafische adapter",docs_req5:"UEFI of BIOS opstartondersteuning",docs_warn_label:"⚠️ Waarschuwing:",docs_warn_text:"BOOT AI is experimentele software. Test altijd eerst in een virtuele machine. Installeer niet op hardware met belangrijke gegevens.",docs_quick:"Snelstartgids",docs_qs1:"Download de nieuwste ISO van de Producten pagina",docs_qs2:"Maak een nieuwe VM met 4GB RAM en 20GB schijf",docs_qs3:"Koppel de ISO als opstartapparaat",docs_qs4:"Start de VM en volg de instructies op het scherm",docs_qs5:"(geen wachtwoord in beta builds)",docs_build_title:"🔨 Bouwen vanuit Broncode",docs_prereqs:"Vereisten",docs_pre1:"GCC cross-compiler voor x86_64-elf doel",docs_pre2:"NASM assembler (versie 2.14+)",docs_pre3:"Make bouwsysteem",docs_pre4:"QEMU voor testen (optioneel maar aanbevolen)",docs_build_cmds:"Bouwopdrachten",docs_cmd_title:"💻 K-DOS Commandoreferentie",docs_fs_cmds:"Bestandssysteemcommando's",cmd_ls:"Mapinhoud weergeven",cmd_cd:"Huidige map wijzigen",cmd_mkdir:"Nieuwe map aanmaken",cmd_rmdir:"Lege map verwijderen",cmd_cat:"Bestandsinhoud weergeven",cmd_cp:"Bestand kopiëren",cmd_mv:"Bestand verplaatsen of hernoemen",docs_proc_cmds:"Procescommando's",cmd_ps:"Actieve processen weergeven",cmd_kill:"Proces beëindigen op ID",docs_sys_cmds:"Systeemcommando's",cmd_help:"Beschikbare commando's weergeven",cmd_clear:"Terminal scherm wissen",cmd_reboot:"Systeem herstarten",cmd_shutdown:"Systeem uitschakelen",docs_trouble_title:"🔧 Probleemoplossing",docs_t1_title:"Systeem start niet op / Kernel panic",docs_t1_1:"Controleer of VM minimaal 2GB RAM heeft",docs_t1_2:"Zorg dat UEFI/BIOS opstart correct is geconfigureerd",docs_t1_3:"Probeer SMP uit te schakelen in BIOS bij multi-core",docs_t2_title:"Desktop crasht bij laden",docs_t2_1:"Desktop is alpha kwaliteit — verwacht crashes",docs_t2_2:"Controleer framebuffer ondersteuning in uw VM",docs_t2_3:"Probeer schermresolutie te verlagen naar 800x600",docs_debug_title:"Debug Modus",docs_debug_text:"Debugberichten verschijnen op seriële poort COM1 (115200 baud)."}};function tr(){const l=localStorage.getItem('lang')||'en';document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.getAttribute('data-i18n');if(T[l]&&T[l][k])e.textContent=T[l][k];});}const isMobile=/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)||window.innerWidth<=768;if(!isMobile){const c=document.querySelector('.custom-cursor'),d=document.querySelector('.custom-cursor-dot');document.addEventListener('mousemove',e=>{c.style.left=e.clientX+'px';c.style.top=e.clientY+'px';d.style.left=e.clientX+'px';d.style.top=e.clientY+'px'});}document.addEventListener('click',e=>{const r=document.createElement('div');r.className='ripple';r.style.left=e.clientX+'px';r.style.top=e.clientY+'px';r.style.width='10px';r.style.height='10px';document.body.appendChild(r);if(isMobile&&navigator.vibrate)navigator.vibrate(10);setTimeout(()=>r.remove(),600);});const canvas=document.getElementById('particles-canvas'),ctx=canvas.getContext('2d');canvas.width=window.innerWidth;canvas.height=window.innerHeight;const particles=[],pCount=isMobile?30:50;class Particle{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*3+1;this.speedX=(Math.random()-.5)*.5;this.speedY=(Math.random()-.5)*.5;this.opacity=Math.random()*.5+.2;}update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x>canvas.width)this.x=0;if(this.x<0)this.x=canvas.width;if(this.y>canvas.height)this.y=0;if(this.y<0)this.y=canvas.height;}draw(){ctx.fillStyle=`rgba(0,242,255,${this.opacity})`;ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();}}for(let i=0;i<pCount;i++)particles.push(new Particle());function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animate);}animate();const sections=document.querySelectorAll('.section'),obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*100);});},{threshold:.05});sections.forEach(s=>obs.observe(s));if(isMobile){let pStart=0,pCurr=0;const ind=document.querySelector('.ptr-indicator');document.addEventListener('touchstart',e=>pStart=e.touches[0].screenY);document.addEventListener('touchmove',e=>{pCurr=e.touches[0].screenY;if(pCurr-pStart>0&&window.scrollY===0)ind.classList.add('show');});document.addEventListener('touchend',()=>{if(pCurr-pStart>100&&window.scrollY===0)location.reload();ind.classList.remove('show');});}function initTheme(){const st=localStorage.getItem('theme');if(st)document.documentElement.setAttribute('data-theme',st);else if(window.matchMedia&&window.matchMedia('(prefers-color-scheme:light)').matches)document.documentElement.setAttribute('data-theme','light');else document.documentElement.setAttribute('data-theme','dark');updateThemeIcon();}function toggleTheme(){const ct=document.documentElement.getAttribute('data-theme')||'dark',nt=ct==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',nt);localStorage.setItem('theme',nt);updateThemeIcon();}function updateThemeIcon(){const t=document.documentElement.getAttribute('data-theme')||'dark',i=document.getElementById('themeIcon');if(i)i.textContent=t==='dark'?'☀️':'🌙';}function toggleMenu(){document.getElementById('menu').classList.toggle('active');}document.addEventListener('DOMContentLoaded',()=>{initTheme();tr();const ls=document.getElementById('lang');ls.value=localStorage.getItem('lang')||'en';ls.onchange=()=>{localStorage.setItem('lang',ls.value);tr();};});
+</script>
 </body>
 </html>

@@ -1,67 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MANIFEST // BOOT AI</title>
-    <style>
-        :root { --accent: #00f2ff; --glass: rgba(255, 255, 255, 0.03); --border: rgba(0, 242, 255, 0.2); --bg: #05070a; --text: #fff; }
-        [data-theme="light"] { --accent: #0066cc; --glass: rgba(0, 0, 0, 0.03); --border: rgba(0, 102, 204, 0.2); --bg: #f5f5f7; --text: #1d1d1f; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background: var(--bg); color: var(--text); font-family: 'Inter', sans-serif; min-height: 100vh; transition: background 0.3s; }
-        .bg-layer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background: radial-gradient(circle at 20% 20%, rgba(0, 242, 255, 0.05) 0%, transparent 40%), radial-gradient(circle at 80% 80%, rgba(147, 51, 234, 0.05) 0%, transparent 40%); }
-        [data-theme="light"] .bg-layer { background: radial-gradient(circle at 20% 20%, rgba(0, 102, 204, 0.08) 0%, transparent 40%), radial-gradient(circle at 80% 80%, rgba(147, 51, 234, 0.08) 0%, transparent 40%); }
-        .grid-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 40px 40px; opacity: 0.15; }
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; background: rgba(5,7,10,0.8); }
-        [data-theme="light"] nav { background: rgba(245, 245, 247, 0.9); }
-        .nav-left { display: flex; align-items: center; gap: 20px; }
-        .logo { font-weight: 900; color: var(--accent); letter-spacing: 2px; text-decoration: none; }
-        .nav-controls { display: flex; align-items: center; gap: 15px; }
-        .theme-toggle, .lang-toggle { background: none; border: 1px solid var(--border); color: var(--text); padding: 8px 12px; cursor: pointer; font-size: 12px; font-weight: 600; border-radius: 4px; transition: 0.3s; }
-        .menu-btn { font-size: 28px; cursor: pointer; color: var(--accent); background: none; border: none; }
-        .nav-links { position: fixed; top: 0; right: -100%; width: 100%; max-width: 300px; height: 100vh; background: rgba(10, 15, 20, 0.98); backdrop-filter: blur(30px); border-left: 1px solid var(--border); padding: 80px 40px; transition: 0.4s; z-index: 2000; }
-        [data-theme="light"] .nav-links { background: rgba(255, 255, 255, 0.98); }
-        .nav-links.active { right: 0; }
-        .nav-links a { display: block; color: var(--text); text-decoration: none; font-size: 1.1rem; margin-bottom: 25px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
-        .nav-links a:hover { color: var(--accent); padding-left: 10px; }
-        .container { max-width: 1000px; margin: 0 auto; padding: 60px 5%; }
-        h1 { margin-bottom: 40px; font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; letter-spacing: 2px; text-transform: uppercase; }
-        .log-entry { background: var(--glass); border: 1px solid var(--border); border-left: 4px solid var(--accent); padding: 30px; margin-bottom: 20px; backdrop-filter: blur(20px); border-radius: 4px; transition: 0.3s; }
-        .log-entry:hover { background: rgba(0, 242, 255, 0.05); }
-        .date { color: var(--accent); font-weight: bold; margin-bottom: 10px; display: block; letter-spacing: 1px; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<title>MANIFEST // BOOT AI</title>
+<style>:root{--accent:#00f2ff;--glass:rgba(255,255,255,0.05);--border:rgba(0,242,255,0.2);--bg:#05070a;--text:#fff}[data-theme=light]{--accent:#0066cc;--glass:rgba(0,0,0,0.03);--border:rgba(0,102,204,0.2);--bg:#f5f5f7;--text:#1d1d1f}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:Inter,-apple-system,sans-serif;overflow-x:hidden;cursor:none}@media(max-width:768px){body{cursor:default;padding-bottom:60px}}.custom-cursor{position:fixed;width:20px;height:20px;border:2px solid var(--accent);border-radius:50%;pointer-events:none;z-index:10000;display:none}@media(min-width:769px){.custom-cursor{display:block}}.custom-cursor-dot{position:fixed;width:6px;height:6px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:10001;box-shadow:0 0 10px var(--accent);display:none}@media(min-width:769px){.custom-cursor-dot{display:block}}.ripple{position:fixed;border-radius:50%;border:2px solid var(--accent);pointer-events:none;z-index:9999;animation:ripple-out .6s ease-out forwards}@keyframes ripple-out{from{transform:scale(0);opacity:1}to{transform:scale(20);opacity:0}}#particles-canvas,.bg-layer,.grid-overlay{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none}#particles-canvas{z-index:-1}.bg-layer{z-index:-2;background:radial-gradient(circle at 20% 20%,rgba(0,242,255,.05) 0,transparent 40%),radial-gradient(circle at 80% 80%,rgba(147,51,234,.05) 0,transparent 40%)}.grid-overlay{z-index:-2;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:40px 40px;opacity:.15}nav{display:flex;justify-content:space-between;align-items:center;padding:20px 5%;backdrop-filter:blur(20px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000;background:rgba(5,7,10,.8)}.logo{font-weight:900;color:var(--accent);letter-spacing:2px;text-decoration:none;font-size:1.2rem}.nav-controls{display:flex;gap:10px}.theme-toggle,.lang-toggle{background:0 0;border:1px solid var(--border);color:var(--text);padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;border-radius:4px;min-height:44px}.menu-btn{font-size:28px;cursor:pointer;color:var(--accent);background:0 0;border:none;min-width:44px;min-height:44px}.nav-links{position:fixed;top:0;right:-100%;width:100%;max-width:300px;height:100vh;background:rgba(10,15,20,.98);backdrop-filter:blur(30px);border-left:1px solid var(--border);padding:80px 40px 100px;transition:.4s;z-index:2000;overflow-y:auto}.nav-links.active{right:0}.nav-links a{display:flex;align-items:center;color:var(--text);text-decoration:none;font-size:1.1rem;margin-bottom:25px;font-weight:600;text-transform:uppercase;letter-spacing:2px;min-height:44px}.nav-links a:hover{color:var(--accent);padding-left:10px}.mobile-tab-bar{position:fixed;bottom:0;left:0;width:100%;background:rgba(10,15,20,.95);backdrop-filter:blur(20px);border-top:1px solid var(--border);display:none;z-index:1001;padding:8px 0}@media(max-width:768px){.mobile-tab-bar{display:flex;justify-content:space-around}}.tab-item{flex:1;display:flex;flex-direction:column;align-items:center;padding:8px;color:var(--text);text-decoration:none;opacity:.6;font-size:.7rem;text-transform:uppercase}.tab-item.active{opacity:1;color:var(--accent)}.tab-icon{font-size:1.4rem;margin-bottom:4px}.container{width:90%;max-width:1000px;margin:0 auto;padding:60px 0}@media(max-width:768px){.container{width:95%;padding:40px 0}}h1{margin-bottom:10px;font-size:clamp(2.5rem,8vw,3.5rem);font-weight:900;letter-spacing:2px;text-transform:uppercase}.subtitle{opacity:.4;margin-bottom:50px;letter-spacing:4px;font-size:.8rem;text-transform:uppercase}.timeline{position:relative;padding:20px 0}.timeline::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:2px;background:var(--border)}@media(max-width:768px){.timeline::before{left:10px}}.entry{position:relative;padding-left:60px;margin-bottom:60px;opacity:0;transform:translateY(30px);transition:all .6s}@media(max-width:768px){.entry{padding-left:40px;margin-bottom:40px}}.entry.visible{opacity:1;transform:translateY(0)}.entry::before{content:'';position:absolute;left:11px;top:8px;width:20px;height:20px;background:var(--accent);border-radius:50%;border:3px solid var(--bg);box-shadow:0 0 20px var(--accent)}@media(max-width:768px){.entry::before{left:1px;width:18px;height:18px}}.date{color:var(--accent);font-weight:900;font-size:.9rem;letter-spacing:2px;margin-bottom:10px;text-transform:uppercase}.version{font-size:1.8rem;font-weight:900;margin-bottom:15px}@media(max-width:768px){.version{font-size:1.4rem}}.desc{opacity:.7;line-height:1.8;margin-bottom:15px}.changes{list-style:none;margin-top:15px}.changes li{padding-left:25px;position:relative;margin-bottom:8px;opacity:.6;line-height:1.6}.changes li::before{content:'→';position:absolute;left:0;color:var(--accent)}.tag{display:inline-block;padding:4px 10px;font-size:.7rem;font-weight:900;letter-spacing:1px;border-radius:3px;margin-right:8px;margin-top:8px}.tag-new{background:rgba(0,242,255,.2);color:var(--accent);border:1px solid var(--accent)}.tag-fix{background:rgba(255,170,0,.2);color:#fa0;border:1px solid #fa0}.tag-breaking{background:rgba(255,0,100,.2);color:#f06;border:1px solid #f06}.status-box{margin-top:60px;padding:40px;border:1px solid var(--border);background:var(--glass);border-radius:8px}.status-box h2{color:var(--accent);margin-bottom:20px;font-size:1.2rem}.status-box p{opacity:.7;line-height:1.8}.ptr-indicator{position:fixed;top:-60px;left:50%;transform:translateX(-50%);color:var(--accent);font-size:2rem;z-index:1002;transition:top .3s}.ptr-indicator.show{top:20px}</style>
 </head>
 <body>
-    <div class="bg-layer"></div><div class="grid-overlay"></div>
-    <nav>
-        <div class="nav-left"><a href="index.html" class="logo">BOOT AI</a></div>
-        <div class="nav-controls">
-            <select class="lang-toggle" id="langSelector" onchange="setLanguage(this.value)"><option value="en">EN</option><option value="nl">NL</option></select>
-            <button class="theme-toggle" onclick="toggleTheme()"><span id="themeIcon">🌙</span></button>
-            <button class="menu-btn" onclick="toggle()">☰</button>
-        </div>
-        <div class="nav-links" id="menuSide">
-            <a href="javascript:void(0)" onclick="toggle()" style="font-size: 35px; color: var(--accent); margin-bottom: 50px;">×</a>
-            <a href="index.html">Home</a><a href="products.html">Products</a><a href="manifest.html">Manifest</a><a href="gallery.html">Gallery</a><a href="beta.html">Beta Hub</a><a href="blog.html">Blog</a><a href="docs.html">Docs</a><a href="ai.html">AI Lab</a><a href="socials.html">Socials</a>
-        </div>
-    </nav>
-    <div class="container">
-        <h1>SYSTEM MANIFEST</h1>
-        <div class="log-entry"><span class="date">[2026-04-22]</span><p>Website overhaul: Added EN/NL language support, light/dark themes, documentation section, blog, and improved product descriptions. AI Lab coming soon.</p></div>
-        <div class="log-entry"><span class="date">[2026-04-19]</span><p>Liquid Glass UI integrated into Core Interface.</p></div>
-        <div class="log-entry"><span class="date">[2026-03-23]</span><p>Finalized nomenclature for KS-DOS 0.1 PRE-ALPHA architecture.</p></div>
-        <div class="log-entry"><span class="date">[2026-02-15]</span><p>K-DOS command system operational with basic shell commands (ls, cd, mkdir).</p></div>
-        <div class="log-entry"><span class="date">[2026-01-10]</span><p>Started research phase on AI integration in operating systems.</p></div>
-        <div class="log-entry"><span class="date">[2025-12-01]</span><p>Project BOOT AI initialized. First boot sequence tests successful.</p></div>
-    </div>
-    <script>
-        function getCurrentLang() { return localStorage.getItem('lang') || 'en'; }
-        function setLanguage(lang) { localStorage.setItem('lang', lang); location.reload(); }
-        function initTheme() { const savedTheme = localStorage.getItem('theme'); if (savedTheme) { document.documentElement.setAttribute('data-theme', savedTheme); } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) { document.documentElement.setAttribute('data-theme', 'light'); } else { document.documentElement.setAttribute('data-theme', 'dark'); } updateThemeIcon(); }
-        function toggleTheme() { const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark'; const newTheme = currentTheme === 'dark' ? 'light' : 'dark'; document.documentElement.setAttribute('data-theme', newTheme); localStorage.setItem('theme', newTheme); updateThemeIcon(); }
-        function updateThemeIcon() { const theme = document.documentElement.getAttribute('data-theme') || 'dark'; const iconElement = document.getElementById('themeIcon'); if (iconElement) { iconElement.textContent = theme === 'dark' ? '☀️' : '🌙'; } }
-        function toggle() { const menu = document.getElementById('menuSide'); if (menu) { menu.classList.toggle('active'); } }
-        document.addEventListener('DOMContentLoaded', function() { initTheme(); const langSelector = document.getElementById('langSelector'); if (langSelector) { langSelector.value = getCurrentLang(); } });
-    </script>
+<div class="custom-cursor"></div><div class="custom-cursor-dot"></div>
+<div class="ptr-indicator">↓</div>
+<canvas id="particles-canvas"></canvas>
+<div class="bg-layer"></div><div class="grid-overlay"></div>
+<nav>
+<div><a href="index.html" class="logo">BOOT AI</a></div>
+<div class="nav-controls">
+<select class="lang-toggle" id="lang"><option value="en">EN</option><option value="nl">NL</option></select>
+<button class="theme-toggle" onclick="toggleTheme()"><span id="themeIcon">🌙</span></button>
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+</div>
+<div class="nav-links" id="menu">
+<a href="#" onclick="toggleMenu()" style="font-size:35px;color:var(--accent);margin-bottom:50px">×</a>
+<a href="index.html" data-i18n="nav_home">Home</a>
+<a href="products.html" data-i18n="nav_products">Products</a>
+<a href="manifest.html" data-i18n="nav_manifest">Manifest</a>
+<a href="gallery.html" data-i18n="nav_gallery">Gallery</a>
+<a href="beta.html" data-i18n="nav_beta">Beta Hub</a>
+<a href="blog.html" data-i18n="nav_blog">Blog</a>
+<a href="docs.html" data-i18n="nav_docs">Docs</a>
+<a href="ai.html" data-i18n="nav_ai">AI Lab</a>
+<a href="socials.html" data-i18n="nav_socials">Socials</a>
+</div>
+</nav>
+<div class="mobile-tab-bar">
+<a href="index.html" class="tab-item"><div class="tab-icon">🏠</div><div data-i18n="nav_home">Home</div></a>
+<a href="products.html" class="tab-item"><div class="tab-icon">📦</div><div data-i18n="nav_products">Products</div></a>
+<a href="docs.html" class="tab-item"><div class="tab-icon">📚</div><div data-i18n="nav_docs">Docs</div></a>
+<a href="beta.html" class="tab-item"><div class="tab-icon">🚀</div><div>Beta</div></a>
+</div>
+<div class="container">
+<h1 data-i18n="man_title">SYSTEM MANIFEST</h1>
+<p class="subtitle" data-i18n="man_subtitle">Version History & Development Timeline</p>
+<div class="timeline">
+<div class="entry">
+<div class="date">April 2026</div>
+<div class="version">KOS 0.2.9 + K-DOS 1.0 Beta</div>
+<p class="desc" data-i18n="man_apr_desc">Major stability improvements and new beta releases across all systems.</p>
+<span class="tag tag-new">NEW</span><span class="tag tag-fix">FIX</span>
+<ul class="changes">
+<li data-i18n="man_apr_1">KOS: Experimental SMP scheduler for multi-core support</li>
+<li data-i18n="man_apr_2">KOS: Rewrote page allocator with buddy system</li>
+<li data-i18n="man_apr_3">K-DOS: Added cat, ps, kill commands to shell</li>
+<li data-i18n="man_apr_4">K-DOS: Fixed command history buffer overflow</li>
+<li data-i18n="man_apr_5">Desktop: Early window dragging support (unstable)</li>
+</ul>
+</div>
+<div class="entry">
+<div class="date">March 2026</div>
+<div class="version">KOS 0.2.5 + K-DOS 0.8 Beta</div>
+<p class="desc" data-i18n="man_mar_desc">Hardware driver expansion and filesystem improvements.</p>
+<span class="tag tag-new">NEW</span>
+<ul class="changes">
+<li data-i18n="man_mar_1">KOS: Basic AHCI driver for SATA storage</li>
+<li data-i18n="man_mar_2">KOS: PS/2 keyboard and mouse driver</li>
+<li data-i18n="man_mar_3">K-DOS: Directory operations now functional</li>
+<li data-i18n="man_mar_4">K-DOS: Basic file I/O with read/write</li>
+</ul>
+</div>
+<div class="entry">
+<div class="date">February 2026</div>
+<div class="version">K-DOS Desktop Alpha 0.1</div>
+<p class="desc" data-i18n="man_feb_desc">First experimental GUI prototype released to alpha testers.</p>
+<span class="tag tag-new">NEW</span><span class="tag tag-breaking">BREAKING</span>
+<ul class="changes">
+<li data-i18n="man_feb_1">Initial window manager prototype</li>
+<li data-i18n="man_feb_2">Custom cursor rendering on framebuffer</li>
+<li data-i18n="man_feb_3">Basic mouse input handling</li>
+</ul>
+</div>
+<div class="entry">
+<div class="date">January 2026</div>
+<div class="version">KOS 0.2.0 + K-DOS 0.5 Beta</div>
+<p class="desc" data-i18n="man_jan_desc">Initial public beta release of both kernel and OS.</p>
+<span class="tag tag-new">NEW</span>
+<ul class="changes">
+<li data-i18n="man_jan_1">KOS: Boot sequence fully operational</li>
+<li data-i18n="man_jan_2">KOS: Memory management with basic paging</li>
+<li data-i18n="man_jan_3">K-DOS: Shell with ls, cd, help commands</li>
+<li data-i18n="man_jan_4">K-DOS: RAM-based filesystem</li>
+</ul>
+</div>
+<div class="entry">
+<div class="date">December 2025</div>
+<div class="version">KOS 0.1 Alpha</div>
+<p class="desc" data-i18n="man_dec_desc">First internal alpha build. Kernel boots in VirtualBox.</p>
+<span class="tag tag-new">NEW</span>
+<ul class="changes">
+<li data-i18n="man_dec_1">Minimal bootloader in Assembly</li>
+<li data-i18n="man_dec_2">Basic VGA text mode output</li>
+<li data-i18n="man_dec_3">Project officially started as BOOT AI</li>
+</ul>
+</div>
+<div class="entry">
+<div class="date">November 2025</div>
+<div class="version" data-i18n="man_nov_ver">Project Genesis</div>
+<p class="desc" data-i18n="man_nov_desc">BOOT AI project conception and initial research phase.</p>
+<span class="tag tag-new">NEW</span>
+<ul class="changes">
+<li data-i18n="man_nov_1">Research into x86_64 architecture</li>
+<li data-i18n="man_nov_2">Development environment setup (QEMU, GCC, NASM)</li>
+<li data-i18n="man_nov_3">First "Hello World" bootloader compiled</li>
+</ul>
+</div>
+</div>
+<div class="status-box">
+<h2 data-i18n="man_status_title">📋 DEVELOPMENT STATUS</h2>
+<p data-i18n="man_status_text">KOS Kernel: 25-50% Complete (Beta) | K-DOS OS: Beta Stage | K-DOS Desktop: 10-25% Complete (Alpha) | Solo project by MGKFN | Next milestone: Network stack (Q3 2026)</p>
+</div>
+</div>
+<script>
+const T={en:{nav_home:"Home",nav_products:"Products",nav_manifest:"Manifest",nav_gallery:"Gallery",nav_beta:"Beta Hub",nav_blog:"Blog",nav_docs:"Docs",nav_ai:"AI Lab",nav_socials:"Socials",man_title:"SYSTEM MANIFEST",man_subtitle:"Version History & Development Timeline",man_apr_desc:"Major stability improvements and new beta releases across all systems.",man_apr_1:"KOS: Experimental SMP scheduler for multi-core support",man_apr_2:"KOS: Rewrote page allocator with buddy system",man_apr_3:"K-DOS: Added cat, ps, kill commands to shell",man_apr_4:"K-DOS: Fixed command history buffer overflow",man_apr_5:"Desktop: Early window dragging support (unstable)",man_mar_desc:"Hardware driver expansion and filesystem improvements.",man_mar_1:"KOS: Basic AHCI driver for SATA storage",man_mar_2:"KOS: PS/2 keyboard and mouse driver",man_mar_3:"K-DOS: Directory operations now functional",man_mar_4:"K-DOS: Basic file I/O with read/write",man_feb_desc:"First experimental GUI prototype released to alpha testers.",man_feb_1:"Initial window manager prototype",man_feb_2:"Custom cursor rendering on framebuffer",man_feb_3:"Basic mouse input handling",man_jan_desc:"Initial public beta release of both kernel and OS.",man_jan_1:"KOS: Boot sequence fully operational",man_jan_2:"KOS: Memory management with basic paging",man_jan_3:"K-DOS: Shell with ls, cd, help commands",man_jan_4:"K-DOS: RAM-based filesystem",man_dec_desc:"First internal alpha build. Kernel boots in VirtualBox.",man_dec_1:"Minimal bootloader in Assembly",man_dec_2:"Basic VGA text mode output",man_dec_3:"Project officially started as BOOT AI",man_nov_ver:"Project Genesis",man_nov_desc:"BOOT AI project conception and initial research phase.",man_nov_1:"Research into x86_64 architecture",man_nov_2:"Development environment setup (QEMU, GCC, NASM)",man_nov_3:'First "Hello World" bootloader compiled',man_status_title:"📋 DEVELOPMENT STATUS",man_status_text:"KOS Kernel: 25-50% Complete (Beta) | K-DOS OS: Beta Stage | K-DOS Desktop: 10-25% Complete (Alpha) | Solo project by MGKFN | Next milestone: Network stack (Q3 2026)"},nl:{nav_home:"Home",nav_products:"Producten",nav_manifest:"Manifest",nav_gallery:"Galerij",nav_beta:"Beta Hub",nav_blog:"Blog",nav_docs:"Documentatie",nav_ai:"AI Lab",nav_socials:"Sociaal",man_title:"SYSTEEM MANIFEST",man_subtitle:"Versiegeschiedenis & Ontwikkelingstijdlijn",man_apr_desc:"Grote stabiliteitsverbeteringen en nieuwe beta releases voor alle systemen.",man_apr_1:"KOS: Experimentele SMP-planner voor meerkernondersteuning",man_apr_2:"KOS: Pagina-allocator herschreven met buddy-systeem",man_apr_3:"K-DOS: cat, ps, kill commando's toegevoegd aan shell",man_apr_4:"K-DOS: Bufferoverloop in commandogeschiedenis opgelost",man_apr_5:"Desktop: Vroege vensterversleep ondersteuning (onstabiel)",man_mar_desc:"Uitbreiding van hardwarestuurprogramma's en bestandssysteemverbeteringen.",man_mar_1:"KOS: Basis AHCI-stuurprogramma voor SATA-opslag",man_mar_2:"KOS: PS/2 toetsenbord- en muisstuurprogramma",man_mar_3:"K-DOS: Mapoperaties nu functioneel",man_mar_4:"K-DOS: Basis bestands-I/O met lezen/schrijven",man_feb_desc:"Eerste experimentele GUI-prototype uitgebracht voor alfatesters.",man_feb_1:"Initieel vensterbeheer prototype",man_feb_2:"Aangepaste cursorweergave op framebuffer",man_feb_3:"Basis muisinvoer verwerking",man_jan_desc:"Eerste publieke beta release van zowel kernel als OS.",man_jan_1:"KOS: Opstartsequentie volledig operationeel",man_jan_2:"KOS: Geheugenbeheer met basis paging",man_jan_3:"K-DOS: Shell met ls, cd, help commando's",man_jan_4:"K-DOS: RAM-gebaseerd bestandssysteem",man_dec_desc:"Eerste interne alfa build. Kernel start op in VirtualBox.",man_dec_1:"Minimale bootloader in Assembly",man_dec_2:"Basis VGA tekstmodus uitvoer",man_dec_3:"Project officieel gestart als BOOT AI",man_nov_ver:"Project Genesis",man_nov_desc:"BOOT AI projectconcept en initiële onderzoeksfase.",man_nov_1:"Onderzoek naar x86_64 architectuur",man_nov_2:"Ontwikkelomgeving opgezet (QEMU, GCC, NASM)",man_nov_3:'Eerste "Hallo Wereld" bootloader gecompileerd',man_status_title:"📋 ONTWIKKELINGSSTATUS",man_status_text:"KOS Kernel: 25-50% Compleet (Beta) | K-DOS OS: Beta Stadium | K-DOS Desktop: 10-25% Compleet (Alpha) | Soloproject door MGKFN | Volgende mijlpaal: Netwerkstack (Q3 2026)"}};function tr(){const l=localStorage.getItem('lang')||'en';document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.getAttribute('data-i18n');if(T[l]&&T[l][k])e.textContent=T[l][k];});}const isMobile=/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)||window.innerWidth<=768;if(!isMobile){const c=document.querySelector('.custom-cursor'),d=document.querySelector('.custom-cursor-dot');document.addEventListener('mousemove',e=>{c.style.left=e.clientX+'px';c.style.top=e.clientY+'px';d.style.left=e.clientX+'px';d.style.top=e.clientY+'px'});}document.addEventListener('click',e=>{const r=document.createElement('div');r.className='ripple';r.style.left=e.clientX+'px';r.style.top=e.clientY+'px';r.style.width='10px';r.style.height='10px';document.body.appendChild(r);if(isMobile&&navigator.vibrate)navigator.vibrate(10);setTimeout(()=>r.remove(),600);});const canvas=document.getElementById('particles-canvas'),ctx=canvas.getContext('2d');canvas.width=window.innerWidth;canvas.height=window.innerHeight;const particles=[],pCount=isMobile?30:50;class Particle{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*3+1;this.speedX=(Math.random()-.5)*.5;this.speedY=(Math.random()-.5)*.5;this.opacity=Math.random()*.5+.2;}update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x>canvas.width)this.x=0;if(this.x<0)this.x=canvas.width;if(this.y>canvas.height)this.y=0;if(this.y<0)this.y=canvas.height;}draw(){ctx.fillStyle=`rgba(0,242,255,${this.opacity})`;ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();}}for(let i=0;i<pCount;i++)particles.push(new Particle());function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animate);}animate();const entries=document.querySelectorAll('.entry'),obs=new IntersectionObserver(entries2=>{entries2.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*150);});},{threshold:.1});entries.forEach(e=>obs.observe(e));if(isMobile){let pStart=0,pCurr=0;const ind=document.querySelector('.ptr-indicator');document.addEventListener('touchstart',e=>pStart=e.touches[0].screenY);document.addEventListener('touchmove',e=>{pCurr=e.touches[0].screenY;if(pCurr-pStart>0&&window.scrollY===0)ind.classList.add('show');});document.addEventListener('touchend',()=>{if(pCurr-pStart>100&&window.scrollY===0)location.reload();ind.classList.remove('show');});}function initTheme(){const st=localStorage.getItem('theme');if(st)document.documentElement.setAttribute('data-theme',st);else if(window.matchMedia&&window.matchMedia('(prefers-color-scheme:light)').matches)document.documentElement.setAttribute('data-theme','light');else document.documentElement.setAttribute('data-theme','dark');updateThemeIcon();}function toggleTheme(){const ct=document.documentElement.getAttribute('data-theme')||'dark',nt=ct==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',nt);localStorage.setItem('theme',nt);updateThemeIcon();}function updateThemeIcon(){const t=document.documentElement.getAttribute('data-theme')||'dark',i=document.getElementById('themeIcon');if(i)i.textContent=t==='dark'?'☀️':'🌙';}function toggleMenu(){document.getElementById('menu').classList.toggle('active');}document.addEventListener('DOMContentLoaded',()=>{initTheme();tr();const ls=document.getElementById('lang');ls.value=localStorage.getItem('lang')||'en';ls.onchange=()=>{localStorage.setItem('lang',ls.value);tr();};});
+</script>
 </body>
 </html>
