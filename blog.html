@@ -2,15 +2,85 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>BLOG // BOOT AI</title>
-<style>:root{--accent:#00f2ff;--glass:rgba(255,255,255,0.05);--border:rgba(0,242,255,0.2);--bg:#05070a;--text:#fff}[data-theme=light]{--accent:#0066cc;--glass:rgba(0,0,0,0.03);--border:rgba(0,102,204,0.2);--bg:#f5f5f7;--text:#1d1d1f}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:Inter,-apple-system,sans-serif;overflow-x:hidden;cursor:none}@media(max-width:768px){body{cursor:default;padding-bottom:60px}}.custom-cursor{position:fixed;width:20px;height:20px;border:2px solid var(--accent);border-radius:50%;pointer-events:none;z-index:10000;display:none}@media(min-width:769px){.custom-cursor{display:block}}.custom-cursor-dot{position:fixed;width:6px;height:6px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:10001;box-shadow:0 0 10px var(--accent);display:none}@media(min-width:769px){.custom-cursor-dot{display:block}}.ripple{position:fixed;border-radius:50%;border:2px solid var(--accent);pointer-events:none;z-index:9999;animation:ripple-out .6s ease-out forwards}@keyframes ripple-out{from{transform:scale(0);opacity:1}to{transform:scale(20);opacity:0}}#particles-canvas,.bg-layer,.grid-overlay{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none}#particles-canvas{z-index:-1}.bg-layer{z-index:-2;background:radial-gradient(circle at 20% 20%,rgba(0,242,255,.05) 0,transparent 40%),radial-gradient(circle at 80% 80%,rgba(147,51,234,.05) 0,transparent 40%)}.grid-overlay{z-index:-2;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:40px 40px;opacity:.15}nav{display:flex;justify-content:space-between;align-items:center;padding:20px 5%;backdrop-filter:blur(20px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000;background:rgba(5,7,10,.8)}.logo{font-weight:900;color:var(--accent);letter-spacing:2px;text-decoration:none;font-size:1.2rem}.nav-controls{display:flex;gap:10px}.theme-toggle,.lang-toggle{background:0 0;border:1px solid var(--border);color:var(--text);padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;border-radius:4px;min-height:44px}.menu-btn{font-size:28px;cursor:pointer;color:var(--accent);background:0 0;border:none;min-width:44px;min-height:44px}.nav-links{position:fixed;top:0;right:-100%;width:100%;max-width:300px;height:100vh;background:rgba(10,15,20,.98);backdrop-filter:blur(30px);border-left:1px solid var(--border);padding:80px 40px 100px;transition:.4s;z-index:2000;overflow-y:auto}.nav-links.active{right:0}.nav-links a{display:flex;align-items:center;color:var(--text);text-decoration:none;font-size:1.1rem;margin-bottom:25px;font-weight:600;text-transform:uppercase;letter-spacing:2px;min-height:44px}.nav-links a:hover{color:var(--accent);padding-left:10px}.mobile-tab-bar{position:fixed;bottom:0;left:0;width:100%;background:rgba(10,15,20,.95);backdrop-filter:blur(20px);border-top:1px solid var(--border);display:none;z-index:1001;padding:8px 0}@media(max-width:768px){.mobile-tab-bar{display:flex;justify-content:space-around}}.tab-item{flex:1;display:flex;flex-direction:column;align-items:center;padding:8px;color:var(--text);text-decoration:none;opacity:.6;font-size:.7rem;text-transform:uppercase}.tab-item.active{opacity:1;color:var(--accent)}.tab-icon{font-size:1.4rem;margin-bottom:4px}.container{width:90%;max-width:900px;margin:0 auto;padding:60px 0}@media(max-width:768px){.container{width:95%;padding:40px 0}}h1{margin-bottom:10px;font-size:clamp(2.5rem,8vw,3.5rem);font-weight:900;letter-spacing:2px;text-transform:uppercase}.subtitle{opacity:.4;margin-bottom:50px;letter-spacing:4px;font-size:.8rem;text-transform:uppercase}.post{background:var(--glass);border:1px solid var(--border);backdrop-filter:blur(20px);padding:40px;border-radius:8px;margin-bottom:25px;transition:all .4s;opacity:0;transform:translateY(40px)}@media(max-width:768px){.post{padding:25px}}.post.visible{opacity:1;transform:translateY(0)}.post:hover{border-color:var(--accent);box-shadow:0 10px 40px rgba(0,242,255,.2)}.post-meta{display:flex;gap:15px;margin-bottom:20px;flex-wrap:wrap;align-items:center}.post-date{color:var(--accent);font-size:.85rem;font-weight:700;letter-spacing:1px}.post-cat{background:rgba(0,242,255,.1);color:var(--accent);padding:4px 12px;font-size:.75rem;font-weight:900;letter-spacing:1px;border-radius:3px;text-transform:uppercase}.post h2{font-size:1.6rem;margin-bottom:15px;letter-spacing:1px}@media(max-width:768px){.post h2{font-size:1.3rem}}.post p{opacity:.7;line-height:1.8;margin-bottom:20px}.read-more{color:var(--accent);text-decoration:none;font-weight:700;font-size:.9rem;letter-spacing:1px;transition:.3s}.read-more:hover{letter-spacing:2px}.ptr-indicator{position:fixed;top:-60px;left:50%;transform:translateX(-50%);color:var(--accent);font-size:2rem;z-index:1002;transition:top .3s}.ptr-indicator.show{top:20px}</style>
+<style>
+:root{--accent:#00f2ff;--glass:rgba(255,255,255,0.05);--border:rgba(0,242,255,0.2);--bg:#05070a;--text:#fff}
+[data-theme=light]{--accent:#0066cc;--glass:rgba(0,0,0,0.03);--border:rgba(0,102,204,0.2);--bg:#f5f5f7;--text:#1d1d1f}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Inter,-apple-system,sans-serif;overflow-x:hidden;cursor:none}
+@media(max-width:768px){body{cursor:default;padding-bottom:60px}}
+.custom-cursor{position:fixed;width:20px;height:20px;border:2px solid var(--accent);border-radius:50%;pointer-events:none;z-index:10000;display:none}
+@media(min-width:769px){.custom-cursor{display:block}}
+.custom-cursor-dot{position:fixed;width:6px;height:6px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:10001;box-shadow:0 0 10px var(--accent);display:none}
+@media(min-width:769px){.custom-cursor-dot{display:block}}
+.ripple{position:fixed;border-radius:50%;border:2px solid var(--accent);pointer-events:none;z-index:9999;animation:ripple-out .6s ease-out forwards}
+@keyframes ripple-out{from{transform:scale(0);opacity:1}to{transform:scale(20);opacity:0}}
+#particles-canvas,.bg-layer,.grid-overlay{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none}
+#particles-canvas{z-index:-1}
+.bg-layer{z-index:-2;background:radial-gradient(circle at 20% 20%,rgba(0,242,255,.05) 0,transparent 40%),radial-gradient(circle at 80% 80%,rgba(147,51,234,.05) 0,transparent 40%)}
+.grid-overlay{z-index:-2;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:40px 40px;opacity:.15}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 5%;backdrop-filter:blur(20px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000;background:rgba(5,7,10,.8)}
+.logo{font-weight:900;color:var(--accent);letter-spacing:2px;text-decoration:none;font-size:1.2rem}
+.nav-controls{display:flex;gap:10px}
+.theme-toggle,.lang-toggle{background:0 0;border:1px solid var(--border);color:var(--text);padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;border-radius:4px;min-height:44px}
+.menu-btn{font-size:28px;cursor:pointer;color:var(--accent);background:0 0;border:none;min-width:44px;min-height:44px}
+.nav-links{position:fixed;top:0;right:-100%;width:100%;max-width:300px;height:100vh;background:rgba(10,15,20,.98);backdrop-filter:blur(30px);border-left:1px solid var(--border);padding:80px 40px 100px;transition:.4s;z-index:2000;overflow-y:auto}
+.nav-links.active{right:0}
+.nav-links a{display:flex;align-items:center;color:var(--text);text-decoration:none;font-size:1.1rem;margin-bottom:25px;font-weight:600;text-transform:uppercase;letter-spacing:2px;min-height:44px}
+.nav-links a:hover{color:var(--accent);padding-left:10px}
+.mobile-tab-bar{position:fixed;bottom:0;left:0;width:100%;background:rgba(10,15,20,.95);backdrop-filter:blur(20px);border-top:1px solid var(--border);display:none;z-index:1001;padding:8px 0}
+@media(max-width:768px){.mobile-tab-bar{display:flex;justify-content:space-around}}
+.tab-item{flex:1;display:flex;flex-direction:column;align-items:center;padding:8px;color:var(--text);text-decoration:none;opacity:.6;font-size:.7rem;text-transform:uppercase}
+.tab-item.active{opacity:1;color:var(--accent)}
+.tab-icon{font-size:1.4rem;margin-bottom:4px}
+.container{width:90%;max-width:900px;margin:0 auto;padding:60px 0}
+@media(max-width:768px){.container{width:95%;padding:40px 0}}
+h1{margin-bottom:10px;font-size:clamp(2.5rem,8vw,3.5rem);font-weight:900;letter-spacing:2px;text-transform:uppercase}
+.subtitle{opacity:.4;margin-bottom:50px;letter-spacing:4px;font-size:.8rem;text-transform:uppercase}
+.post{background:var(--glass);border:1px solid var(--border);backdrop-filter:blur(20px);padding:40px;border-radius:8px;margin-bottom:25px;transition:all .4s;opacity:0;transform:translateY(40px)}
+@media(max-width:768px){.post{padding:25px}}
+.post.visible{opacity:1;transform:translateY(0)}
+.post:hover{border-color:var(--accent);box-shadow:0 10px 40px rgba(0,242,255,.2)}
+.post-meta{display:flex;gap:15px;margin-bottom:20px;flex-wrap:wrap;align-items:center}
+.post-date{color:var(--accent);font-size:.85rem;font-weight:700;letter-spacing:1px}
+.post-cat{background:rgba(0,242,255,.1);color:var(--accent);padding:4px 12px;font-size:.75rem;font-weight:900;letter-spacing:1px;border-radius:3px;text-transform:uppercase}
+.post h2{font-size:1.6rem;margin-bottom:15px;letter-spacing:1px}
+@media(max-width:768px){.post h2{font-size:1.3rem}}
+.post p{opacity:.7;line-height:1.8;margin-bottom:20px}
+.read-more{display:inline-block;color:var(--accent);font-weight:700;font-size:.9rem;letter-spacing:1px;transition:.3s;cursor:pointer;background:0 0;border:none;padding:0}
+.read-more:hover{letter-spacing:2px}
+
+/* MODAL - fixed close button always visible */
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.92);z-index:10000;justify-content:center;align-items:flex-start;padding:20px;backdrop-filter:blur(10px);overflow-y:auto}
+.modal.show{display:flex}
+.modal-wrapper{position:relative;max-width:780px;width:100%;margin:auto}
+.modal-close{position:fixed;top:20px;right:20px;width:44px;height:44px;background:rgba(0,0,0,.8);border:1px solid var(--accent);color:var(--accent);font-size:1.5rem;cursor:pointer;border-radius:50%;z-index:10001;display:none;align-items:center;justify-content:center;transition:.3s}
+.modal-close:hover{background:var(--accent);color:#000}
+.modal.show .modal-close{display:flex}
+.modal-content{background:var(--bg);border:1px solid var(--accent);border-radius:12px;padding:50px;box-shadow:0 0 60px rgba(0,242,255,.2);margin-top:60px}
+@media(max-width:768px){.modal-content{padding:25px;margin-top:60px}}
+.modal-content h2{color:var(--accent);font-size:1.8rem;margin-bottom:8px;letter-spacing:1px}
+@media(max-width:768px){.modal-content h2{font-size:1.4rem}}
+.modal-meta{opacity:.5;font-size:.85rem;margin-bottom:30px;letter-spacing:1px}
+.modal-content h3{font-size:1.1rem;margin:28px 0 12px;color:var(--text);font-weight:700;border-left:3px solid var(--accent);padding-left:12px}
+.modal-content p{opacity:.75;line-height:1.9;margin-bottom:14px;font-size:.95rem}
+.modal-content ul,.modal-content ol{margin-left:25px;opacity:.75;line-height:1.9;margin-bottom:14px;font-size:.95rem}
+.modal-content li{margin-bottom:6px}
+.modal-content code{background:rgba(0,242,255,.12);color:var(--accent);padding:2px 8px;border-radius:3px;font-family:'Courier New',monospace;font-size:.9rem}
+.modal-content pre{background:rgba(0,0,0,.5);border:1px solid var(--border);padding:20px;border-radius:6px;overflow-x:auto;margin:15px 0}
+.modal-content pre code{background:0 0;color:#0f0;display:block;line-height:1.6;white-space:pre}
+.modal-trademark{margin-top:30px;padding:15px;border:1px solid rgba(147,51,234,.3);border-radius:6px;background:rgba(147,51,234,.05);opacity:.6;font-size:.8rem;line-height:1.6}
+.ptr-indicator{position:fixed;top:-60px;left:50%;transform:translateX(-50%);color:var(--accent);font-size:2rem;z-index:1002;transition:top .3s}
+.ptr-indicator.show{top:20px}
+</style>
 </head>
 <body>
 <div class="custom-cursor"></div><div class="custom-cursor-dot"></div>
 <div class="ptr-indicator">↓</div>
 <canvas id="particles-canvas"></canvas>
 <div class="bg-layer"></div><div class="grid-overlay"></div>
+
 <nav>
 <div><a href="index.html" class="logo">BOOT AI</a></div>
 <div class="nav-controls">
@@ -31,67 +101,243 @@
 <a href="socials.html" data-i18n="nav_socials">Socials</a>
 </div>
 </nav>
+
 <div class="mobile-tab-bar">
 <a href="index.html" class="tab-item"><div class="tab-icon">🏠</div><div data-i18n="nav_home">Home</div></a>
 <a href="products.html" class="tab-item"><div class="tab-icon">📦</div><div data-i18n="nav_products">Products</div></a>
 <a href="docs.html" class="tab-item"><div class="tab-icon">📚</div><div data-i18n="nav_docs">Docs</div></a>
 <a href="beta.html" class="tab-item"><div class="tab-icon">🚀</div><div>Beta</div></a>
 </div>
+
 <div class="container">
 <h1 data-i18n="blog_title">DEVELOPMENT BLOG</h1>
 <p class="subtitle" data-i18n="blog_subtitle">Updates, Insights & Technical Deep-Dives</p>
-<article class="post" style="border-color:rgba(0,255,100,.3)">
-<div class="post-meta"><span class="post-date">MAY 6, 2026</span><span class="post-cat" style="background:rgba(0,255,100,.1);color:#0f6;border:1px solid #0f6" data-i18n="cat_new">NEW PROJECT</span></div>
-<h2 data-i18n="post0_title">Introducing BOOTOS: A Fresh Start with Multiboot2 and GRUB</h2>
-<p data-i18n="post0_desc">After months of building KOS with a fully custom bootloader, I decided to start a new project that takes a different approach entirely. BOOTOS is built on the Multiboot2 specification and leverages GRUB as its bootloader. In this post I explain what Multiboot2 is, why GRUB makes development faster, and what my goals are for BOOTOS going forward.</p>
-<a href="#" class="read-more" data-i18n="read_more">READ MORE →</a>
+
+<article class="post" style="border-color:rgba(147,51,234,.5);background:rgba(147,51,234,.06)">
+<div class="post-meta"><span class="post-date">MAY 12, 2026</span><span class="post-cat" style="background:rgba(147,51,234,.2);color:#9333ea;border:1px solid #9333ea">ANNOUNCEMENT</span></div>
+<h2 data-i18n="p_ths_title">Tech Haven Studios — Official Announcement & Community Collab</h2>
+<p data-i18n="p_ths_excerpt">BOOT AI, BOOTOS, KOS, K-DOS and all related projects now officially fall under Tech Haven Studios. Today I'm also announcing a partnership with ridellazorxd (Bolebrowse) and king_goobling (RANITEOS) — three developers, three projects, one community.</p>
+<button class="read-more" onclick="openPost('p_ths')" data-i18n="read_more">READ MORE →</button>
+</article>
+
+<article class="post" style="border-color:rgba(0,255,100,.3);background:rgba(0,255,100,.03)">
+<div class="post-meta"><span class="post-date">MAY 6, 2026</span><span class="post-cat" style="background:rgba(0,255,100,.1);color:#0f6;border:1px solid #0f6">NEW PROJECT</span></div>
+<h2 data-i18n="p0_title">Introducing BOOTOS: A Fresh Start with Multiboot2 and GRUB</h2>
+<p data-i18n="p0_excerpt">After months of building KOS with a custom bootloader, I started a brand new project using the Multiboot2 specification and GRUB. In this post I explain what Multiboot2 is, why GRUB makes hardware compatibility so much easier, and what my vision is for BOOTOS.</p>
+<button class="read-more" onclick="openPost('p0')" data-i18n="read_more">READ MORE →</button>
 </article>
 
 <article class="post">
 <div class="post-meta"><span class="post-date">APRIL 15, 2026</span><span class="post-cat" data-i18n="cat_kernel">KERNEL DEV</span></div>
-<h2 data-i18n="post1_title">Implementing SMP Support: The Multi-Core Challenge</h2>
-<p data-i18n="post1_desc">Building a symmetric multiprocessing scheduler from scratch taught me more about CPU architecture than any textbook could. Coordinating multiple processor cores, implementing spinlocks without race conditions, and debugging kernel panics that only appear on quad-core systems.</p>
-<a href="#" class="read-more" data-i18n="read_more">READ MORE →</a>
+<h2 data-i18n="p1_title">Implementing SMP Support: The Multi-Core Challenge</h2>
+<p data-i18n="p1_excerpt">Building a symmetric multiprocessing scheduler from scratch taught me more about CPU architecture than any textbook could. Coordinating multiple cores, implementing spinlocks, and debugging kernel panics that only appear on quad-core systems.</p>
+<button class="read-more" onclick="openPost('p1')" data-i18n="read_more">READ MORE →</button>
 </article>
+
 <article class="post">
 <div class="post-meta"><span class="post-date">MARCH 28, 2026</span><span class="post-cat" data-i18n="cat_hw">HARDWARE</span></div>
-<h2 data-i18n="post2_title">AHCI Driver Development: Talking to Storage Devices</h2>
-<p data-i18n="post2_desc">Writing a driver that interfaces directly with SATA controllers through AHCI was one of the most rewarding parts of this project. PCI device enumeration, DMA buffer management, interrupt handling, and why NVMe drives sometimes refuse to cooperate.</p>
-<a href="#" class="read-more" data-i18n="read_more">READ MORE →</a>
+<h2 data-i18n="p2_title">AHCI Driver Development: Talking to Storage Devices</h2>
+<p data-i18n="p2_excerpt">Writing a driver that interfaces directly with SATA controllers through AHCI was one of the most rewarding parts of this project. PCI enumeration, DMA, interrupt handling, and why NVMe drives sometimes refuse to cooperate.</p>
+<button class="read-more" onclick="openPost('p2')" data-i18n="read_more">READ MORE →</button>
 </article>
+
 <article class="post">
 <div class="post-meta"><span class="post-date">MARCH 10, 2026</span><span class="post-cat" data-i18n="cat_os">OS DESIGN</span></div>
-<h2 data-i18n="post3_title">Building a Shell: Command Parsing and Process Management</h2>
-<p data-i18n="post3_desc">K-DOS now has a functioning command-line interface. Getting here required solving problems I never anticipated — from implementing a robust tokenizer to managing process lifecycles in a RAM-only environment.</p>
-<a href="#" class="read-more" data-i18n="read_more">READ MORE →</a>
+<h2 data-i18n="p3_title">Building a Shell: Command Parsing and Process Management</h2>
+<p data-i18n="p3_excerpt">K-DOS now has a functioning command-line interface. Getting here required solving problems I never anticipated — from a robust tokenizer to managing process lifecycles in a RAM-only environment.</p>
+<button class="read-more" onclick="openPost('p3')" data-i18n="read_more">READ MORE →</button>
 </article>
+
 <article class="post">
 <div class="post-meta"><span class="post-date">FEBRUARY 20, 2026</span><span class="post-cat" data-i18n="cat_gui">GUI DEV</span></div>
-<h2 data-i18n="post4_title">First Steps in GUI Development: Framebuffer Graphics</h2>
-<p data-i18n="post4_desc">Moving from a text-only terminal to a graphical desktop environment meant learning framebuffer programming from the ground up. Pixel manipulation, double buffering to prevent screen tearing, and the surprisingly complex math behind rendering a mouse cursor.</p>
-<a href="#" class="read-more" data-i18n="read_more">READ MORE →</a>
+<h2 data-i18n="p4_title">First Steps in GUI Development: Framebuffer Graphics</h2>
+<p data-i18n="p4_excerpt">Moving from a text-only terminal to a graphical desktop meant learning framebuffer programming from the ground up — pixel manipulation, double buffering, and rendering a mouse cursor.</p>
+<button class="read-more" onclick="openPost('p4')" data-i18n="read_more">READ MORE →</button>
 </article>
+
 <article class="post">
 <div class="post-meta"><span class="post-date">JANUARY 30, 2026</span><span class="post-cat" data-i18n="cat_mem">MEMORY</span></div>
-<h2 data-i18n="post5_title">Page Allocator Redesign: From Naive to Buddy System</h2>
-<p data-i18n="post5_desc">My initial page allocator worked but created terrible memory fragmentation. Implementing a buddy system allocator reduced fragmentation by 80% and improved allocation speed significantly.</p>
-<a href="#" class="read-more" data-i18n="read_more">READ MORE →</a>
+<h2 data-i18n="p5_title">Page Allocator Redesign: From Naive to Buddy System</h2>
+<p data-i18n="p5_excerpt">My first page allocator caused terrible memory fragmentation. Switching to a buddy system allocator reduced fragmentation by 80% and improved allocation speed significantly.</p>
+<button class="read-more" onclick="openPost('p5')" data-i18n="read_more">READ MORE →</button>
 </article>
+
 <article class="post">
 <div class="post-meta"><span class="post-date">JANUARY 5, 2026</span><span class="post-cat" data-i18n="cat_update">PROJECT UPDATE</span></div>
-<h2 data-i18n="post6_title">BOOT AI Beta Launch: Reflections on Six Months of Development</h2>
-<p data-i18n="post6_desc">Today marks the first public beta release of KOS and K-DOS. A retrospective on the journey from "Hello World" bootloader to a functioning operating system, the mistakes I made, and the lessons learned.</p>
-<a href="#" class="read-more" data-i18n="read_more">READ MORE →</a>
+<h2 data-i18n="p6_title">BOOT AI Beta Launch: Reflections on Six Months of Development</h2>
+<p data-i18n="p6_excerpt">Today marks the first public beta of KOS and K-DOS. A retrospective on the journey from a Hello World bootloader to a functioning OS, the mistakes I made, and lessons I carry forward.</p>
+<button class="read-more" onclick="openPost('p6')" data-i18n="read_more">READ MORE →</button>
 </article>
+
 <article class="post">
 <div class="post-meta"><span class="post-date">DECEMBER 15, 2025</span><span class="post-cat" data-i18n="cat_start">GETTING STARTED</span></div>
-<h2 data-i18n="post7_title">Why Build an OS in 2025? Motivation and Goals</h2>
-<p data-i18n="post7_desc">With mature operating systems everywhere, why start building one from scratch? This post explores my motivations for BOOT AI, what I hope to learn, and how AI tools are accelerating low-level development.</p>
-<a href="#" class="read-more" data-i18n="read_more">READ MORE →</a>
+<h2 data-i18n="p7_title">Why Build an OS in 2025? Motivation and Goals</h2>
+<p data-i18n="p7_excerpt">With mature operating systems everywhere, why start from scratch? This post explores my motivations for BOOT AI and how AI tools are accelerating low-level development.</p>
+<button class="read-more" onclick="openPost('p7')" data-i18n="read_more">READ MORE →</button>
 </article>
+
 </div>
+
+<!-- MODAL -->
+<button class="modal-close" id="modal-close-btn" onclick="closePost()">×</button>
+<div class="modal" id="blog-modal">
+<div class="modal-wrapper">
+<div class="modal-content" id="modal-body"></div>
+</div>
+</div>
+
 <script>
-const T={en:{nav_home:"Home",nav_products:"Products",nav_manifest:"Manifest",nav_gallery:"Gallery",nav_beta:"Beta Hub",nav_blog:"Blog",nav_docs:"Docs",nav_ai:"AI Lab",nav_socials:"Socials",blog_title:"DEVELOPMENT BLOG",blog_subtitle:"Updates, Insights & Technical Deep-Dives",cat_kernel:"KERNEL DEV",cat_hw:"HARDWARE",cat_os:"OS DESIGN",cat_gui:"GUI DEV",cat_mem:"MEMORY",cat_update:"PROJECT UPDATE",cat_start:"GETTING STARTED",read_more:"READ MORE →",post1_title:"Implementing SMP Support: The Multi-Core Challenge",post1_desc:"Building a symmetric multiprocessing scheduler from scratch taught me more about CPU architecture than any textbook could. Coordinating multiple processor cores, implementing spinlocks without race conditions, and debugging kernel panics that only appear on quad-core systems.",post2_title:"AHCI Driver Development: Talking to Storage Devices",post2_desc:"Writing a driver that interfaces directly with SATA controllers through AHCI was one of the most rewarding parts of this project. PCI device enumeration, DMA buffer management, interrupt handling, and why NVMe drives sometimes refuse to cooperate.",post3_title:"Building a Shell: Command Parsing and Process Management",post3_desc:"K-DOS now has a functioning command-line interface. Getting here required solving problems I never anticipated — from implementing a robust tokenizer to managing process lifecycles in a RAM-only environment.",post4_title:"First Steps in GUI Development: Framebuffer Graphics",post4_desc:"Moving from a text-only terminal to a graphical desktop environment meant learning framebuffer programming from the ground up. Pixel manipulation, double buffering to prevent screen tearing, and the surprisingly complex math behind rendering a mouse cursor.",post5_title:"Page Allocator Redesign: From Naive to Buddy System",post5_desc:"My initial page allocator worked but created terrible memory fragmentation. Implementing a buddy system allocator reduced fragmentation by 80% and improved allocation speed significantly.",post6_title:"BOOT AI Beta Launch: Reflections on Six Months of Development",post6_desc:'Today marks the first public beta release of KOS and K-DOS. A retrospective on the journey from "Hello World" bootloader to a functioning operating system, the mistakes I made, and the lessons learned.',post7_title:"Why Build an OS in 2025? Motivation and Goals",post7_desc:"With mature operating systems everywhere, why start building one from scratch? This post explores my motivations for BOOT AI, what I hope to learn, and how AI tools are accelerating low-level development."},nl:{nav_home:"Home",nav_products:"Producten",nav_manifest:"Manifest",nav_gallery:"Galerij",nav_beta:"Beta Hub",nav_blog:"Blog",nav_docs:"Documentatie",nav_ai:"AI Lab",nav_socials:"Sociaal",blog_title:"ONTWIKKELINGSBLOG",blog_subtitle:"Updates, Inzichten & Technische Diepgaande Analyses",cat_kernel:"KERNEL ONTWIKKELING",cat_hw:"HARDWARE",cat_os:"OS ONTWERP",cat_gui:"GUI ONTWIKKELING",cat_mem:"GEHEUGEN",cat_update:"PROJECT UPDATE",cat_start:"AAN DE SLAG",read_more:"LEES MEER →",post1_title:"SMP Ondersteuning Implementeren: De Meerkernuitdaging",post1_desc:"Een symmetrische multiprocessing-planner vanaf nul bouwen leerde me meer over CPU-architectuur dan welk leerboek dan ook. Meerdere processorkerns coördineren, spinlocks implementeren zonder race conditions, en kernelpanics debuggen die alleen verschijnen op quad-core systemen.",post2_title:"AHCI Stuurprogramma Ontwikkeling: Praten met Opslagapparaten",post2_desc:"Een stuurprogramma schrijven dat rechtstreeks interfaceert met SATA-controllers via AHCI was een van de meest lonende delen van dit project. PCI-apparaatopsomming, DMA-bufferbeheer, onderbrekingsverwerking.",post3_title:"Een Shell Bouwen: Commando Parsing en Procesbeheer",post3_desc:"K-DOS heeft nu een functionerende commandoregelinterface. Hier komen vereiste het oplossen van problemen die ik nooit had verwacht — van het implementeren van een robuuste tokenizer tot het beheren van proceslevenscycli in een RAM-only omgeving.",post4_title:"Eerste Stappen in GUI Ontwikkeling: Framebuffer Grafics",post4_desc:"De overgang van een tekstterminal naar een grafische desktop omgeving betekende framebuffer programmering leren vanaf de grond. Pixelmanipulatie, dubbele buffering om schermscheuring te voorkomen.",post5_title:"Pagina-allocator Herontwerp: Van Naïef naar Buddy Systeem",post5_desc:"Mijn initiële pagina-allocator werkte maar creëerde vreselijke geheugenfragmentatie. Het implementeren van een buddy-systeem allocator verminderde fragmentatie met 80% en verbeterde de allocatiesnelheid aanzienlijk.",post6_title:"BOOT AI Beta Lancering: Reflecties op Zes Maanden Ontwikkeling",post6_desc:'Vandaag markeert de eerste publieke beta release van KOS en K-DOS. Een terugblik op de reis van "Hello World" bootloader naar een functionerend besturingssysteem.',post7_title:"Waarom een OS Bouwen in 2025? Motivatie en Doelen",post7_desc:"Met volwassen besturingssystemen overal, waarom beginnen met het bouwen van een eigen? Dit bericht verkent mijn motivaties voor BOOT AI en hoe AI-tools low-level ontwikkeling versnellen."}};function tr(){const l=localStorage.getItem('lang')||'en';document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.getAttribute('data-i18n');if(T[l]&&T[l][k])e.textContent=T[l][k];});}const isMobile=/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)||window.innerWidth<=768;if(!isMobile){const c=document.querySelector('.custom-cursor'),d=document.querySelector('.custom-cursor-dot');document.addEventListener('mousemove',e=>{c.style.left=e.clientX+'px';c.style.top=e.clientY+'px';d.style.left=e.clientX+'px';d.style.top=e.clientY+'px'});}document.addEventListener('click',e=>{const r=document.createElement('div');r.className='ripple';r.style.left=e.clientX+'px';r.style.top=e.clientY+'px';r.style.width='10px';r.style.height='10px';document.body.appendChild(r);if(isMobile&&navigator.vibrate)navigator.vibrate(10);setTimeout(()=>r.remove(),600);});const canvas=document.getElementById('particles-canvas'),ctx=canvas.getContext('2d');canvas.width=window.innerWidth;canvas.height=window.innerHeight;const particles=[],pCount=isMobile?30:50;class Particle{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*3+1;this.speedX=(Math.random()-.5)*.5;this.speedY=(Math.random()-.5)*.5;this.opacity=Math.random()*.5+.2;}update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x>canvas.width)this.x=0;if(this.x<0)this.x=canvas.width;if(this.y>canvas.height)this.y=0;if(this.y<0)this.y=canvas.height;}draw(){ctx.fillStyle=`rgba(0,242,255,${this.opacity})`;ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();}}for(let i=0;i<pCount;i++)particles.push(new Particle());function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animate);}animate();const posts=document.querySelectorAll('.post'),obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*80);});},{threshold:.1});posts.forEach(p=>obs.observe(p));if(isMobile){let pStart=0,pCurr=0;const ind=document.querySelector('.ptr-indicator');document.addEventListener('touchstart',e=>pStart=e.touches[0].screenY);document.addEventListener('touchmove',e=>{pCurr=e.touches[0].screenY;if(pCurr-pStart>0&&window.scrollY===0)ind.classList.add('show');});document.addEventListener('touchend',()=>{if(pCurr-pStart>100&&window.scrollY===0)location.reload();ind.classList.remove('show');});}function initTheme(){const st=localStorage.getItem('theme');if(st)document.documentElement.setAttribute('data-theme',st);else if(window.matchMedia&&window.matchMedia('(prefers-color-scheme:light)').matches)document.documentElement.setAttribute('data-theme','light');else document.documentElement.setAttribute('data-theme','dark');updateThemeIcon();}function toggleTheme(){const ct=document.documentElement.getAttribute('data-theme')||'dark',nt=ct==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',nt);localStorage.setItem('theme',nt);updateThemeIcon();}function updateThemeIcon(){const t=document.documentElement.getAttribute('data-theme')||'dark',i=document.getElementById('themeIcon');if(i)i.textContent=t==='dark'?'☀️':'🌙';}function toggleMenu(){document.getElementById('menu').classList.toggle('active');}document.addEventListener('DOMContentLoaded',()=>{initTheme();tr();const ls=document.getElementById('lang');ls.value=localStorage.getItem('lang')||'en';ls.onchange=()=>{localStorage.setItem('lang',ls.value);tr();};});
+var LANG = localStorage.getItem('lang') || 'en';
+
+var POSTS = {
+  p_ths: {
+    date: 'MAY 12, 2026', cat: 'ANNOUNCEMENT',
+    en_title: 'Tech Haven Studios — Official Announcement & Community Collab',
+    nl_title: 'Tech Haven Studios — Officiële Aankondiging & Community Samenwerking',
+    en_body: '<h3>Introducing Tech Haven Studios</h3><p>Effective today, all BOOT AI projects are officially operating under <strong>Tech Haven Studios</strong> — the studio behind every project in this ecosystem. The name reflects the vision: a creative and technical studio dedicated to pushing boundaries in systems programming, AI integration, and experimental software development.</p><p>All trademarks are now formally established:</p><ul><li><strong>BOOT AI™</strong> is a trademark of Tech Haven Studios</li><li><strong>BOOTOS™</strong> is a trademark of Tech Haven Studios</li><li><strong>KOS™</strong> is a trademark of Tech Haven Studios</li><li><strong>K-DOS™</strong> is a trademark of Tech Haven Studios</li><li><strong>K-DOS Desktop™</strong> is a trademark of Tech Haven Studios</li></ul><p>Tech Haven Studios is founded and led by MGKFN. All development remains open and community-driven — this is about building something serious, together.</p><h3>Partner: ridellazorxd — Bolebrowse</h3><p><strong>ridellazorxd</strong> is building <strong>Bolebrowse</strong> — a fully custom web browser developed completely from scratch. Building a browser is one of the hardest things a developer can attempt. It requires a rendering engine to parse and display HTML and CSS, a networking stack to handle HTTP requests, a JavaScript engine to execute scripts, and a full user interface on top of all of that. Each of those components is a massive project on its own, and ridellazorxd is building all of them simultaneously.</p><p>Bolebrowse is an independent project. ridellazorxd is a contracted promotional partner of Tech Haven Studios, meaning BOOT AI promotes Bolebrowse and vice versa — but they remain completely separate projects with separate identities. Follow the Bolebrowse Discord to track development: <strong>discord.gg/XbWJ33qYX</strong></p><h3>Partner: king_goobling — RANITEOS</h3><p><strong>king_goobling</strong> is building <strong>RANITEOS</strong> — a custom operating system written in x86_64 Assembly and C, the exact same low-level tech stack as KOS. As a fellow OS developer, king_goobling understands the grind of bare-metal programming better than almost anyone. Writing an OS from scratch means handling memory management, interrupt tables, hardware drivers, and boot sequences with no standard library and no safety net — just raw code and hardware documentation.</p><p>RANITEOS is at an early stage of development. king_goobling is a contracted promotional partner of Tech Haven Studios. No links are available yet, but they will be added to the socials page as soon as development goes public. Watch this space.</p><h3>What This Partnership Means</h3><p>These are not mergers. Bolebrowse and RANITEOS are fully independent projects with their own identities and visions. The partnership means cross-promotion, shared community spaces, and mutual support between three developers building something real from the ground up. If you are into systems programming, custom browsers, or watching ambitious solo projects come to life — you are in exactly the right place.</p><div class="modal-trademark">© Tech Haven Studios. BOOT AI™ · BOOTOS™ · KOS™ · K-DOS™ · K-DOS Desktop™ are trademarks of Tech Haven Studios. Bolebrowse and RANITEOS are independent projects and contracted promotional partners of Tech Haven Studios.</div>',
+    nl_body: '<h3>Tech Haven Studios Introduceren</h3><p>Vanaf vandaag opereren alle BOOT AI projecten officieel onder <strong>Tech Haven Studios</strong> — de studio achter elk project in dit ecosysteem.</p><p>Alle handelsmerken zijn nu formeel vastgesteld:</p><ul><li><strong>BOOT AI™</strong> is een handelsmerk van Tech Haven Studios</li><li><strong>BOOTOS™</strong> is een handelsmerk van Tech Haven Studios</li><li><strong>KOS™</strong> is een handelsmerk van Tech Haven Studios</li><li><strong>K-DOS™</strong> is een handelsmerk van Tech Haven Studios</li><li><strong>K-DOS Desktop™</strong> is een handelsmerk van Tech Haven Studios</li></ul><h3>Partner: ridellazorxd — Bolebrowse</h3><p><strong>ridellazorxd</strong> bouwt <strong>Bolebrowse</strong> — een volledig aangepaste webbrowser ontwikkeld vanaf nul. Een browser bouwen is een van de moeilijkste dingen die een ontwikkelaar kan proberen. Het vereist een rendering engine, netwerkstack, JavaScript engine en volledige gebruikersinterface. Bolebrowse is een onafhankelijk project en een gecontracteerde promotionele partner van Tech Haven Studios.</p><h3>Partner: king_goobling — RANITEOS</h3><p><strong>king_goobling</strong> bouwt <strong>RANITEOS</strong> — een aangepast besturingssysteem geschreven in x86_64 Assembly en C, dezelfde technologiestack als KOS. RANITEOS is een onafhankelijk project en een gecontracteerde promotionele partner van Tech Haven Studios.</p><div class="modal-trademark">© Tech Haven Studios. BOOT AI™ · BOOTOS™ · KOS™ · K-DOS™ · K-DOS Desktop™ zijn handelsmerken van Tech Haven Studios.</div>'
+  },
+  p0: {
+    date: 'MAY 6, 2026', cat: 'NEW PROJECT',
+    en_title: 'Introducing BOOTOS: A Fresh Start with Multiboot2 and GRUB',
+    nl_title: 'BOOTOS Introduceren: Een Frisse Start met Multiboot2 en GRUB',
+    en_body: '<h3>Why Start a New Project?</h3><p>After months building KOS with a fully hand-crafted Assembly bootloader, I kept hitting the same wall — hardware compatibility. Getting KOS to boot on different physical machines required constant tweaks to the bootloader itself. I decided there had to be a better way.</p><p>The answer was the Multiboot2 specification and GRUB — industry-standard tools used by Linux, FreeBSD and dozens of other systems. Instead of reinventing the wheel, BOOTOS builds on this proven infrastructure and focuses development energy on the OS itself.</p><h3>What is Multiboot2?</h3><p>Multiboot2 is an open standard that defines exactly how a bootloader loads a kernel. If your kernel has a valid Multiboot2 header, any compliant bootloader including GRUB can load it. When GRUB loads a Multiboot2 kernel it passes a structured boot information table to the kernel entry point containing the full memory map, framebuffer info, boot modules, command line arguments, and ACPI tables.</p><h3>Why GRUB?</h3><p>GRUB is the most widely deployed bootloader on x86 systems in the world. It supports virtually every piece of x86 hardware ever manufactured, handles UEFI and legacy BIOS automatically, and has been battle-tested across millions of systems for decades. By using GRUB, BOOTOS gets all of that for free.</p><h3>Current Status</h3><p>BOOTOS is at 0-10% completion. The Multiboot2 kernel entry point is the current focus. No download is available yet. Follow the blog and Discord for updates.</p>',
+    nl_body: '<h3>Waarom een Nieuw Project?</h3><p>Na maanden KOS bouwen met een handgemaakte bootloader bleef ik tegen hardwarecompatibiliteit aanlopen. BOOTOS gebruikt de Multiboot2 specificatie en GRUB — industrie-standaard tools gebruikt door Linux en andere systemen.</p><h3>Wat is Multiboot2?</h3><p>Multiboot2 is een open standaard die definieert hoe een bootloader een kernel laadt. GRUB geeft een gestructureerde opstartinformatietabel door aan het kernel ingangspunt met geheugenkaart, framebuffer info en meer.</p><h3>Huidige Status</h3><p>BOOTOS is 0-10% compleet. Het Multiboot2 kernel ingangspunt is de huidige focus. Nog geen download beschikbaar.</p>'
+  },
+  p1: {
+    date: 'APRIL 15, 2026', cat: 'KERNEL DEV',
+    en_title: 'Implementing SMP Support: The Multi-Core Challenge',
+    nl_title: 'SMP Ondersteuning Implementeren: De Meerkernuitdaging',
+    en_body: '<h3>What is SMP?</h3><p>Symmetric Multiprocessing (SMP) lets an OS use multiple CPU cores simultaneously. Without it, all extra cores sit completely idle — the OS uses only one core at a time. Modern computers have 4 to 64+ cores, so this matters enormously.</p><h3>Waking Up Application Processors</h3><p>When a PC boots, only one CPU core starts — the Bootstrap Processor (BSP). All other cores are parked in a halt state. To wake them, the BSP sends an Inter-Processor Interrupt (IPI) through the APIC controller. The wake-up sequence requires sending the core to a real-mode trampoline, running 16-bit startup code, transitioning through protected mode, and jumping into 64-bit long mode — all while the BSP keeps running. Getting this right took two weeks of debugging.</p><h3>Spinlocks and Race Conditions</h3><p>Once multiple cores run, they share memory. Without synchronization, two cores can modify the same data simultaneously, causing unpredictable corruption. Spinlocks fix this — a core continuously checks a lock variable until it gains exclusive access.</p><pre><code>void spinlock_acquire(spinlock_t *lock) {\n    while (__atomic_test_and_set(&lock->locked, __ATOMIC_ACQUIRE));\n}</code></pre><h3>Current Status</h3><p>KOS 0.2.9 includes an experimental SMP scheduler working reliably on 2-core systems. Systems with more than 4 cores may still experience instability. Full SMP stability is targeted for Q2 2026.</p>',
+    nl_body: '<h3>Wat is SMP?</h3><p>Symmetric Multiprocessing laat een OS meerdere CPU-kernen tegelijk gebruiken. Zonder SMP liggen alle extra kernen volledig stil.</p><h3>Application Processors Wekken</h3><p>Bij opstarten start slechts één kern — de Bootstrap Processor. Om andere kernen te wekken stuurt de BSP een Inter-Processor Interrupt via de APIC-controller. De wake-up sequentie vereiste twee weken debuggen.</p><h3>Huidige Status</h3><p>KOS 0.2.9 bevat een experimentele SMP-planner. Volledige stabiliteit is gepland voor Q2 2026.</p>'
+  },
+  p2: {
+    date: 'MARCH 28, 2026', cat: 'HARDWARE',
+    en_title: 'AHCI Driver Development: Talking to Storage Devices',
+    nl_title: 'AHCI Stuurprogramma Ontwikkeling',
+    en_body: '<h3>What is AHCI?</h3><p>Advanced Host Controller Interface (AHCI) is the standard protocol for communicating with SATA storage devices. Before AHCI, every storage controller chipset needed its own driver. AHCI standardizes this so one driver works with virtually all SATA hardware.</p><h3>Finding the Controller via PCI</h3><p>The AHCI controller is a PCI device, so the first step is PCI enumeration — scanning all possible buses, devices and functions to find the storage controller. Once found, Base Address Registers give the memory-mapped I/O address to communicate with the hardware.</p><h3>DMA Buffer Management</h3><p>AHCI uses Direct Memory Access — the hardware reads and writes data directly to RAM without CPU involvement. The driver prepares a Command List structure in memory, points the hardware to it, and the controller executes I/O operations independently while the CPU does other work.</p><h3>The NVMe Problem</h3><p>Several testers reported BOOTOS could not detect NVMe drives. NVMe is a completely separate protocol — the AHCI driver simply cannot see NVMe devices. A separate NVMe driver is on the roadmap for Q3 2026.</p>',
+    nl_body: '<h3>Wat is AHCI?</h3><p>AHCI is het standaard protocol voor SATA opslagapparaten. Één stuurprogramma werkt met vrijwel alle SATA-hardware.</p><h3>DMA Bufferbeheer</h3><p>AHCI gebruikt Direct Memory Access — de hardware leest en schrijft rechtstreeks naar RAM zonder CPU-betrokkenheid. De driver bereidt een Command List voor en de controller voert I/O operaties zelfstandig uit.</p>'
+  },
+  p3: {
+    date: 'MARCH 10, 2026', cat: 'OS DESIGN',
+    en_title: 'Building a Shell: Command Parsing and Process Management',
+    nl_title: 'Een Shell Bouwen',
+    en_body: '<h3>What Makes a Shell?</h3><p>A shell reads text input, parses it into commands and arguments, executes programs, and displays output. Building one from scratch in a RAM-only environment with no standard library revealed surprising complexity at every step.</p><h3>The Tokenizer</h3><p>User input like <code>ls -la /home</code> needs to be split into a command and arguments. The tokenizer handles quoted strings, escape characters, and edge cases like double spaces or trailing newlines.</p><pre><code>char *token = strtok(input, " \\t\\n");\nwhile (token && count < MAX_ARGS) {\n    tokens[count++] = token;\n    token = strtok(NULL, " \\t\\n");\n}</code></pre><h3>Built-in Commands</h3><p>K-DOS has no persistent filesystem yet, so all commands are hard-coded functions inside the shell binary. When filesystem and process loading is implemented, external commands can be loaded from disk like a real UNIX system.</p><h3>Process Control Blocks</h3><p>Each process gets a PCB containing its ID, state, memory allocation, and CPU register snapshot. The scheduler cycles through PCBs to decide which process runs next.</p>',
+    nl_body: '<h3>Wat Maakt een Shell?</h3><p>Een shell leest tekstinvoer, parseert commando\'s en argumenten, voert programma\'s uit en toont uitvoer. Het bouwen ervan in een RAM-only omgeving onthulde verrassende complexiteit.</p><h3>Ingebouwde Commando\'s</h3><p>K-DOS heeft nog geen persistent bestandssysteem, dus alle commando\'s zijn hard-gecodeerde functies in de shell binary.</p>'
+  },
+  p4: {
+    date: 'FEBRUARY 20, 2026', cat: 'GUI DEV',
+    en_title: 'First Steps in GUI Development: Framebuffer Graphics',
+    nl_title: 'Eerste Stappen in GUI Ontwikkeling',
+    en_body: '<h3>What is a Framebuffer?</h3><p>A framebuffer is a region of memory that maps directly to your screen. Every pixel on the monitor corresponds to bytes in RAM. Write the right color values to the right memory address and pixels appear. No GPU drivers, no graphics API — just raw memory writes.</p><pre><code>void draw_pixel(uint32_t x, uint32_t y, uint32_t color) {\n    uint32_t offset = y * pitch + x * (bpp / 8);\n    *((uint32_t*)(fb_addr + offset)) = color;\n}</code></pre><h3>Double Buffering</h3><p>Drawing directly to the framebuffer causes visible screen tearing — the display updates mid-draw showing a partial frame. The fix is double buffering: draw everything to a second buffer in RAM, then copy the entire frame to the real framebuffer in one fast memcpy.</p><h3>Rendering a Mouse Cursor</h3><p>A cursor requires saving and restoring the background pixels behind it on every frame — otherwise moving it leaves a trail of corrupted pixels. Save background, draw cursor, on next frame restore background, draw cursor at new position.</p><h3>Windows are Rectangles</h3><p>Drawing a window means a filled rectangle for the background, a thinner rectangle for the border, another for the title bar, and text characters rendered pixel by pixel using a bitmap font embedded in the kernel binary.</p>',
+    nl_body: '<h3>Wat is een Framebuffer?</h3><p>Een framebuffer is een geheugengebied dat direct overeenkomt met uw scherm. Schrijf de juiste kleurwaarden naar het juiste geheugenadres en pixels verschijnen.</p><h3>Dubbele Buffering</h3><p>Direct tekenen veroorzaakt zichtbaar scheuren. De fix is dubbele buffering: teken naar een tweede buffer, kopieer dan het volledige frame in één snelle memcpy.</p>'
+  },
+  p5: {
+    date: 'JANUARY 30, 2026', cat: 'MEMORY',
+    en_title: 'Page Allocator Redesign: From Naive to Buddy System',
+    nl_title: 'Pagina-allocator Herontwerp',
+    en_body: '<h3>The Problem</h3><p>My first page allocator was a simple bitmap — one bit per 4KB page indicating free or used. It worked, but after running for a while the allocator became slow because free pages were scattered in small non-contiguous chunks. This is called external fragmentation.</p><h3>The Buddy System</h3><p>The buddy system organizes memory into blocks of power-of-two sizes: 4KB, 8KB, 16KB, 32KB and so on. When you free memory, the allocator checks if the neighboring block — the buddy — is also free. If so, they merge into a larger block.</p><pre><code>void buddy_free(void *ptr, int order) {\n    void *buddy = get_buddy(ptr, order);\n    if (is_free(buddy)) {\n        remove_from_list(buddy, order);\n        ptr = min(ptr, buddy);\n        buddy_free(ptr, order + 1);\n    } else {\n        add_to_list(ptr, order);\n    }\n}</code></pre><h3>Results</h3><p>Switching to the buddy system reduced memory fragmentation by approximately 80% in testing. Large contiguous allocations that previously failed now succeed reliably. Allocation speed improved by around 40% because finding a free block is O(log n) instead of O(n).</p>',
+    nl_body: '<h3>Het Probleem</h3><p>Mijn eerste allocator was een eenvoudige bitmap. Het werkte maar creëerde vreselijke geheugenfragmentatie door verstrooide vrije pagina\'s.</p><h3>Het Buddy Systeem</h3><p>Het buddy systeem organiseert geheugen in blokken van macht-van-twee groottes. Bij het vrijgeven controleert het of het naburige blok ook vrij is — zo ja worden ze samengevoegd.</p><h3>Resultaten</h3><p>Fragmentatie verminderde met 80%. Allocatiesnelheid verbeterde met 40%.</p>'
+  },
+  p6: {
+    date: 'JANUARY 5, 2026', cat: 'PROJECT UPDATE',
+    en_title: 'BOOT AI Beta Launch: Reflections on Six Months of Development',
+    nl_title: 'BOOT AI Beta Lancering: Reflecties',
+    en_body: '<h3>Where It Started</h3><p>Six months ago I wrote a 10-line Assembly program that printed Hello World to a screen and called it a bootloader. Today KOS boots on real hardware, manages memory with a buddy allocator, runs K-DOS as a command-line OS, and has an experimental graphical desktop in alpha. The distance traveled is almost hard to believe.</p><h3>The Biggest Mistakes</h3><p>I underestimated almost everything. Writing a page allocator took three times longer than planned. The PS/2 keyboard driver worked on QEMU but broke on real hardware because of a timing bug that took two weeks to find. I rewrote the VGA driver twice. I spent a full week debugging a stack alignment issue that caused a CPU exception only in release builds.</p><h3>What I Learned</h3><p>Low-level programming has no safety net. There is no error message when you corrupt memory — the system just behaves strangely or crashes hours later. You learn to read crash dumps, interpret CPU exception codes, and think in terms of physical addresses and hardware registers. It is frustrating and deeply satisfying at the same time.</p><h3>What Is Coming</h3><p>The roadmap for 2026 includes completing the SMP scheduler, adding a network stack, building persistent filesystem support, maturing the desktop environment, launching BOOTOS, and the formation of Tech Haven Studios to house all of it officially.</p>',
+    nl_body: '<h3>Waar Het Begon</h3><p>Zes maanden geleden schreef ik een 10-regelig Assembly programma. Vandaag start KOS op echte hardware en draait K-DOS als commandoregel OS.</p><h3>De Grootste Fouten</h3><p>Ik onderschatte bijna alles. Een pagina-allocator schrijven duurde drie keer langer. De PS/2 stuurprogramma werkte op QEMU maar brak op echte hardware door een timing bug.</p><h3>Wat Er Komt</h3><p>De roadmap voor 2026 omvat de SMP-planner, een netwerkstack, persistent bestandssysteem, de desktop omgeving en BOOTOS onder Tech Haven Studios.</p>'
+  },
+  p7: {
+    date: 'DECEMBER 15, 2025', cat: 'GETTING STARTED',
+    en_title: 'Why Build an OS in 2025? Motivation and Goals',
+    nl_title: 'Waarom een OS Bouwen in 2025?',
+    en_body: '<h3>The Honest Answer</h3><p>Because I wanted to understand how computers actually work — not at the level of Python scripts or web apps, but at the level of machine code, memory addresses, and hardware registers. Every developer uses an operating system every day. Very few understand what is happening underneath. I wanted to be one of the few.</p><h3>What an OS Actually Does</h3><p>Before starting this project I thought an OS was mainly about the user interface and application management. The reality is almost entirely different. An OS is primarily a hardware abstraction layer — it translates raw CPU instructions, memory addresses, I/O ports and interrupt signals into a usable environment for programs to run in. The UI is almost an afterthought.</p><h3>AI as a Development Tool</h3><p>Building an OS in 2025 is meaningfully different from doing it in 2005. AI tools can explain obscure Intel documentation, suggest debugging approaches, review Assembly code, and help research hardware specs. They cannot write the OS for you — the hard thinking is still entirely yours — but they dramatically lower the barrier to getting started and getting unstuck.</p><h3>The Long-Term Goal</h3><p>A complete operating system that boots via GRUB, runs on real hardware, has a desktop environment, basic networking, and integrates AI tooling at the OS level — not as an app on top, but as a core part of how the system works. That is what Tech Haven Studios is building toward.</p>',
+    nl_body: '<h3>Het Eerlijke Antwoord</h3><p>Omdat ik wilde begrijpen hoe computers echt werken — op het niveau van machinecode, geheugenadressen en hardwareregisters.</p><h3>AI als Ontwikkeltool</h3><p>Een OS bouwen in 2025 is anders dan in 2005. AI-tools kunnen obscure documentatie uitleggen en codebeoordeling geven. Ze schrijven het OS niet voor je, maar verlagen de barrière aanzienlijk.</p><h3>Het Langetermijndoel</h3><p>Een compleet OS dat opstart via GRUB, draait op echte hardware, een desktop heeft, netwerken ondersteunt en AI integreert op OS-niveau — dat is waar Tech Haven Studios naartoe bouwt.</p>'
+  }
+};
+
+function openPost(id) {
+  var post = POSTS[id];
+  if (!post) return;
+  var lang = localStorage.getItem('lang') || 'en';
+  var title = lang === 'nl' ? post.nl_title : post.en_title;
+  var body = lang === 'nl' ? post.nl_body : post.en_body;
+  document.getElementById('modal-body').innerHTML =
+    '<p class="modal-meta">' + post.date + ' &nbsp;·&nbsp; ' + post.cat + '</p>' +
+    '<h2>' + title + '</h2>' + body;
+  document.getElementById('blog-modal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+  if (navigator.vibrate) navigator.vibrate(20);
+}
+
+function closePost() {
+  document.getElementById('blog-modal').classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('blog-modal').addEventListener('click', function(e) {
+  if (e.target === this) closePost();
+});
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closePost(); });
+
+var T = {
+  en: { nav_home:'Home', nav_products:'Products', nav_manifest:'Manifest', nav_gallery:'Gallery', nav_beta:'Beta Hub', nav_blog:'Blog', nav_docs:'Docs', nav_ai:'AI Lab', nav_socials:'Socials', blog_title:'DEVELOPMENT BLOG', blog_subtitle:'Updates, Insights & Technical Deep-Dives', cat_kernel:'KERNEL DEV', cat_hw:'HARDWARE', cat_os:'OS DESIGN', cat_gui:'GUI DEV', cat_mem:'MEMORY', cat_update:'PROJECT UPDATE', cat_start:'GETTING STARTED', read_more:'READ MORE →', p_ths_title:'Tech Haven Studios — Official Announcement & Community Collab', p_ths_excerpt:"BOOT AI, BOOTOS, KOS, K-DOS and all related projects now officially fall under Tech Haven Studios. Today I'm also announcing a partnership with ridellazorxd (Bolebrowse) and king_goobling (RANITEOS) — three developers, three projects, one community.", p0_title:'Introducing BOOTOS: A Fresh Start with Multiboot2 and GRUB', p0_excerpt:'After months of building KOS with a custom bootloader, I started a brand new project using the Multiboot2 specification and GRUB. In this post I explain what Multiboot2 is, why GRUB makes hardware compatibility so much easier, and what my vision is for BOOTOS.', p1_title:'Implementing SMP Support: The Multi-Core Challenge', p1_excerpt:'Building a symmetric multiprocessing scheduler from scratch taught me more about CPU architecture than any textbook could.', p2_title:'AHCI Driver Development: Talking to Storage Devices', p2_excerpt:'Writing a driver that interfaces directly with SATA controllers through AHCI was one of the most rewarding parts of this project.', p3_title:'Building a Shell: Command Parsing and Process Management', p3_excerpt:'K-DOS now has a functioning command-line interface. Getting here required solving problems I never anticipated.', p4_title:'First Steps in GUI Development: Framebuffer Graphics', p4_excerpt:'Moving from a text-only terminal to a graphical desktop meant learning framebuffer programming from the ground up.', p5_title:'Page Allocator Redesign: From Naive to Buddy System', p5_excerpt:'My first page allocator caused terrible fragmentation. The buddy system reduced it by 80%.', p6_title:'BOOT AI Beta Launch: Reflections on Six Months of Development', p6_excerpt:'Today marks the first public beta of KOS and K-DOS. A retrospective on the journey from Hello World to a functioning OS.', p7_title:'Why Build an OS in 2025? Motivation and Goals', p7_excerpt:'With mature operating systems everywhere, why start from scratch? This explores my motivations for BOOT AI.' },
+  nl: { nav_home:'Home', nav_products:'Producten', nav_manifest:'Manifest', nav_gallery:'Galerij', nav_beta:'Beta Hub', nav_blog:'Blog', nav_docs:'Documentatie', nav_ai:'AI Lab', nav_socials:'Sociaal', blog_title:'ONTWIKKELINGSBLOG', blog_subtitle:'Updates, Inzichten & Technische Diepgaande Analyses', cat_kernel:'KERNEL ONTWIKKELING', cat_hw:'HARDWARE', cat_os:'OS ONTWERP', cat_gui:'GUI ONTWIKKELING', cat_mem:'GEHEUGEN', cat_update:'PROJECT UPDATE', cat_start:'AAN DE SLAG', read_more:'LEES MEER →', p_ths_title:'Tech Haven Studios — Officiële Aankondiging & Community Samenwerking', p_ths_excerpt:'BOOT AI, BOOTOS, KOS, K-DOS en alle gerelateerde projecten vallen nu officieel onder Tech Haven Studios. Vandaag kondig ik ook een partnerschap aan met ridellazorxd en king_goobling.', p0_title:'BOOTOS Introduceren: Een Frisse Start met Multiboot2 en GRUB', p0_excerpt:'Na maanden KOS bouwen met een aangepaste bootloader begon ik een nieuw project met de Multiboot2 specificatie en GRUB.', p1_title:'SMP Ondersteuning Implementeren', p1_excerpt:'Een SMP-planner vanaf nul bouwen leerde me meer dan enig leerboek.', p2_title:'AHCI Stuurprogramma Ontwikkeling', p2_excerpt:'Een stuurprogramma schrijven voor SATA-controllers via AHCI was een van de meest lonende delen.', p3_title:'Een Shell Bouwen', p3_excerpt:'K-DOS heeft nu een functionerende commandoregelinterface.', p4_title:'Eerste Stappen in GUI Ontwikkeling', p4_excerpt:'De overgang naar een grafische desktop betekende framebuffer programmering leren.', p5_title:'Pagina-allocator Herontwerp', p5_excerpt:'Het buddy systeem verminderde fragmentatie met 80%.', p6_title:'BOOT AI Beta Lancering', p6_excerpt:'Vandaag markeert de eerste publieke beta release van KOS en K-DOS.', p7_title:'Waarom een OS Bouwen in 2025?', p7_excerpt:'Met volwassen besturingssystemen overal, waarom vanaf nul beginnen?' }
+};
+
+function tr() {
+  var l = localStorage.getItem('lang') || 'en';
+  document.querySelectorAll('[data-i18n]').forEach(function(e) {
+    var k = e.getAttribute('data-i18n');
+    if (T[l] && T[l][k]) e.textContent = T[l][k];
+  });
+}
+
+var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) || window.innerWidth <= 768;
+if (!isMobile) {
+  var cur = document.querySelector('.custom-cursor'), dot = document.querySelector('.custom-cursor-dot');
+  document.addEventListener('mousemove', function(e) { cur.style.left = e.clientX+'px'; cur.style.top = e.clientY+'px'; dot.style.left = e.clientX+'px'; dot.style.top = e.clientY+'px'; });
+}
+document.addEventListener('click', function(e) {
+  var r = document.createElement('div'); r.className = 'ripple';
+  r.style.left = e.clientX+'px'; r.style.top = e.clientY+'px'; r.style.width = '10px'; r.style.height = '10px';
+  document.body.appendChild(r); if (isMobile && navigator.vibrate) navigator.vibrate(10);
+  setTimeout(function() { r.remove(); }, 600);
+});
+
+var canvas = document.getElementById('particles-canvas'), ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+var particles = [];
+function Particle() { this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height; this.size = Math.random()*3+1; this.sx = (Math.random()-.5)*.5; this.sy = (Math.random()-.5)*.5; this.op = Math.random()*.5+.2; }
+Particle.prototype.update = function() { this.x+=this.sx; this.y+=this.sy; if(this.x>canvas.width)this.x=0; if(this.x<0)this.x=canvas.width; if(this.y>canvas.height)this.y=0; if(this.y<0)this.y=canvas.height; };
+Particle.prototype.draw = function() { ctx.fillStyle='rgba(0,242,255,'+this.op+')'; ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fill(); };
+for (var i=0; i < (isMobile?30:50); i++) particles.push(new Particle());
+function animP() { ctx.clearRect(0,0,canvas.width,canvas.height); particles.forEach(function(p){p.update();p.draw();}); requestAnimationFrame(animP); } animP();
+window.addEventListener('resize', function() { canvas.width=window.innerWidth; canvas.height=window.innerHeight; });
+
+var posts = document.querySelectorAll('.post');
+var obs = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e, i) { if (e.isIntersecting) setTimeout(function() { e.target.classList.add('visible'); }, i*80); });
+}, { threshold: .1 });
+posts.forEach(function(p) { obs.observe(p); });
+
+if (isMobile) {
+  var pStart=0, pCurr=0, ind=document.querySelector('.ptr-indicator');
+  document.addEventListener('touchstart', function(e) { pStart=e.touches[0].screenY; });
+  document.addEventListener('touchmove', function(e) { pCurr=e.touches[0].screenY; if(pCurr-pStart>0&&window.scrollY===0) ind.classList.add('show'); });
+  document.addEventListener('touchend', function() { if(pCurr-pStart>100&&window.scrollY===0) location.reload(); ind.classList.remove('show'); });
+}
+
+function initTheme() { var st=localStorage.getItem('theme'); if(st) document.documentElement.setAttribute('data-theme',st); else if(window.matchMedia&&window.matchMedia('(prefers-color-scheme:light)').matches) document.documentElement.setAttribute('data-theme','light'); else document.documentElement.setAttribute('data-theme','dark'); updateThemeIcon(); }
+function toggleTheme() { var ct=document.documentElement.getAttribute('data-theme')||'dark', nt=ct==='dark'?'light':'dark'; document.documentElement.setAttribute('data-theme',nt); localStorage.setItem('theme',nt); updateThemeIcon(); }
+function updateThemeIcon() { var t=document.documentElement.getAttribute('data-theme')||'dark', i=document.getElementById('themeIcon'); if(i) i.textContent=t==='dark'?'☀️':'🌙'; }
+function toggleMenu() { document.getElementById('menu').classList.toggle('active'); }
+
+document.addEventListener('DOMContentLoaded', function() {
+  initTheme(); tr();
+  var ls = document.getElementById('lang');
+  ls.value = localStorage.getItem('lang') || 'en';
+  ls.onchange = function() { localStorage.setItem('lang', ls.value); tr(); };
+});
 </script>
 </body>
 </html>

@@ -2,14 +2,92 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 <title>PRODUCTS // BOOT AI</title>
-<style>:root{--accent:#00f2ff;--glass:rgba(255,255,255,0.05);--border:rgba(0,242,255,0.2);--bg:#05070a;--text:#fff}[data-theme=light]{--accent:#0066cc;--glass:rgba(0,0,0,0.03);--border:rgba(0,102,204,0.2);--bg:#f5f5f7;--text:#1d1d1f}*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--bg);color:var(--text);font-family:Inter,-apple-system,sans-serif;overflow-x:hidden;cursor:none}@media(max-width:768px){body{cursor:default;padding-bottom:60px}}.custom-cursor{position:fixed;width:20px;height:20px;border:2px solid var(--accent);border-radius:50%;pointer-events:none;z-index:10000;display:none}@media(min-width:769px){.custom-cursor{display:block}}.custom-cursor-dot{position:fixed;width:6px;height:6px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:10001;box-shadow:0 0 10px var(--accent);display:none}@media(min-width:769px){.custom-cursor-dot{display:block}}.ripple{position:fixed;border-radius:50%;border:2px solid var(--accent);pointer-events:none;z-index:9999;animation:ripple-out .6s ease-out forwards}@keyframes ripple-out{from{transform:scale(0);opacity:1}to{transform:scale(20);opacity:0}}#particles-canvas,.bg-layer,.grid-overlay{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none}#particles-canvas{z-index:-1}.bg-layer{z-index:-2;background:radial-gradient(circle at 20% 20%,rgba(0,242,255,.05) 0,transparent 40%),radial-gradient(circle at 80% 80%,rgba(147,51,234,.05) 0,transparent 40%)}.grid-overlay{z-index:-2;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:40px 40px;opacity:.15}nav{display:flex;justify-content:space-between;align-items:center;padding:20px 5%;backdrop-filter:blur(20px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000;background:rgba(5,7,10,.8)}.logo{font-weight:900;color:var(--accent);letter-spacing:2px;text-decoration:none;font-size:1.2rem}.nav-controls{display:flex;gap:10px}.theme-toggle,.lang-toggle{background:0 0;border:1px solid var(--border);color:var(--text);padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;border-radius:4px;min-height:44px}.menu-btn{font-size:28px;cursor:pointer;color:var(--accent);background:0 0;border:none;min-width:44px;min-height:44px}.nav-links{position:fixed;top:0;right:-100%;width:100%;max-width:300px;height:100vh;background:rgba(10,15,20,.98);backdrop-filter:blur(30px);border-left:1px solid var(--border);padding:80px 40px 100px;transition:.4s;z-index:2000;overflow-y:auto}.nav-links.active{right:0}.nav-links a{display:flex;align-items:center;color:var(--text);text-decoration:none;font-size:1.1rem;margin-bottom:25px;font-weight:600;text-transform:uppercase;letter-spacing:2px;min-height:44px}.nav-links a:hover{color:var(--accent);padding-left:10px}.mobile-tab-bar{position:fixed;bottom:0;left:0;width:100%;background:rgba(10,15,20,.95);backdrop-filter:blur(20px);border-top:1px solid var(--border);display:none;z-index:1001;padding:8px 0}@media(max-width:768px){.mobile-tab-bar{display:flex;justify-content:space-around}}.tab-item{flex:1;display:flex;flex-direction:column;align-items:center;padding:8px;color:var(--text);text-decoration:none;opacity:.6;font-size:.7rem;text-transform:uppercase}.tab-item.active{opacity:1;color:var(--accent)}.tab-icon{font-size:1.4rem;margin-bottom:4px}.container{width:90%;max-width:1200px;margin:0 auto;padding:60px 0}@media(max-width:768px){.container{width:95%;padding:40px 0}}h1{margin-bottom:10px;font-size:clamp(2.5rem,8vw,3.5rem);font-weight:900;letter-spacing:2px;text-transform:uppercase}.subtitle{opacity:.4;margin-bottom:50px;letter-spacing:4px;font-size:.8rem;text-transform:uppercase}.product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px}@media(max-width:768px){.product-grid{grid-template-columns:1fr}}.card{position:relative;background:var(--glass);border:1px solid var(--border);backdrop-filter:blur(20px);padding:40px;border-radius:8px;transition:all .4s;opacity:0;transform:translateY(50px);display:flex;flex-direction:column;justify-content:space-between}@media(max-width:768px){.card{padding:25px}}.card.visible{opacity:1;transform:translateY(0)}.card:hover{transform:translateY(-10px);border-color:var(--accent);box-shadow:0 20px 60px rgba(0,242,255,.3)}.card h3{font-size:1.5rem;letter-spacing:2px;margin-bottom:12px;color:var(--accent);text-transform:uppercase}.badge{display:inline-block;padding:4px 12px;font-size:.7rem;font-weight:900;letter-spacing:1px;border-radius:3px;margin-bottom:12px}.badge-beta{background:rgba(255,170,0,.2);color:#fa0;border:1px solid #fa0}.badge-alpha{background:rgba(147,51,234,.2);color:#9333ea;border:1px solid #9333ea}.badge-new{background:rgba(0,255,100,.2);color:#0f6;border:1px solid #0f6}.badge-soon{background:rgba(100,100,100,.2);color:#888;border:1px solid #888}.card p{opacity:.6;font-size:.9rem;line-height:1.6;margin-bottom:20px}.btn-group{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}.btn{flex:1;text-align:center;padding:13px;font-size:11px;font-weight:900;text-decoration:none;letter-spacing:1.5px;border-radius:4px;transition:.3s;text-transform:uppercase;min-height:44px;display:flex;align-items:center;justify-content:center}.btn-stable{background:var(--accent);color:#000;border:1px solid var(--accent)}.btn-stable:hover{background:#fff;box-shadow:0 0 20px var(--accent)}.btn-beta{border:1px solid rgba(255,170,0,.4);color:#fa0}.btn-beta:hover{background:rgba(255,170,0,.1)}.btn-soon{border:1px solid #444;color:#666;cursor:not-allowed}.info-btn{background:rgba(0,242,255,.1);border:1px solid var(--accent);color:var(--accent);padding:10px 20px;font-size:.8rem;cursor:pointer;margin-top:15px;border-radius:4px;width:100%;min-height:44px;font-weight:700;letter-spacing:1px;text-transform:uppercase}.info-btn:hover{background:rgba(0,242,255,.2)}.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.9);z-index:10000;justify-content:center;align-items:center;padding:20px}.modal.show{display:flex}.modal-content{background:var(--bg);border:2px solid var(--accent);border-radius:8px;max-width:800px;max-height:90vh;overflow-y:auto;padding:40px;position:relative}@media(max-width:768px){.modal-content{padding:20px;max-width:95%}}.close-modal{position:absolute;top:20px;right:20px;font-size:2rem;color:var(--accent);cursor:pointer;background:0 0;border:none}.modal-content h2{color:var(--accent);margin-bottom:20px}.modal-content h3{margin-top:25px;margin-bottom:12px}.modal-content p,.modal-content ul{line-height:1.8;opacity:.8}.modal-content ul{margin-left:20px}.section-label{font-size:.75rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;opacity:.4;margin:60px 0 25px}</style>
+<style>
+:root{--accent:#00f2ff;--glass:rgba(255,255,255,0.05);--border:rgba(0,242,255,0.2);--bg:#05070a;--text:#fff}
+[data-theme=light]{--accent:#0066cc;--glass:rgba(0,0,0,0.03);--border:rgba(0,102,204,0.2);--bg:#f5f5f7;--text:#1d1d1f}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Inter,-apple-system,sans-serif;overflow-x:hidden;cursor:none}
+@media(max-width:768px){body{cursor:default;padding-bottom:60px}}
+.custom-cursor{position:fixed;width:20px;height:20px;border:2px solid var(--accent);border-radius:50%;pointer-events:none;z-index:10000;display:none}
+@media(min-width:769px){.custom-cursor{display:block}}
+.custom-cursor-dot{position:fixed;width:6px;height:6px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:10001;box-shadow:0 0 10px var(--accent);display:none}
+@media(min-width:769px){.custom-cursor-dot{display:block}}
+.ripple{position:fixed;border-radius:50%;border:2px solid var(--accent);pointer-events:none;z-index:9999;animation:ripple-out .6s ease-out forwards}
+@keyframes ripple-out{from{transform:scale(0);opacity:1}to{transform:scale(20);opacity:0}}
+#particles-canvas,.bg-layer,.grid-overlay{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none}
+#particles-canvas{z-index:-1}
+.bg-layer{z-index:-2;background:radial-gradient(circle at 20% 20%,rgba(0,242,255,.05) 0,transparent 40%),radial-gradient(circle at 80% 80%,rgba(147,51,234,.05) 0,transparent 40%)}
+.grid-overlay{z-index:-2;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:40px 40px;opacity:.15}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 5%;backdrop-filter:blur(20px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:1000;background:rgba(5,7,10,.8)}
+.logo{font-weight:900;color:var(--accent);letter-spacing:2px;text-decoration:none;font-size:1.2rem}
+.nav-controls{display:flex;gap:10px}
+.theme-toggle,.lang-toggle{background:0 0;border:1px solid var(--border);color:var(--text);padding:8px 12px;cursor:pointer;font-size:12px;font-weight:600;border-radius:4px;min-height:44px}
+.menu-btn{font-size:28px;cursor:pointer;color:var(--accent);background:0 0;border:none;min-width:44px;min-height:44px}
+.nav-links{position:fixed;top:0;right:-100%;width:100%;max-width:300px;height:100vh;background:rgba(10,15,20,.98);backdrop-filter:blur(30px);border-left:1px solid var(--border);padding:80px 40px 100px;transition:.4s;z-index:2000;overflow-y:auto}
+.nav-links.active{right:0}
+.nav-links a{display:flex;align-items:center;color:var(--text);text-decoration:none;font-size:1.1rem;margin-bottom:25px;font-weight:600;text-transform:uppercase;letter-spacing:2px;min-height:44px}
+.nav-links a:hover{color:var(--accent);padding-left:10px}
+.mobile-tab-bar{position:fixed;bottom:0;left:0;width:100%;background:rgba(10,15,20,.95);backdrop-filter:blur(20px);border-top:1px solid var(--border);display:none;z-index:1001;padding:8px 0}
+@media(max-width:768px){.mobile-tab-bar{display:flex;justify-content:space-around}}
+.tab-item{flex:1;display:flex;flex-direction:column;align-items:center;padding:8px;color:var(--text);text-decoration:none;opacity:.6;font-size:.7rem;text-transform:uppercase}
+.tab-item.active{opacity:1;color:var(--accent)}
+.tab-icon{font-size:1.4rem;margin-bottom:4px}
+.container{width:90%;max-width:1200px;margin:0 auto;padding:60px 0}
+@media(max-width:768px){.container{width:95%;padding:40px 0}}
+h1{margin-bottom:10px;font-size:clamp(2.5rem,8vw,3.5rem);font-weight:900;letter-spacing:2px;text-transform:uppercase}
+.subtitle{opacity:.4;margin-bottom:20px;letter-spacing:4px;font-size:.8rem;text-transform:uppercase}
+.section-label{font-size:.75rem;font-weight:900;letter-spacing:3px;text-transform:uppercase;opacity:.4;margin:50px 0 25px}
+.product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:22px}
+@media(max-width:768px){.product-grid{grid-template-columns:1fr}}
+.card{position:relative;background:var(--glass);border:1px solid var(--border);backdrop-filter:blur(20px);padding:35px 30px;border-radius:8px;transition:all .4s;opacity:0;transform:translateY(50px);display:flex;flex-direction:column;gap:20px}
+@media(max-width:768px){.card{padding:25px}}
+.card.visible{opacity:1;transform:translateY(0)}
+.card:hover{transform:translateY(-8px);border-color:var(--accent);box-shadow:0 20px 60px rgba(0,242,255,.3)}
+.card h3{font-size:1.4rem;letter-spacing:2px;color:var(--accent);text-transform:uppercase}
+.badge{display:inline-block;padding:4px 12px;font-size:.7rem;font-weight:900;letter-spacing:1px;border-radius:3px}
+.badge-beta{background:rgba(255,170,0,.2);color:#fa0;border:1px solid #fa0}
+.badge-alpha{background:rgba(147,51,234,.2);color:#9333ea;border:1px solid #9333ea}
+.badge-new{background:rgba(0,255,100,.2);color:#0f6;border:1px solid #0f6}
+.badge-soon{background:rgba(100,100,100,.2);color:#888;border:1px solid #444}
+.badge-discord{background:rgba(88,101,242,.2);color:#5865f2;border:1px solid #5865f2}
+.card p{opacity:.6;font-size:.9rem;line-height:1.6;flex:1}
+.btn-group{display:flex;gap:10px;flex-wrap:wrap}
+.btn{flex:1;text-align:center;padding:13px;font-size:11px;font-weight:900;text-decoration:none;letter-spacing:1.5px;border-radius:4px;transition:.3s;text-transform:uppercase;min-height:44px;display:flex;align-items:center;justify-content:center}
+.btn-stable{background:var(--accent);color:#000;border:1px solid var(--accent)}
+.btn-stable:hover{background:#fff;box-shadow:0 0 20px var(--accent)}
+.btn-beta{border:1px solid rgba(255,170,0,.4);color:#fa0}
+.btn-beta:hover{background:rgba(255,170,0,.1)}
+.btn-soon{border:1px solid #333;color:#555;cursor:not-allowed}
+.btn-discord{border:1px solid #5865f2;color:#5865f2}
+.btn-discord:hover{background:rgba(88,101,242,.15)}
+.info-btn{background:rgba(0,242,255,.08);border:1px solid rgba(0,242,255,.4);color:var(--accent);padding:10px;font-size:.8rem;cursor:pointer;border-radius:4px;width:100%;min-height:44px;font-weight:700;letter-spacing:1px;text-transform:uppercase;transition:.3s}
+.info-btn:hover{background:rgba(0,242,255,.18)}
+/* MODAL with FIXED close button always visible */
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.92);z-index:10000;justify-content:center;align-items:flex-start;padding:20px;backdrop-filter:blur(10px);overflow-y:auto}
+.modal.show{display:flex}
+.modal-close-fixed{position:fixed;top:16px;right:16px;width:46px;height:46px;background:rgba(5,7,10,.95);border:2px solid var(--accent);color:var(--accent);font-size:1.4rem;cursor:pointer;border-radius:50%;z-index:10002;display:none;align-items:center;justify-content:center;transition:.3s;box-shadow:0 0 20px rgba(0,242,255,.3)}
+.modal-close-fixed:hover{background:var(--accent);color:#000}
+.modal.show ~ .modal-close-fixed{display:flex}
+.modal-wrapper{max-width:780px;width:100%;margin:60px auto 20px}
+.modal-content{background:var(--bg);border:1px solid var(--accent);border-radius:12px;padding:45px;box-shadow:0 0 60px rgba(0,242,255,.15)}
+@media(max-width:768px){.modal-content{padding:20px}}
+.modal-content h2{color:var(--accent);font-size:1.7rem;margin-bottom:6px}
+.modal-meta{opacity:.5;font-size:.8rem;margin-bottom:25px;letter-spacing:1px}
+.modal-content h3{font-size:1.05rem;margin:25px 0 10px;font-weight:700;border-left:3px solid var(--accent);padding-left:10px}
+.modal-content p{opacity:.75;line-height:1.9;margin-bottom:12px;font-size:.95rem}
+.modal-content ul{margin-left:22px;opacity:.75;line-height:1.9;margin-bottom:12px;font-size:.95rem}
+.modal-content li{margin-bottom:5px}
+.modal-trademark{margin-top:25px;padding:14px;border:1px solid rgba(147,51,234,.3);border-radius:6px;background:rgba(147,51,234,.05);opacity:.6;font-size:.8rem;line-height:1.6}
+.discord-only{display:flex;align-items:center;gap:10px;padding:14px 18px;background:rgba(88,101,242,.12);border:1px solid rgba(88,101,242,.4);border-radius:6px;margin-top:10px;font-size:.85rem;color:#8891f7}
+</style>
 </head>
 <body>
 <div class="custom-cursor"></div><div class="custom-cursor-dot"></div>
 <canvas id="particles-canvas"></canvas>
 <div class="bg-layer"></div><div class="grid-overlay"></div>
+
 <nav>
 <div><a href="index.html" class="logo">BOOT AI</a></div>
 <div class="nav-controls">
@@ -19,138 +97,217 @@
 </div>
 <div class="nav-links" id="menu">
 <a href="#" onclick="toggleMenu()" style="font-size:35px;color:var(--accent);margin-bottom:50px">×</a>
-<a href="index.html" data-i18n="nav_home">Home</a>
-<a href="products.html" data-i18n="nav_products">Products</a>
-<a href="manifest.html" data-i18n="nav_manifest">Manifest</a>
-<a href="gallery.html" data-i18n="nav_gallery">Gallery</a>
-<a href="beta.html" data-i18n="nav_beta">Beta Hub</a>
-<a href="blog.html" data-i18n="nav_blog">Blog</a>
-<a href="docs.html" data-i18n="nav_docs">Docs</a>
-<a href="ai.html" data-i18n="nav_ai">AI Lab</a>
+<a href="index.html" data-i18n="nav_home">Home</a><a href="products.html" data-i18n="nav_products">Products</a>
+<a href="manifest.html" data-i18n="nav_manifest">Manifest</a><a href="gallery.html" data-i18n="nav_gallery">Gallery</a>
+<a href="beta.html" data-i18n="nav_beta">Beta Hub</a><a href="blog.html" data-i18n="nav_blog">Blog</a>
+<a href="docs.html" data-i18n="nav_docs">Docs</a><a href="ai.html" data-i18n="nav_ai">AI Lab</a>
 <a href="socials.html" data-i18n="nav_socials">Socials</a>
 </div>
 </nav>
+
 <div class="mobile-tab-bar">
 <a href="index.html" class="tab-item"><div class="tab-icon">🏠</div><div data-i18n="nav_home">Home</div></a>
 <a href="products.html" class="tab-item active"><div class="tab-icon">📦</div><div data-i18n="nav_products">Products</div></a>
 <a href="docs.html" class="tab-item"><div class="tab-icon">📚</div><div data-i18n="nav_docs">Docs</div></a>
 <a href="beta.html" class="tab-item"><div class="tab-icon">🚀</div><div>Beta</div></a>
 </div>
+
 <div class="container">
 <h1 data-i18n="prod_title">STABLE SYSTEMS</h1>
-<p class="subtitle" data-i18n="prod_subtitle">Official Build Deployment Center</p>
+<p class="subtitle" data-i18n="prod_subtitle">Official Build Deployment Center — Tech Haven Studios</p>
 
-<p class="section-label" data-i18n="prod_label_os">OPERATING SYSTEMS</p>
+<p class="section-label">OPERATING SYSTEMS — TECH HAVEN STUDIOS</p>
 <div class="product-grid">
 
-<!-- KOS -->
 <div class="card">
-<div>
-<h3>KOS</h3>
-<span class="badge badge-beta">BETA 25-50%</span>
-<p data-i18n="prod_kos_desc">The primary kernel engine built in x86_64 Assembly and C. Handles boot sequence, memory management, hardware detection and core system resources.</p>
-<button class="info-btn" onclick="showInfo('kos')" data-i18n="prod_info">ℹ️ More Info</button>
-</div>
+<div><h3>KOS™</h3><span class="badge badge-beta">BETA 25-50%</span></div>
+<p data-i18n="prod_kos_desc">The primary kernel engine built in x86_64 Assembly and C. Handles boot sequence, memory management, hardware detection and core system resources. The foundation of the entire Tech Haven Studios OS ecosystem.</p>
+<button class="info-btn" onclick="showModal('kos')">ℹ️ More Info</button>
 <div class="btn-group">
-<a href="https://github.com/MGKFN/BOOTAI/releases/download/OSSTABLE/kdos.iso" class="btn btn-stable" data-i18n="prod_stable">STABLE BUILD</a>
-<a href="beta.html#kos-beta" class="btn btn-beta" data-i18n="prod_beta">BETA HUB</a>
+<a href="https://github.com/MGKFN/BOOTAI/releases/download/OSSTABLE/kdos.iso" class="btn btn-stable" data-i18n="btn_stable">STABLE BUILD</a>
+<a href="beta.html#kos-beta" class="btn btn-beta" data-i18n="btn_beta">BETA HUB</a>
 </div>
 </div>
 
-<!-- K-DOS -->
 <div class="card">
-<div>
-<h3>K-DOS</h3>
-<span class="badge badge-beta">BETA</span>
-<p data-i18n="prod_kdos_desc">Core command-line operating system. Reliable terminal environment with essential shell commands, RAM-based filesystem and process management.</p>
-<button class="info-btn" onclick="showInfo('kdos')" data-i18n="prod_info">ℹ️ More Info</button>
-</div>
+<div><h3>K-DOS™</h3><span class="badge badge-beta">BETA</span></div>
+<p data-i18n="prod_kdos_desc">Core command-line operating system built on KOS. Reliable terminal environment with essential shell commands, RAM-based filesystem and process management. Designed for speed and minimal overhead.</p>
+<button class="info-btn" onclick="showModal('kdos')">ℹ️ More Info</button>
 <div class="btn-group">
-<a href="https://github.com/MGKFN/BOOTAI/releases/download/OSSTABLE/K-DOS.img" class="btn btn-stable" data-i18n="prod_stable">STABLE BUILD</a>
-<a href="beta.html#kdos-beta" class="btn btn-beta" data-i18n="prod_beta">BETA HUB</a>
+<a href="https://github.com/MGKFN/BOOTAI/releases/download/OSSTABLE/K-DOS.img" class="btn btn-stable" data-i18n="btn_stable">STABLE BUILD</a>
+<a href="beta.html#kdos-beta" class="btn btn-beta" data-i18n="btn_beta">BETA HUB</a>
 </div>
 </div>
 
-<!-- K-DOS Desktop -->
 <div class="card">
-<div>
-<h3>K-DOS DESKTOP</h3>
-<span class="badge badge-alpha">ALPHA 10-25%</span>
-<p data-i18n="prod_desktop_desc">Experimental graphical user interface layer built on K-DOS. Early-stage window manager with framebuffer rendering and basic mouse support.</p>
-<button class="info-btn" onclick="showInfo('kdos-desktop')" data-i18n="prod_info">ℹ️ More Info</button>
-</div>
+<div><h3>K-DOS DESKTOP™</h3><span class="badge badge-alpha">ALPHA 10-25%</span></div>
+<p data-i18n="prod_desktop_desc">Experimental graphical user interface layer built on K-DOS. Early-stage window manager using direct framebuffer rendering for maximum performance. Basic mouse support and window creation are functional.</p>
+<button class="info-btn" onclick="showModal('kdos-desktop')">ℹ️ More Info</button>
 <div class="btn-group">
-<a href="beta.html#kdos-desktop-beta" class="btn btn-beta" style="flex:1" data-i18n="prod_beta_access">ACCESS BETA</a>
+<a href="beta.html#kdos-desktop-beta" class="btn btn-beta" style="flex:1" data-i18n="btn_access_beta">ACCESS BETA</a>
 </div>
 </div>
 
-<!-- BOOTOS -->
 <div class="card" style="border-color:rgba(0,255,100,.3)">
-<div>
-<h3>BOOTOS</h3>
-<span class="badge badge-new">NEW 0-10%</span>
-<p data-i18n="prod_bootos_desc">A new multiboot-compatible operating system based on the Multiboot2 specification and GRUB bootloader. Designed for flexibility, broad hardware compatibility and modern boot standards.</p>
-<button class="info-btn" onclick="showInfo('bootos')" style="border-color:#0f6;color:#0f6" data-i18n="prod_info">ℹ️ More Info</button>
-</div>
+<div><h3 style="color:#0f6">BOOTOS™</h3><span class="badge badge-new">NEW 0-10%</span></div>
+<p data-i18n="prod_bootos_desc">A new multiboot-compatible OS based on the Multiboot2 specification and GRUB bootloader. Designed for broad hardware compatibility and modern boot standards. Built to eventually support multi-OS boot menus.</p>
+<button class="info-btn" onclick="showModal('bootos')" style="border-color:rgba(0,255,100,.5);color:#0f6">ℹ️ More Info</button>
 <div class="btn-group">
-<span class="btn btn-soon" data-i18n="prod_coming">COMING SOON</span>
+<span class="btn btn-soon" data-i18n="btn_coming">COMING SOON</span>
+</div>
+</div>
+
+<div class="card" style="border-color:rgba(88,101,242,.4)">
+<div><h3 style="color:#5865f2">BOOT-DOS™</h3><span class="badge badge-discord">DISCORD ONLY</span></div>
+<p data-i18n="prod_bootdos_desc">An exclusive new DOS-style operating system available only to members of the official BOOT AI Discord server. A spiritual successor to K-DOS with expanded commands, enhanced filesystem support and new features. Join Discord to get access when it releases.</p>
+<button class="info-btn" onclick="showModal('boot-dos')" style="border-color:rgba(88,101,242,.5);color:#5865f2">ℹ️ More Info</button>
+<div class="btn-group">
+<a href="https://discord.gg/t4sgzP8nQ" target="_blank" class="btn btn-discord" data-i18n="btn_join_discord">JOIN DISCORD</a>
+<span class="btn btn-soon" data-i18n="btn_coming">COMING SOON</span>
+</div>
+</div>
+
+</div>
+
+<p class="section-label">COMMUNITY PARTNERS</p>
+<div class="product-grid">
+
+<div class="card" style="border-color:rgba(255,255,255,.1)">
+<div><h3 style="color:#ccc">BOLEBROWSE</h3><span class="badge" style="background:rgba(255,255,255,.1);color:#aaa;border:1px solid #444">PARTNER PROJECT</span></div>
+<p data-i18n="prod_bole_desc">A fully custom web browser built from scratch by ridellazorxd — a contracted promotional partner of Tech Haven Studios. Bolebrowse is an independent project developing its own rendering engine, networking stack and UI. Follow on Discord for updates.</p>
+<div class="btn-group">
+<a href="https://discord.gg/XbWJ33qYX" target="_blank" class="btn btn-discord">💬 DISCORD</a>
+</div>
+</div>
+
+<div class="card" style="border-color:rgba(255,255,255,.1)">
+<div><h3 style="color:#ccc">RANITEOS</h3><span class="badge" style="background:rgba(255,255,255,.1);color:#aaa;border:1px solid #444">PARTNER PROJECT</span></div>
+<p data-i18n="prod_ranite_desc">A custom operating system built in x86_64 Assembly and C by king_goobling — a contracted promotional partner of Tech Haven Studios. RANITEOS is a fellow low-level OS project exploring bare-metal development. Links and downloads coming soon.</p>
+<div class="btn-group">
+<span class="btn btn-soon">LINKS COMING SOON</span>
 </div>
 </div>
 
 </div>
 </div>
 
-<!-- Modals -->
-<div class="modal" id="modal-kos"><div class="modal-content">
-<button class="close-modal" onclick="closeModal('kos')">×</button>
-<h2>KOS Kernel Engine</h2>
+<!-- FIXED CLOSE BUTTON - always visible when any modal is open -->
+<button class="modal-close-fixed" id="globalCloseBtn" onclick="closeAllModals()">×</button>
+
+<!-- MODALS -->
+<div class="modal" id="modal-kos">
+<div class="modal-wrapper"><div class="modal-content">
+<p class="modal-meta">Tech Haven Studios — KOS™</p>
+<h2>KOS™ Kernel Engine</h2>
 <h3>Technical Architecture</h3>
-<p>KOS is a bare-metal kernel written in x86_64 Assembly and C following a microkernel design philosophy. The boot sequence initializes hardware in under 3 seconds on modern systems using UEFI or legacy BIOS.</p>
+<p>KOS is a bare-metal kernel written in x86_64 Assembly and C, following a microkernel-inspired design. The bootloader initializes hardware in under 3 seconds on modern systems using either UEFI or legacy BIOS. The kernel manages memory through a custom buddy-system page allocator, handles interrupts via the APIC, and abstracts hardware through a modular driver interface.</p>
 <h3>Current Features</h3>
-<ul><li>16/32/64-bit x86 support with UEFI and BIOS boot</li><li>4KB/2MB/1GB page size support with buddy allocator</li><li>AHCI/NVMe storage drivers with DMA</li><li>PS/2 and USB keyboard/mouse input</li><li>Experimental SMP multi-core scheduler</li></ul>
+<ul><li>16/32/64-bit x86 support with UEFI and BIOS boot</li><li>4KB/2MB/1GB page sizes with buddy allocator</li><li>AHCI/SATA storage drivers with DMA</li><li>PS/2 and USB keyboard and mouse input</li><li>VGA/VESA framebuffer graphics modes</li><li>Serial port debugging interface</li><li>PCI device enumeration</li><li>Experimental SMP multi-core scheduler</li></ul>
 <h3>Roadmap</h3>
-<p>Q2 2026: Complete multi-core scheduling | Q3 2026: TCP/IP network stack | Q4 2026: User-mode transition and ELF loader</p>
+<p><strong>Q2 2026:</strong> Complete multi-core scheduling and SMP stability<br><strong>Q3 2026:</strong> TCP/IP network stack implementation<br><strong>Q4 2026:</strong> User-mode transition, system call interface, ELF loader</p>
+<div class="modal-trademark">KOS™ is a trademark of Tech Haven Studios. © Tech Haven Studios.</div>
 </div></div>
+</div>
 
-<div class="modal" id="modal-kdos"><div class="modal-content">
-<button class="close-modal" onclick="closeModal('kdos')">×</button>
-<h2>K-DOS Operating System</h2>
+<div class="modal" id="modal-kdos">
+<div class="modal-wrapper"><div class="modal-content">
+<p class="modal-meta">Tech Haven Studios — K-DOS™</p>
+<h2>K-DOS™ Operating System</h2>
 <h3>Technical Architecture</h3>
-<p>K-DOS is a UNIX-like command-line OS built on KOS. It runs entirely from RAM with an 8MB footprint, making it ideal for embedded systems and testing. All core commands are built-in to avoid filesystem dependencies during early boot.</p>
+<p>K-DOS is a UNIX-like command-line OS built on top of the KOS kernel. It runs entirely from RAM with a footprint of approximately 8MB, making it ideal for embedded systems and testing environments. All core commands are built into the shell binary, avoiding filesystem dependencies during early boot. The shell implements a custom tokenizer, basic process scheduling, and a virtual filesystem layer.</p>
 <h3>Available Commands</h3>
-<ul><li>ls, cd, mkdir, rmdir — filesystem navigation</li><li>cat, cp, mv — file operations</li><li>ps, kill — process management</li><li>help, clear, reboot, shutdown — system commands</li></ul>
+<ul><li><strong>ls, cd, mkdir, rmdir</strong> — filesystem navigation</li><li><strong>cat, cp, mv</strong> — file read, copy and move</li><li><strong>ps, kill</strong> — process listing and termination</li><li><strong>help, clear, reboot, shutdown</strong> — system commands</li></ul>
 <h3>Roadmap</h3>
-<p>Q2 2026: Shell scripting and pipes | Q3 2026: Package manager | Q4 2026: Network commands and persistent storage</p>
+<p><strong>Q2 2026:</strong> Shell scripting, pipes and I/O redirection<br><strong>Q3 2026:</strong> Package manager for third-party utilities<br><strong>Q4 2026:</strong> Network commands (ping, wget), persistent storage</p>
+<div class="modal-trademark">K-DOS™ is a trademark of Tech Haven Studios. © Tech Haven Studios.</div>
 </div></div>
+</div>
 
-<div class="modal" id="modal-kdos-desktop"><div class="modal-content">
-<button class="close-modal" onclick="closeModal('kdos-desktop')">×</button>
-<h2>K-DOS Desktop Environment</h2>
+<div class="modal" id="modal-kdos-desktop">
+<div class="modal-wrapper"><div class="modal-content">
+<p class="modal-meta">Tech Haven Studios — K-DOS Desktop™</p>
+<h2>K-DOS Desktop™</h2>
 <h3>Technical Architecture</h3>
-<p>K-DOS Desktop is a custom GUI layer using direct framebuffer rendering for maximum performance. The stacking window manager handles input through a kernel-level event system translated into GUI interactions.</p>
+<p>K-DOS Desktop is an experimental GUI layer built on K-DOS using direct framebuffer rendering for maximum performance — no X11, no Wayland, just raw pixel writes. The stacking window manager handles input through a kernel-level event system that translates keyboard and mouse interrupts into GUI interactions. Double buffering prevents screen tearing during window redraws.</p>
 <h3>Current Progress</h3>
-<ul><li>Basic window rendering with title bars (✓ Complete)</li><li>Mouse cursor with custom themes (✓ Complete)</li><li>Window dragging and resizing (⚠ In Progress)</li><li>Context menus and taskbar (⏳ Planned)</li></ul>
+<ul><li>Basic window rendering with title bars ✓</li><li>Mouse cursor with custom themes ✓</li><li>Keyboard input in GUI mode ✓</li><li>Window dragging and resizing ⚠ In Progress</li><li>Right-click context menus ⏳ Planned</li><li>Panel and taskbar ⏳ Planned</li><li>File manager application ⏳ Planned</li></ul>
 <h3>Roadmap</h3>
-<p>Q3 2026: Complete window manager | Q4 2026: File manager, terminal, text editor | Q1 2027: Theme system and widget toolkit</p>
+<p><strong>Q3 2026:</strong> Complete window manager, workspace switching<br><strong>Q4 2026:</strong> Terminal, file manager, text editor apps<br><strong>Q1 2027:</strong> Theme system and third-party widget toolkit</p>
+<div class="modal-trademark">K-DOS Desktop™ is a trademark of Tech Haven Studios. © Tech Haven Studios.</div>
 </div></div>
+</div>
 
-<div class="modal" id="modal-bootos"><div class="modal-content">
-<button class="close-modal" onclick="closeModal('bootos')">×</button>
-<h2 style="color:#0f6">BOOTOS — New Project</h2>
+<div class="modal" id="modal-bootos">
+<div class="modal-wrapper"><div class="modal-content">
+<p class="modal-meta">Tech Haven Studios — BOOTOS™</p>
+<h2 style="color:#0f6">BOOTOS™</h2>
 <h3>What is BOOTOS?</h3>
-<p>BOOTOS is a brand new operating system project built from the ground up using the Multiboot2 specification and the GRUB bootloader. Unlike KOS which uses a custom bootloader, BOOTOS leverages GRUB's mature, widely-supported boot infrastructure for broader hardware compatibility right from the start.</p>
-<h3>Why Multiboot2 & GRUB?</h3>
-<ul><li>Industry-standard boot protocol supported by virtually all x86 hardware</li><li>GRUB handles complex boot environments so the kernel can focus on OS functionality</li><li>Multiboot2 provides a standardized interface between bootloader and kernel</li><li>Easier to test on real hardware without custom bootloader setup</li><li>Built-in support for modules, memory maps, and framebuffer info</li></ul>
+<p>BOOTOS is a brand new operating system built using the Multiboot2 specification and the GRUB bootloader. Unlike KOS which uses a custom bootloader written entirely in Assembly, BOOTOS leverages GRUB's mature, battle-tested boot infrastructure for maximum hardware compatibility from day one.</p>
+<h3>Why Multiboot2 and GRUB?</h3>
+<ul><li>GRUB supports virtually all x86 hardware ever made</li><li>Multiboot2 gives the kernel a standardized interface for receiving memory maps, framebuffer info and hardware data</li><li>No need to maintain a custom bootloader — focus goes directly into the OS</li><li>Easier to test on real physical hardware from the start</li><li>Built-in support for GRUB multi-OS boot menus</li></ul>
 <h3>Technical Architecture</h3>
-<p>BOOTOS will be written in C with x86_64 Assembly for low-level hardware interaction. The Multiboot2 header allows GRUB to load the kernel and pass essential system information including memory layout, available hardware, and display configuration directly to the kernel entry point.</p>
+<p>BOOTOS is written in C with x86_64 Assembly for low-level hardware interaction. The Multiboot2 header is embedded in the kernel binary. When GRUB loads BOOTOS, it passes a structured information table to the kernel entry point containing the full memory map, framebuffer configuration, boot modules, and command line arguments.</p>
 <h3>Current Status</h3>
-<p>Early development — 0-10% complete. Basic Multiboot2 kernel entry is the current focus. No download available yet. Follow the blog and Discord for updates.</p>
+<p>BOOTOS is 0-10% complete. The Multiboot2 kernel entry point and basic VGA text output are the current development focus. No downloadable build is available yet. Follow the Discord and blog for updates as development progresses.</p>
 <h3>Roadmap</h3>
-<p>Phase 1: Multiboot2 kernel entry + VGA text output<br>Phase 2: Memory management + interrupt handling<br>Phase 3: Basic shell and filesystem<br>Phase 4: GRUB menu integration for multi-OS boot</p>
+<ul><li>Phase 1: Multiboot2 entry + VGA text output</li><li>Phase 2: Memory management + interrupt handling</li><li>Phase 3: Basic shell and filesystem</li><li>Phase 4: GRUB menu for multi-OS boot</li></ul>
+<div class="modal-trademark">BOOTOS™ is a trademark of Tech Haven Studios. © Tech Haven Studios.</div>
 </div></div>
+</div>
+
+<div class="modal" id="modal-boot-dos">
+<div class="modal-wrapper"><div class="modal-content">
+<p class="modal-meta">Tech Haven Studios — BOOT-DOS™</p>
+<h2 style="color:#5865f2">BOOT-DOS™</h2>
+<h3>What is BOOT-DOS?</h3>
+<p>BOOT-DOS is an exclusive new DOS-style operating system developed by Tech Haven Studios. It is a spiritual successor to K-DOS, taking the familiar command-line interface further with expanded commands, enhanced filesystem support, improved process management and new features not found in K-DOS.</p>
+<p>BOOT-DOS is a <strong>Discord-exclusive release</strong> — it will only be available to members of the official BOOT AI Discord server. This is a way to reward the community who have been following and supporting development from the start.</p>
+<h3>Planned Features</h3>
+<ul><li>Expanded command set beyond K-DOS</li><li>Improved persistent filesystem support</li><li>Enhanced shell with scripting capabilities</li><li>Better hardware compatibility than K-DOS</li><li>Discord-member exclusive builds and early access</li><li>Community-driven feature requests via Discord</li></ul>
+<h3>How to Get Access</h3>
+<p>Join the official BOOT AI Discord server to become eligible for BOOT-DOS access when it releases. Members will be the first to receive download links, beta builds, and development updates.</p>
+<div class="discord-only">💬 Join: <strong>discord.gg/t4sgzP8nQ</strong> — BOOT-DOS is Discord members only</div>
+<h3>Current Status</h3>
+<p>BOOT-DOS is in the planning and early design phase. No build is available yet. Watch the Discord for announcements.</p>
+<div class="modal-trademark">BOOT-DOS™ is a trademark of Tech Haven Studios. © Tech Haven Studios.</div>
+</div></div>
+</div>
 
 <script>
-const T={en:{nav_home:"Home",nav_products:"Products",nav_manifest:"Manifest",nav_gallery:"Gallery",nav_beta:"Beta Hub",nav_blog:"Blog",nav_docs:"Docs",nav_ai:"AI Lab",nav_socials:"Socials",prod_title:"STABLE SYSTEMS",prod_subtitle:"Official Build Deployment Center",prod_label_os:"OPERATING SYSTEMS",prod_kos_desc:"The primary kernel engine built in x86_64 Assembly and C. Handles boot sequence, memory management, hardware detection and core system resources.",prod_kdos_desc:"Core command-line operating system. Reliable terminal environment with essential shell commands, RAM-based filesystem and process management.",prod_desktop_desc:"Experimental graphical user interface layer built on K-DOS. Early-stage window manager with framebuffer rendering and basic mouse support.",prod_bootos_desc:"A new multiboot-compatible operating system based on the Multiboot2 specification and GRUB bootloader. Designed for flexibility, broad hardware compatibility and modern boot standards.",prod_info:"ℹ️ More Info",prod_stable:"STABLE BUILD",prod_beta:"BETA HUB",prod_beta_access:"ACCESS BETA",prod_coming:"COMING SOON"},nl:{nav_home:"Home",nav_products:"Producten",nav_manifest:"Manifest",nav_gallery:"Galerij",nav_beta:"Beta Hub",nav_blog:"Blog",nav_docs:"Documentatie",nav_ai:"AI Lab",nav_socials:"Sociaal",prod_title:"STABIELE SYSTEMEN",prod_subtitle:"Officieel Build Implementatie Centrum",prod_label_os:"BESTURINGSSYSTEMEN",prod_kos_desc:"De primaire kernel engine gebouwd in x86_64 Assembly en C. Beheert opstartsequentie, geheugenbeheer, hardwaredetectie en kernsysteembronnen.",prod_kdos_desc:"Kern commandoregel besturingssysteem. Betrouwbare terminal omgeving met essentiële shell commando's, RAM-gebaseerd bestandssysteem en procesbeheer.",prod_desktop_desc:"Experimentele grafische gebruikersinterface laag gebouwd op K-DOS. Vroeg stadium vensterbeheer met framebuffer rendering en basis muisondersteuning.",prod_bootos_desc:"Een nieuw multiboot-compatibel besturingssysteem gebaseerd op de Multiboot2 specificatie en GRUB bootloader. Ontworpen voor flexibiliteit, brede hardwarecompatibiliteit en moderne opstartstandaarden.",prod_info:"ℹ️ Meer Info",prod_stable:"STABIELE BUILD",prod_beta:"BETA HUB",prod_beta_access:"TOEGANG BETA",prod_coming:"BINNENKORT"}};function tr(){const l=localStorage.getItem('lang')||'en';document.querySelectorAll('[data-i18n]').forEach(e=>{const k=e.getAttribute('data-i18n');if(T[l]&&T[l][k])e.textContent=T[l][k];});}function showInfo(p){document.getElementById('modal-'+p).classList.add('show');if(navigator.vibrate)navigator.vibrate(20);}function closeModal(p){document.getElementById('modal-'+p).classList.remove('show');}const isMobile=/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)||window.innerWidth<=768;if(!isMobile){const c=document.querySelector('.custom-cursor'),d=document.querySelector('.custom-cursor-dot');document.addEventListener('mousemove',e=>{c.style.left=e.clientX+'px';c.style.top=e.clientY+'px';d.style.left=e.clientX+'px';d.style.top=e.clientY+'px'});}document.addEventListener('click',e=>{const r=document.createElement('div');r.className='ripple';r.style.left=e.clientX+'px';r.style.top=e.clientY+'px';r.style.width='10px';r.style.height='10px';document.body.appendChild(r);if(isMobile&&navigator.vibrate)navigator.vibrate(10);setTimeout(()=>r.remove(),600);});const canvas=document.getElementById('particles-canvas'),ctx=canvas.getContext('2d');canvas.width=window.innerWidth;canvas.height=window.innerHeight;const particles=[],pCount=isMobile?30:50;class Particle{constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*3+1;this.speedX=(Math.random()-.5)*.5;this.speedY=(Math.random()-.5)*.5;this.opacity=Math.random()*.5+.2;}update(){this.x+=this.speedX;this.y+=this.speedY;if(this.x>canvas.width)this.x=0;if(this.x<0)this.x=canvas.width;if(this.y>canvas.height)this.y=0;if(this.y<0)this.y=canvas.height;}draw(){ctx.fillStyle=`rgba(0,242,255,${this.opacity})`;ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();}}for(let i=0;i<pCount;i++)particles.push(new Particle());function animate(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(p=>{p.update();p.draw();});requestAnimationFrame(animate);}animate();const cards=document.querySelectorAll('.card'),obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('visible'),i*100);});},{threshold:.1});cards.forEach(c=>obs.observe(c));function initTheme(){const st=localStorage.getItem('theme');if(st)document.documentElement.setAttribute('data-theme',st);else if(window.matchMedia&&window.matchMedia('(prefers-color-scheme:light)').matches)document.documentElement.setAttribute('data-theme','light');else document.documentElement.setAttribute('data-theme','dark');updateThemeIcon();}function toggleTheme(){const ct=document.documentElement.getAttribute('data-theme')||'dark',nt=ct==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',nt);localStorage.setItem('theme',nt);updateThemeIcon();}function updateThemeIcon(){const t=document.documentElement.getAttribute('data-theme')||'dark',i=document.getElementById('themeIcon');if(i)i.textContent=t==='dark'?'☀️':'🌙';}function toggleMenu(){document.getElementById('menu').classList.toggle('active');}document.addEventListener('DOMContentLoaded',()=>{initTheme();tr();const ls=document.getElementById('lang');ls.value=localStorage.getItem('lang')||'en';ls.onchange=()=>{localStorage.setItem('lang',ls.value);tr();};});
+var activeModal = null;
+function showModal(id) {
+  closeAllModals();
+  var m = document.getElementById('modal-' + id);
+  if (m) { m.classList.add('show'); activeModal = id; document.getElementById('globalCloseBtn').style.display = 'flex'; document.body.style.overflow = 'hidden'; if (navigator.vibrate) navigator.vibrate(20); }
+}
+function closeAllModals() {
+  document.querySelectorAll('.modal').forEach(function(m) { m.classList.remove('show'); });
+  document.getElementById('globalCloseBtn').style.display = 'none';
+  document.body.style.overflow = ''; activeModal = null;
+}
+document.querySelectorAll('.modal').forEach(function(m) { m.addEventListener('click', function(e) { if (e.target === m) closeAllModals(); }); });
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeAllModals(); });
+
+var T = {
+  en: { nav_home:'Home', nav_products:'Products', nav_manifest:'Manifest', nav_gallery:'Gallery', nav_beta:'Beta Hub', nav_blog:'Blog', nav_docs:'Docs', nav_ai:'AI Lab', nav_socials:'Socials', prod_title:'STABLE SYSTEMS', prod_subtitle:'Official Build Deployment Center — Tech Haven Studios', prod_kos_desc:'The primary kernel engine built in x86_64 Assembly and C. Handles boot sequence, memory management, hardware detection and core system resources. The foundation of the entire Tech Haven Studios OS ecosystem.', prod_kdos_desc:'Core command-line operating system built on KOS. Reliable terminal environment with essential shell commands, RAM-based filesystem and process management. Designed for speed and minimal overhead.', prod_desktop_desc:'Experimental graphical user interface layer built on K-DOS. Early-stage window manager using direct framebuffer rendering for maximum performance. Basic mouse support and window creation are functional.', prod_bootos_desc:'A new multiboot-compatible OS based on the Multiboot2 specification and GRUB bootloader. Designed for broad hardware compatibility and modern boot standards.', prod_bootdos_desc:'An exclusive new DOS-style OS available only to members of the official BOOT AI Discord server. Join Discord to get access when it releases.', prod_bole_desc:'A fully custom web browser built from scratch by ridellazorxd — a contracted promotional partner of Tech Haven Studios. Follow on Discord for updates.', prod_ranite_desc:'A custom OS built in x86_64 Assembly and C by king_goobling — a contracted promotional partner of Tech Haven Studios. Links coming soon.', btn_stable:'STABLE BUILD', btn_beta:'BETA HUB', btn_access_beta:'ACCESS BETA', btn_coming:'COMING SOON', btn_join_discord:'JOIN DISCORD' },
+  nl: { nav_home:'Home', nav_products:'Producten', nav_manifest:'Manifest', nav_gallery:'Galerij', nav_beta:'Beta Hub', nav_blog:'Blog', nav_docs:'Documentatie', nav_ai:'AI Lab', nav_socials:'Sociaal', prod_title:'STABIELE SYSTEMEN', prod_subtitle:'Officieel Build Implementatie Centrum — Tech Haven Studios', prod_kos_desc:'De primaire kernel engine gebouwd in x86_64 Assembly en C. Beheert opstartsequentie, geheugenbeheer en kernsysteembronnen. De basis van het gehele Tech Haven Studios OS ecosysteem.', prod_kdos_desc:'Kern commandoregel besturingssysteem gebouwd op KOS. Betrouwbare terminal omgeving met essentiële shell commando\'s, RAM-gebaseerd bestandssysteem en procesbeheer.', prod_desktop_desc:'Experimentele grafische gebruikersinterface laag gebouwd op K-DOS. Vroeg stadium vensterbeheer met directe framebuffer rendering voor maximale prestaties.', prod_bootos_desc:'Een nieuw multiboot-compatibel OS gebaseerd op de Multiboot2 specificatie en GRUB bootloader. Ontworpen voor brede hardwarecompatibiliteit.', prod_bootdos_desc:'Een exclusief nieuw DOS-stijl OS alleen beschikbaar voor leden van de officiële BOOT AI Discord server. Word lid van Discord voor toegang.', prod_bole_desc:'Een volledig aangepaste webbrowser gebouwd door ridellazorxd — een gecontracteerde promotionele partner van Tech Haven Studios.', prod_ranite_desc:'Een aangepast OS gebouwd door king_goobling — een gecontracteerde promotionele partner van Tech Haven Studios. Links binnenkort.', btn_stable:'STABIELE BUILD', btn_beta:'BETA HUB', btn_access_beta:'TOEGANG BETA', btn_coming:'BINNENKORT', btn_join_discord:'JOIN DISCORD' }
+};
+function tr() { var l=localStorage.getItem('lang')||'en'; document.querySelectorAll('[data-i18n]').forEach(function(e){var k=e.getAttribute('data-i18n');if(T[l]&&T[l][k])e.textContent=T[l][k];}); }
+var isMobile=/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)||window.innerWidth<=768;
+if(!isMobile){var cur=document.querySelector('.custom-cursor'),dot=document.querySelector('.custom-cursor-dot');document.addEventListener('mousemove',function(e){cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';dot.style.left=e.clientX+'px';dot.style.top=e.clientY+'px';});}
+document.addEventListener('click',function(e){var r=document.createElement('div');r.className='ripple';r.style.left=e.clientX+'px';r.style.top=e.clientY+'px';r.style.width='10px';r.style.height='10px';document.body.appendChild(r);if(isMobile&&navigator.vibrate)navigator.vibrate(10);setTimeout(function(){r.remove();},600);});
+var canvas=document.getElementById('particles-canvas'),ctx=canvas.getContext('2d');canvas.width=window.innerWidth;canvas.height=window.innerHeight;
+var particles=[];function Particle(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*3+1;this.sx=(Math.random()-.5)*.5;this.sy=(Math.random()-.5)*.5;this.op=Math.random()*.5+.2;}
+Particle.prototype.update=function(){this.x+=this.sx;this.y+=this.sy;if(this.x>canvas.width)this.x=0;if(this.x<0)this.x=canvas.width;if(this.y>canvas.height)this.y=0;if(this.y<0)this.y=canvas.height;};
+Particle.prototype.draw=function(){ctx.fillStyle='rgba(0,242,255,'+this.op+')';ctx.beginPath();ctx.arc(this.x,this.y,this.size,0,Math.PI*2);ctx.fill();};
+for(var i=0;i<(isMobile?30:50);i++)particles.push(new Particle());
+function animP(){ctx.clearRect(0,0,canvas.width,canvas.height);particles.forEach(function(p){p.update();p.draw();});requestAnimationFrame(animP);}animP();
+var cards=document.querySelectorAll('.card'),obs=new IntersectionObserver(function(entries){entries.forEach(function(e,i){if(e.isIntersecting)setTimeout(function(){e.target.classList.add('visible');},i*80);});},{threshold:.1});cards.forEach(function(c){obs.observe(c);});
+function initTheme(){var st=localStorage.getItem('theme');if(st)document.documentElement.setAttribute('data-theme',st);else if(window.matchMedia&&window.matchMedia('(prefers-color-scheme:light)').matches)document.documentElement.setAttribute('data-theme','light');else document.documentElement.setAttribute('data-theme','dark');updateThemeIcon();}
+function toggleTheme(){var ct=document.documentElement.getAttribute('data-theme')||'dark',nt=ct==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',nt);localStorage.setItem('theme',nt);updateThemeIcon();}
+function updateThemeIcon(){var t=document.documentElement.getAttribute('data-theme')||'dark',i=document.getElementById('themeIcon');if(i)i.textContent=t==='dark'?'☀️':'🌙';}
+function toggleMenu(){document.getElementById('menu').classList.toggle('active');}
+document.addEventListener('DOMContentLoaded',function(){initTheme();tr();var ls=document.getElementById('lang');ls.value=localStorage.getItem('lang')||'en';ls.onchange=function(){localStorage.setItem('lang',ls.value);tr();};});
 </script>
 </body>
 </html>
